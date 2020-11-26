@@ -26,5 +26,3 @@
 .\_build\pm_buffer.o: ..\..\..\..\..\..\..\components\softdevice\s140\headers\nrf_svc.h
 .\_build\pm_buffer.o: ..\..\..\..\..\..\..\components\libraries\util\sdk_macros.h
 .\_build\pm_buffer.o: ..\..\..\..\..\..\..\components\libraries\util\nrf_assert.h
-.\_build\pm_buffer.o: ..\..\..\..\..\..\..\components\ble\peer_manager\pm_buffer.h
-.\_build\pm_buffer.o: ..\..\..\..\..\..\..\components\libraries\atomic_flags\nrf_atflags.h
