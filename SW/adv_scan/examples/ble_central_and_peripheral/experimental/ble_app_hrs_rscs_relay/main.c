@@ -168,6 +168,9 @@ static void scan_init(void)
  */
 static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
+	_adv_two sta;
+	ADV_Two_Get(&sta);
+	
     switch (ble_adv_evt)
     {
         case BLE_ADV_EVT_FAST:
@@ -178,6 +181,8 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 
         case BLE_ADV_EVT_IDLE:
         {
+			adv_updata();
+			NRF_LOG_INFO("BLE_ADV_EVT_IDLE.");
             ret_code_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
             APP_ERROR_CHECK(err_code);
         } break;
@@ -429,28 +434,7 @@ void nus_data_handler(ble_nus_evt_t * p_evt)
  */
 static void services_init(void)
 {
-//    ret_code_t         err_code;
-//   
-//    nrf_ble_qwr_init_t qwr_init = {0};
-//  
-//	ble_nus_init_t     nus_init;
-//    // Initialize Queued Write module instances.
-//    qwr_init.error_handler = nrf_qwr_error_handler;
-
-//    for (uint32_t i = 0; i < NRF_SDH_BLE_TOTAL_LINK_COUNT; i++)
-//    {
-//        err_code = nrf_ble_qwr_init(&m_qwr[i], &qwr_init);
-//        APP_ERROR_CHECK(err_code);
-//    }
-
-//	 memset(&nus_init, 0, sizeof(nus_init));
-
-//    nus_init.data_handler = nus_data_handler;
-
-//    err_code = ble_nus_init(&m_nus, &nus_init);
-//    APP_ERROR_CHECK(err_code);
-	
- uint32_t           err_code;
+    uint32_t           err_code;
     ble_nus_init_t     nus_init;
     nrf_ble_qwr_init_t qwr_init = {0};
 
@@ -474,15 +458,15 @@ static void services_init(void)
  */
 void advertising_init(void)
 {
-	  uint32_t               err_code;
-	_adv_dat my_data;
-	ADV_Data_Get(&my_data, ADV_DATA1);
+	uint32_t               err_code;
+	U8 data[20];
+	ADV_Data_Get(data, ADV_DATA1);
 #if 1	
 	ble_advdata_manuf_data_t manuf_specific_data;
 
 	manuf_specific_data.company_identifier = APP_COMPANY_IDENTIFIER;//////
-	manuf_specific_data.data.p_data = my_data.data1;//my_adv_dat;///////
-    manuf_specific_data.data.size   = sizeof(my_data.data1);//sizeof(my_adv_dat);//////
+	manuf_specific_data.data.p_data = data;//my_adv_dat;///////
+    manuf_specific_data.data.size   = sizeof(data);//sizeof(my_adv_dat);//////
 #endif
 	ble_advertising_init_t init;
 	_adv_param adv_params;
@@ -599,18 +583,41 @@ void adv_updata(void)
 	ret_code_t err_code;
 	ble_advdata_t           adv_data; //广播数据
 	ble_advdata_t           sr_data;  //扫描响应数据
-	_adv_dat adv_dat;
-	ADV_Data_Get(&adv_dat, ADV_DATA1);
-	//定义个一个制造商自定义数据的结构体变量
+	U8 data[18];
+	memset(data,0, 18);
+	_adv_two sta;
+	
+	ADV_Two_Get(&sta);
+	if(sta.adv_two_status == true)
+	{
+		if(sta.who_block == false)
+		{
+			NRF_LOG_INFO("adv first message");
+			sta.who_block = true;
+			ADV_Two_Set(&sta);
+			ADV_Data_Get(data, ADV_DATA1);
+		}
+		else
+		{
+			NRF_LOG_INFO("adv second message");
+			sta.who_block = false;
+			ADV_Two_Set(&sta);
+			ADV_Data_Get(data, ADV_DATA2);
+		}
+	}
+	else
+	{
+		ADV_Data_Get(data, ADV_DATA1);
+	}
 	ble_advdata_manuf_data_t manuf_specific_data;
 	//  ble_advdata_service_data_t serve_data;
 
 	//制造商ID，0x0059是Nordic的厂商ID
 	manuf_specific_data.company_identifier = 0x13EF;
 	//指向制造商自定义的数据
-	manuf_specific_data.data.p_data = adv_dat.data1;
+	manuf_specific_data.data.p_data = data;
 	//制造商自定义的数据大小(字节数)
-	manuf_specific_data.data.size   = sizeof(adv_dat.data1);
+	manuf_specific_data.data.size   = sizeof(data);
 	//	serve_data.service_uuid = 0x1234;
 	//	serve_data.data.p_data=  my_adv_data;
 	//	serve_data.data.size = sizeof(my_adv_data);

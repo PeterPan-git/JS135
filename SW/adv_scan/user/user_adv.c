@@ -4,6 +4,7 @@
 char send_str[30] = "send_name";
 static _adv_dat adv_dat;
 static _adv_param adv_prm;
+static _adv_two adv_two;
 static bool adv_status;
 static bool scan_status;
 #if 0
@@ -17,11 +18,13 @@ static bool scan_status;
 
 void ADV_Data_Init(void)
 {
-	memset(adv_dat.data1, 0x00, sizeof(adv_dat.data1));
-	memset(adv_dat.data2, 0x00, sizeof(adv_dat.data2));
+	adv_two.adv_two_status = true;
+	adv_two.who_block = false;
+	memset(adv_dat.data1, 0x11, sizeof(adv_dat.data1));
+	memset(adv_dat.data2, 0x22, sizeof(adv_dat.data2));
 }
 
-void ADV_Data_Set(_adv_dat *dat, _dat_blk dat_blk)
+void ADV_Data_Set(U8 *data, _dat_blk dat_blk)
 {
 	uint8_t loop;
 
@@ -30,14 +33,14 @@ void ADV_Data_Set(_adv_dat *dat, _dat_blk dat_blk)
 		case ADV_DATA1:
 			for(loop = 0; loop < sizeof(adv_dat.data1); loop++)
 			{
-				adv_dat.data1[loop] = dat->data1[loop];
+				adv_dat.data1[loop] = data[loop];
 			}
 			break;
 
 		case ADV_DATA2:
-			for(loop = 0; loop < sizeof(adv_dat.data1); loop++)
+			for(loop = 0; loop < sizeof(adv_dat.data2); loop++)
 			{
-				adv_dat.data2[loop] = dat->data2[loop];
+				adv_dat.data2[loop] = data[loop];
 			}
 			break;
 
@@ -45,23 +48,23 @@ void ADV_Data_Set(_adv_dat *dat, _dat_blk dat_blk)
 			break;
 	}
 }
-void ADV_Data_Get(_adv_dat *dat, _dat_blk dat_blk)
+void ADV_Data_Get(U8 *data, _dat_blk dat_blk)
 {
 	uint8_t loop;
 
 	switch(dat_blk)
 	{
 		case ADV_DATA1:
-			for(loop = 0; loop < 20; loop++)
+			for(loop = 0; loop < sizeof(adv_dat.data1); loop++)
 			{
-				dat->data1[loop] = adv_dat.data1[loop];
+				data[loop] = adv_dat.data1[loop];
 			}
 			break;
 
 		case ADV_DATA2:
-			for(loop = 0; loop < 20; loop++)
+			for(loop = 0; loop < sizeof(adv_dat.data2); loop++)
 			{
-				dat->data1[loop] = adv_dat.data1[loop];
+				data[loop] = adv_dat.data2[loop];
 			}
 			break;
 
@@ -85,12 +88,24 @@ bool Scan_Status_Get(void)
 {
 	return scan_status;
 }
+
+void ADV_Two_Set(_adv_two *sta)
+{
+	adv_two.who_block = sta->who_block;
+	adv_two.adv_two_status = sta->adv_two_status;
+}
+void ADV_Two_Get(_adv_two *sta)
+{
+	sta->who_block = adv_two.who_block;
+	sta->adv_two_status = adv_two.adv_two_status;
+}
+
 void ADV_Param_Init(void)
 {
 	strcpy(adv_prm.adv_name, "JSD8:1F:1C:9C:AC:11");//par.adv_name = "JS_12";
 	adv_prm.adv_interval = 64;
 	adv_prm.adv_delay = 100;
-	adv_prm.adv_timeout = 0;
+	adv_prm.adv_timeout = 10;
 	adv_prm.tx_power = 4;
 	
 }
@@ -217,10 +232,10 @@ void ADV_Set_Delay(char *tim_buf)
     }
 	delay_buffer = atoi(str);
 	 uart_data.adv_time= delay_buffer*10;
-	//for(loop1 = 0; loop1 < 4; loop1++)
-	//{
-	//	uart_data.adv_sta[loop1] = true;
-	//}
+	for(loop1 = 0; loop1 < 4; loop1++)
+	{
+		uart_data.adv_sta[loop1] = true;
+	}
 	NRF_LOG_INFO("adv_delay is %d", uart_data.adv_time);
 
 }

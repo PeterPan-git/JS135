@@ -25,114 +25,114 @@ void User_Timer_Delay_event_handler(nrf_timer_event_t event_type, void* p_contex
 
 		case NRF_TIMER_EVENT_COMPARE1:
 			test_time++;
-//			if(ADV_Status_Get() == true)
-//			{
-//			   if(uart_data.adv_sta[0] == true)
-//	           {
-//					uart_data.adv_timer[0]++;
-//					NRF_LOG_INFO("time block0");
-//					if(uart_data.adv_timer[0] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block0");
-//						uart_data.adv_sta[0] =false;
-//						uart_data.adv_timer[0] = 0;
-//						Uart_Clean_Block(BLOCK0);
-//						uart_data.adv_timeout[0] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[1] == true)
-//			   {
-//					uart_data.adv_timer[1]++;
-//					NRF_LOG_INFO("time block1");
-//					if(uart_data.adv_timer[1] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block1");
-//						uart_data.adv_sta[1] =false;
-//						uart_data.adv_timer[1] = 0;
-//						Uart_Clean_Block(BLOCK1);
-//						uart_data.adv_timeout[1] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[2] == true)
-//			   {
-//					uart_data.adv_timer[2]++;
-//					NRF_LOG_INFO("time block2");
-//					if(uart_data.adv_timer[2] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block2");
-//						uart_data.adv_sta[2] =false;
-//						uart_data.adv_timer[2] = 0;
-//						Uart_Clean_Block(BLOCK2);
-//						uart_data.adv_timeout[2] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[3] == true)
-//			   {
-//					uart_data.adv_timer[3]++;
-//					NRF_LOG_INFO("time block3");
-//					if(uart_data.adv_timer[3] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block3");
-//						uart_data.adv_sta[3] =false;
-//						uart_data.adv_timer[3] = 0;
-//						Uart_Clean_Block(BLOCK3);
-//						uart_data.adv_timeout[3] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[4] == true)
-//			   {
-//					uart_data.adv_timer[4]++;
-//					NRF_LOG_INFO("time block4");
-//					if(uart_data.adv_timer[4] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block4");
-//						uart_data.adv_sta[4] =false;
-//						uart_data.adv_timer[4] = 0;
-//						Uart_Clean_Block(BLOCK4);
-//						uart_data.adv_timeout[4] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[5] == true)
-//			   {
-//					uart_data.adv_timer[5]++;
-//					NRF_LOG_INFO("time block5");
-//					if(uart_data.adv_timer[5] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block5");
-//						uart_data.adv_sta[5] =false;
-//						uart_data.adv_timer[5] = 0;
-//						Uart_Clean_Block(BLOCK5);
-//						uart_data.adv_timeout[5] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[6] == true)
-//			   {
-//					uart_data.adv_timer[6]++;
-//					NRF_LOG_INFO("time block6");
-//					if(uart_data.adv_timer[6] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block6");
-//						uart_data.adv_sta[6] =false;
-//						uart_data.adv_timer[6] = 0;
-//						Uart_Clean_Block(BLOCK6);
-//						uart_data.adv_timeout[6] = true;
-//					}
-//			   }
-//			   if(uart_data.adv_sta[7] == true)
-//			   {
-//					uart_data.adv_timer[7]++;
-//					NRF_LOG_INFO("time block7");
-//					if(uart_data.adv_timer[7] >= uart_data.adv_time)
-//					{
-//						NRF_LOG_INFO("Clean Block7");
-//						uart_data.adv_sta[7] =false;
-//						uart_data.adv_timer[7] = 0;
-//						Uart_Clean_Block(BLOCK7);
-//						uart_data.adv_timeout[7] = true;
-//					}
-//			   }
-//			   
-//			}
+			if(ADV_Status_Get() == true)
+			{
+			   if(uart_data.adv_sta[0] == true)
+	           {
+					uart_data.adv_timer[0]++;
+					NRF_LOG_INFO("time block0");
+					if(uart_data.adv_timer[0] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block0");
+						uart_data.adv_sta[0] =false;
+						uart_data.adv_timer[0] = 0;
+						Uart_Clean_Block(BLOCK0);
+						uart_data.adv_timeout[0] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[1] == true)
+			   {
+					uart_data.adv_timer[1]++;
+					NRF_LOG_INFO("time block1");
+					if(uart_data.adv_timer[1] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block1");
+						uart_data.adv_sta[1] =false;
+						uart_data.adv_timer[1] = 0;
+						Uart_Clean_Block(BLOCK1);
+						uart_data.adv_timeout[1] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[2] == true)
+			   {
+					uart_data.adv_timer[2]++;
+					NRF_LOG_INFO("time block2");
+					if(uart_data.adv_timer[2] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block2");
+						uart_data.adv_sta[2] =false;
+						uart_data.adv_timer[2] = 0;
+						Uart_Clean_Block(BLOCK2);
+						uart_data.adv_timeout[2] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[3] == true)
+			   {
+					uart_data.adv_timer[3]++;
+					NRF_LOG_INFO("time block3");
+					if(uart_data.adv_timer[3] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block3");
+						uart_data.adv_sta[3] =false;
+						uart_data.adv_timer[3] = 0;
+						Uart_Clean_Block(BLOCK3);
+						uart_data.adv_timeout[3] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[4] == true)
+			   {
+					uart_data.adv_timer[4]++;
+					NRF_LOG_INFO("time block4");
+					if(uart_data.adv_timer[4] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block4");
+						uart_data.adv_sta[4] =false;
+						uart_data.adv_timer[4] = 0;
+						Uart_Clean_Block(BLOCK4);
+						uart_data.adv_timeout[4] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[5] == true)
+			   {
+					uart_data.adv_timer[5]++;
+					NRF_LOG_INFO("time block5");
+					if(uart_data.adv_timer[5] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block5");
+						uart_data.adv_sta[5] =false;
+						uart_data.adv_timer[5] = 0;
+						Uart_Clean_Block(BLOCK5);
+						uart_data.adv_timeout[5] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[6] == true)
+			   {
+					uart_data.adv_timer[6]++;
+					NRF_LOG_INFO("time block6");
+					if(uart_data.adv_timer[6] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block6");
+						uart_data.adv_sta[6] =false;
+						uart_data.adv_timer[6] = 0;
+						Uart_Clean_Block(BLOCK6);
+						uart_data.adv_timeout[6] = true;
+					}
+			   }
+			   if(uart_data.adv_sta[7] == true)
+			   {
+					uart_data.adv_timer[7]++;
+					NRF_LOG_INFO("time block7");
+					if(uart_data.adv_timer[7] >= uart_data.adv_time)
+					{
+						NRF_LOG_INFO("Clean Block7");
+						uart_data.adv_sta[7] =false;
+						uart_data.adv_timer[7] = 0;
+						Uart_Clean_Block(BLOCK7);
+						uart_data.adv_timeout[7] = true;
+					}
+			   }
+			   
+			}
             break;
 		
 		case NRF_TIMER_EVENT_COMPARE2:

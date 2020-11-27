@@ -46,7 +46,7 @@ char tx_cmd8[] = "<adv_enable=0>";
 
 void Uart_Data_Init(void)
 {
-	U8 loop;
+	//U8 loop;
 	uart_data.adv_time = 0;
 	memset(uart_data.adv_sta, false, sizeof(uart_data.adv_sta));
 	memset(uart_data.adv_timeout, false, sizeof(uart_data.adv_timeout));
@@ -55,11 +55,11 @@ void Uart_Data_Init(void)
 	uart_data.cs = 0;
 	uart_data.length = 0;
 
-	Uart_Clean_Block(BLOCK2);
-	for(loop = 0; loop < 4; loop++)
-	{
-		uart_data.ret_block[2][loop] = 0xEE;
-	}
+	//Uart_Clean_Block(BLOCK2);
+	//for(loop = 0; loop < 4; loop++)
+	//{
+	//	uart_data.ret_block[2][loop] = 0xEE;
+	//}
 }
 
 void UART_Send_String(char* buf, uint16_t len)
@@ -339,17 +339,17 @@ void Uart_Data(uint8_t *tx_buf, uint8_t *rx_buf)
 	U8 loop1 = 0;
 	U8 loop2 = 0;
 	U8 loop3 = 0;
-	U8 loop4 = 0;
+//	U8 loop4 = 0;
 	U8 len = rx_buf[2] + 2;
 
 	uart_data.length = rx_buf[2]/4;
 	NRF_LOG_INFO("The uart_data.length is %d", uart_data.length);
 
-	while((uart_data.adv_sta[loop4] == false) && (loop4 < 8))
-	{
-		uart_data.adv_sta[loop4] = true;
-		loop4++;
-	}
+//	while((uart_data.adv_sta[loop4] == false) && (loop4 < 8))
+//	{
+//		uart_data.adv_sta[loop4] = true;
+//		loop4++;
+//	}
 	while(loop1 < 8)
 	{
 		if((uart_data.ret_block[loop1][0] == 0x00)
@@ -394,7 +394,7 @@ void Uart_Data(uint8_t *tx_buf, uint8_t *rx_buf)
 void Uart_Clean_Block(E_BLOCK e_block)
 {
 	U8 loop;
-	//NRF_LOG_INFO("Uart_Clean_Block");
+	
 	for(loop = 0; loop < 4; loop++)
 	{
 		uart_data.ret_block[e_block][loop] = 0;
@@ -407,28 +407,28 @@ void Uart_Data_Transfer(void)
 	U8 loop1 = 0;
 	U8 loop2 = 0;
 	U8 loop3 = 0;
-	_adv_dat dat;
+	U8 data[18];
 	for(loop1 = 0; loop1 < 4; loop1++)
 	{
 		for(loop2 = 0; loop2 < 4; loop2++)
 		{
-			dat.data1[loop3] = uart_data.ret_block[loop1][loop2];
+			data[loop3] = uart_data.ret_block[loop1][loop2];
 			//NRF_LOG_INFO("dat.data1[%d] is  0x%x", loop3, dat.data1[loop3]);
 			loop3++;
 		}
 	}
-	NRF_LOG_INFO("Uart_Data_Transfer");
-	ADV_Data_Set(&dat, ADV_DATA1);
-	#if 0
+	
+	ADV_Data_Set(data, ADV_DATA1);
+	
 	for(loop1 = 4; loop1 < 8; loop1++)
 	{
 		for(loop2 = 0; loop2 < 4; loop2++)
 		{
-			dat.data2[loop3] = uart_data.ret_block[loop1][loop2];
+			data[loop3] = uart_data.ret_block[loop1][loop2];
 			loop3++;
 			//NRF_LOG_INFO("uart_data.ret_block[%d][%d] is  0x%x", loop1, loop2, uart_data.ret_block[loop1][loop2]);
 		}
 	}
-	ADV_Data_Set(&dat, ADV_DATA2);
-	#endif
+	ADV_Data_Set(data, ADV_DATA2);
+	
 }
