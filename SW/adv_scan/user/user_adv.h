@@ -8,7 +8,7 @@
 #define SCAN_CLOSE       false 
 typedef struct
 {
-	char adv_name[20];
+	char adv_name[22];
 	uint32_t adv_interval;            //广播间隙interval
 	uint32_t adv_delay;            //广播持续时间
 	uint32_t adv_timeout;

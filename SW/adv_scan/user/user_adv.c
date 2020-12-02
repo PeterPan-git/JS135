@@ -102,7 +102,7 @@ void ADV_Two_Get(_adv_two *sta)
 
 void ADV_Param_Init(void)
 {
-	strcpy(adv_prm.adv_name, "JSD8:1F:1C:9C:AC:11");//par.adv_name = "JS_12";
+	strcpy(adv_prm.adv_name, "JS135---2");//par.adv_name = "JS_12";
 	adv_prm.adv_interval = 64;
 	adv_prm.adv_delay = 100;
 	adv_prm.adv_timeout = 10;

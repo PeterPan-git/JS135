@@ -592,14 +592,14 @@ void adv_updata(void)
 	{
 		if(sta.who_block == false)
 		{
-			NRF_LOG_INFO("adv first message");
+		//	NRF_LOG_INFO("adv first message");
 			sta.who_block = true;
 			ADV_Two_Set(&sta);
 			ADV_Data_Get(data, ADV_DATA1);
 		}
 		else
 		{
-			NRF_LOG_INFO("adv second message");
+		//	NRF_LOG_INFO("adv second message");
 			sta.who_block = false;
 			ADV_Two_Set(&sta);
 			ADV_Data_Get(data, ADV_DATA2);
@@ -763,7 +763,8 @@ int main(void)
 		{
 			test_time = 0;
 		}
-		//NRF_LOG_INFO("test_time** is %d", test_time);
+		//NRF_LOG_INFO("test");
+	//	NRF_LOG_INFO("test_time** is %d", test_time);
 		
     }
 

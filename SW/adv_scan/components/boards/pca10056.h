@@ -84,10 +84,10 @@ extern "C" {
 #define BSP_BUTTON_2   BUTTON_3
 #define BSP_BUTTON_3   BUTTON_4
 
-#define RX_PIN_NUMBER  6
-#define TX_PIN_NUMBER  7
-#define CTS_PIN_NUMBER 4
-#define RTS_PIN_NUMBER 5
+#define RX_PIN_NUMBER  7   //6    8
+#define TX_PIN_NUMBER  6    //7    6
+#define CTS_PIN_NUMBER 7    //4    7
+#define RTS_PIN_NUMBER 5    //5    5
 #define HWFC           true
 
 #define BSP_QSPI_SCK_PIN   19
