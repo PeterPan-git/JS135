@@ -1,7 +1,7 @@
 #ifndef _USER_ADV_H_
 #define _USER_ADV_H_
 #include "user_head.h"
-
+#if 0
 #define ADV_OPEN         true
 #define ADV_CLOSE        false
 #define SCAN_OPEN        true
@@ -64,4 +64,5 @@ char* ADV_Get_TxPwr(void);
 void ADV_Update_Data(void);
 
 void advertising_init(void);
+#endif
 #endif

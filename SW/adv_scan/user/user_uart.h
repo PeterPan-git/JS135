@@ -1,6 +1,7 @@
 #ifndef _USER_UART_H_
 #define _USER_UART_H_
 #include "user_head.h"
+#if 0
 #define UART_TX_BUF_SIZE                256                                         /**< UART TX buffer size. */
 #define UART_RX_BUF_SIZE                256  
 
@@ -70,4 +71,5 @@ void Set_Ble_Connect_Status(bool status);
 bool Get_Ble_Connect_Status(void);
 void scan_start(void);
 void Scan_Stop(void);
+#endif
 #endif

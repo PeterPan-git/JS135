@@ -1,5 +1,5 @@
 #include "user_head.h"
-
+#if 0
 static U8 app_data[20];
 void APP_Data_Init(void)
 {
@@ -76,4 +76,4 @@ U32 APP_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
     }
 	 return NRF_ERROR_NOT_FOUND;
 }
-
+#endif

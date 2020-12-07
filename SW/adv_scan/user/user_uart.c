@@ -1,4 +1,5 @@
 #include "user_head.h"
+#if 0
 BLE_NUS_DEF(m_nus, NRF_SDH_BLE_TOTAL_LINK_COUNT);  
 
 uint8_t rx_inde = 0;
@@ -432,3 +433,4 @@ void Uart_Data_Transfer(void)
 	ADV_Data_Set(data, ADV_DATA2);
 	
 }
+#endif

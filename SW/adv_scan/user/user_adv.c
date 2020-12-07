@@ -1,5 +1,5 @@
 #include "user_head.h"
-
+#if 0
 //char ble_name[20] = "JS_BLE";
 char send_str[30] = "send_name";
 static _adv_dat adv_dat;
@@ -371,5 +371,5 @@ void ADV_Update_Data(void)
 	}
 	
 }
-
+#endif
 

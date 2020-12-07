@@ -88,7 +88,7 @@ static void apply_config(nrfx_uart_t        const * p_instance,
     }
     if (p_config->pselrxd != NRF_UART_PSEL_DISCONNECTED)
     {
-        nrf_gpio_cfg_input(p_config->pselrxd, NRF_GPIO_PIN_NOPULL);
+        nrf_gpio_cfg_input(p_config->pselrxd, NRF_GPIO_PIN_PULLUP);
     }
 
     nrf_uart_baudrate_set(p_instance->p_reg, p_config->baudrate);
@@ -98,7 +98,7 @@ static void apply_config(nrfx_uart_t        const * p_instance,
     {
         if (p_config->pselcts != NRF_UART_PSEL_DISCONNECTED)
         {
-            nrf_gpio_cfg_input(p_config->pselcts, NRF_GPIO_PIN_NOPULL);
+            nrf_gpio_cfg_input(p_config->pselcts, NRF_GPIO_PIN_PULLUP);
         }
         if (p_config->pselrts != NRF_UART_PSEL_DISCONNECTED)
         {

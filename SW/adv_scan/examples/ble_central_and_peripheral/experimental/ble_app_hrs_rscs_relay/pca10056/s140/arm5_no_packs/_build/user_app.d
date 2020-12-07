@@ -126,9 +126,10 @@
 .\_build\user_app.o: ..\..\..\..\..\..\..\user\user_app.h
 .\_build\user_app.o: ..\..\..\..\..\..\..\user\user_head.h
 .\_build\user_app.o: ..\..\..\..\..\..\..\user\user_def.h
-.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_timer.h
+.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_ble.h
+.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_drive.h
 .\_build\user_app.o: ..\..\..\..\..\..\..\integration\nrfx\legacy\nrf_drv_timer.h
 .\_build\user_app.o: ..\..\..\..\..\..\..\modules\nrfx\drivers\include\nrfx_timer.h
 .\_build\user_app.o: ..\..\..\..\..\..\..\modules\nrfx\hal/nrf_timer.h
-.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_adv.h
-.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_uart.h
+.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_cmnc.h
+.\_build\user_app.o: ..\..\..\..\..\..\..\user\user_param.h
