@@ -8,9 +8,8 @@
 #define HD_1                            0x13
 #define HD_2                            '<'  
 
-#define FD_1                            0xED
-#define FD_2                            0xEE
-#define FD_3                            0xEF
+#define FD_1                            0xEF
+
 #define USER_UART_BUF_SIZE           50
 
 #define JS_VERSION                      "V1.0"
@@ -42,6 +41,14 @@ enum
 
 typedef enum
 {
+	DATA_GROUP_1 = 1,
+	DATA_GROUP_2,
+	DATA_GROUP_3,
+	DATA_GROUP_4,
+	
+}e_group;
+typedef enum
+{
 	BLOCK0 = 0,
 	BLOCK1,
 	BLOCK2,
@@ -54,7 +61,7 @@ typedef enum
 }E_BLOCK;
 extern _uart_data uart_data;
 
-void UART_Data_Init(void);
+void CMNC_Data_Init(void);
 void UART_Cmd(char *tx_buf, char *rx_buf);
 void Uart_Data(uint8_t *tx_buf, uint8_t *rx_buf);
 void Uart_Data_Choose(void);
@@ -68,4 +75,11 @@ void CMNC_APP_MCU_Data_Set(U8 *data);
 U8* CMNC_APP_MCU_Data_Get(void);
 U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report);
 void CMCN_APP_MCU_Data_Send(void);
+void CMNC_MCU_APP_Date_Get(U8 *rx_buf);
+void CMCN_Save(U8 *rx);
+void CMCN_Get(void);
+void CMCN_Do(void);
+void CMCN_Deal(E_BLOCK e_block);
+U8 CMCN_Check(void);
+U8 CMNC_CRC_Data(U8* rx);
 #endif

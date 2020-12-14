@@ -57,7 +57,7 @@ void Drive_UART_Evt_Handle(app_uart_evt_t * p_event)
 	switch (p_event->evt_type)
 	{
 		case APP_UART_DATA_READY:
-			NRF_LOG_INFO("uart APP_UART_DATA_READY");
+			//NRF_LOG_INFO("uart APP_UART_DATA_READY");
 			rx_status = true;
 
 			if(rx_timeout < 30)

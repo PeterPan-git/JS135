@@ -12,7 +12,7 @@
 #define NUS_SERVICE_UUID_TYPE          BLE_UUID_TYPE_BLE
 
 #define HEAD_ID_1              0x13ED
-#define HEAD_ID_2              0x13EF
+#define HEAD_ID_2              0xEF13
 
 void BLE_ADV_Init(U16 ID, U8 *data);
 void BLE_ADV_Evt_Handle(ble_adv_evt_t ble_adv_evt);

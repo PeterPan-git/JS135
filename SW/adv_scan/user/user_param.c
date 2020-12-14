@@ -13,8 +13,8 @@ void Param_ADV_Data_Init(void)
 {
 	adv_two.adv_two_status = true;
 	adv_two.who_block = false;
-	memset(adv_dat.data1, 0x11, sizeof(adv_dat.data1));
-	memset(adv_dat.data2, 0x22, sizeof(adv_dat.data2));
+	memset(adv_dat.data1, 0x00, sizeof(adv_dat.data1));
+	memset(adv_dat.data2, 0x00, sizeof(adv_dat.data2));
 }
 
 void Param_ADV_Data_Set(U8 *data, _dat_blk dat_blk)
@@ -78,7 +78,7 @@ void Param_ADV_Two_Get(_adv_two *sta)
 
 void Param_ADV_Param_Init(void)
 {
-	strcpy(adv_prm.adv_name, "JS135---5");//par.adv_name = "JS_12";
+	strcpy(adv_prm.adv_name, "JS135---adv-22");//par.adv_name = "JS_12";
 	adv_prm.adv_interval = 64;
 	adv_prm.adv_delay = 100;
 	adv_prm.adv_timeout = 10;
@@ -338,9 +338,10 @@ void Param_ADV_Update_Data(void)
 		{
 			if(uart_data.adv_timeout[loop] == true)
 			{
+				NRF_LOG_INFO("update adv ");
 				uart_data.adv_timeout[loop] = false;
 				BLE_ADV_Stop();
-				Uart_Data_Transfer();
+				CMCN_Get();
 				Param_Update_Who_Data();
 				BLE_ADV_Init(HEAD_ID_2, adv_data);
 				BLE_ADV_Start();

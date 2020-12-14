@@ -481,7 +481,7 @@ void BLE_Evt_Handler(ble_evt_t const * p_ble_evt, void * p_context)
     switch (p_ble_evt->header.evt_id)
     {
         case BLE_GAP_EVT_CONNECTED:
-		//	Set_Ble_Connect_Status(BLE_CONNECT);
+			Param_Set_Ble_Connect_Status(BLE_CONNECT);
             NRF_LOG_INFO("Connected");
 //            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
 //            APP_ERROR_CHECK(err_code);
@@ -491,7 +491,7 @@ void BLE_Evt_Handler(ble_evt_t const * p_ble_evt, void * p_context)
             break;
 
         case BLE_GAP_EVT_DISCONNECTED:
-		//	Set_Ble_Connect_Status(BLE_DISCONNECT);
+			Param_Set_Ble_Connect_Status(BLE_DISCONNECT);
             NRF_LOG_INFO("Disconnected");
             // LED indication will be changed when advertising starts.
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
