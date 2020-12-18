@@ -25,7 +25,7 @@ typedef struct
 	bool adv_sta[8];                   //每组数据广播状态
 	bool adv_timeout[8];               //每组数字广播超时
 	uint32_t adv_timer[8];              //每组数据的广播计时
-	uint32_t adv_time;                  //广播时间
+	//uint32_t adv_delay;                  //广播时间
 	uint8_t ret_block[8][4];           //数据存储区域
 	uint8_t length;                    //单次接收到的数据长度
 	uint8_t cs;                        //数据校验
@@ -81,5 +81,6 @@ void CMCN_Get(void);
 void CMCN_Do(void);
 void CMCN_Deal(E_BLOCK e_block);
 U8 CMCN_Check(void);
-U8 CMNC_CRC_Data(U8* rx);
+U8 CMNC_CRC_Data(U8* rx, U8 num);
+U8 CMNC_Get_CRC_Digit(U8* rx);
 #endif

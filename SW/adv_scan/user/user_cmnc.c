@@ -52,7 +52,7 @@ char tx_cmd8[] = "<adv_enable=0>";
 void CMNC_Data_Init(void)
 {
 	//U8 loop;
-	uart_data.adv_time = 0;
+	//uart_data.adv_time = 0;
 	memset(uart_data.adv_sta, false, sizeof(uart_data.adv_sta));
 	memset(uart_data.adv_timeout, false, sizeof(uart_data.adv_timeout));
 	memset(uart_data.adv_timer, 0, sizeof(uart_data.adv_timer));
@@ -84,9 +84,9 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	}
 	else if((strcmp(rx_buf, rx_cmd2)) == 0)
 	{
-		#if (DEBUG_CMD)
+		//#if (DEBUG_CMD)
 		NRF_LOG_INFO("View connection status");
-		#endif
+		//#endif
 		if(Param_Get_Ble_Connect_Status() == true)
 		{
 			Drive_UART_Send_String(tx_cmd2, strlen(tx_cmd2));
@@ -139,7 +139,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		Param_ADV_Store_Name(rx_buf);
 		Param_ADV_Set_Name();
 		
-		BLE_ADV_Init(HEAD_ID_2, adv_data);
+		BLE_ADV_Init(adv_data);
 		BLE_ADV_Start();
 	}
 	else if((strcmp(rx_buf, rx_cmd7)) == 0)
@@ -157,7 +157,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#endif
 		BLE_ADV_Stop();
 		Param_ADV_Set_Interval(rx_buf);
-		BLE_ADV_Init(HEAD_ID_2, adv_data);
+		BLE_ADV_Init(adv_data);
 		BLE_ADV_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 	}
@@ -192,7 +192,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#endif
 		BLE_ADV_Stop();
 		Param_ADV_Set_Timeout(rx_buf);
-		BLE_ADV_Init(HEAD_ID_2, adv_data);
+		BLE_ADV_Init(adv_data);
 		BLE_ADV_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 	}
@@ -276,7 +276,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		
 		BLE_ADV_Stop();
 		Param_ADV_Set_TxPwr(rx_buf);
-		BLE_ADV_Init(HEAD_ID_2, adv_data);
+		BLE_ADV_Init(adv_data);
 		BLE_ADV_Start();
 		
 		Drive_UART_Send_String(tx_cmd6, strlen(tx_cmd6));
@@ -453,7 +453,7 @@ void CMNC_MCU_APP_Date_Get(U8 *rx_buf)
 
 	memcpy(data, &rx_buf[2], sizeof(data));
 	BLE_ADV_Stop();
-	BLE_ADV_Updata(HEAD_ID_1, data);
+	BLE_ADV_Updata(data);
 	BLE_ADV_Start();
 	
 }
@@ -526,9 +526,9 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 			
 		//NRF_LOG_RAW_INFO("p_data[5]-[6]:0x %x %x", p_data[5], p_data[6]);
 	//	NRF_LOG_RAW_INFO("\n");
-			if((p_data[8] == 0x13) && (p_data[9] == 0xEF))      //13    EF
+			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //13    EF
 			{
-				CMNC_APP_MCU_Data_Set(&p_data[8]);
+				CMNC_APP_MCU_Data_Set(&p_data[7]);
 				CMCN_APP_MCU_Data_Send();
 				
 				NRF_LOG_RAW_INFO("data:0x");
@@ -560,11 +560,17 @@ void Uart_Data_Choose(void)
 {
 	uint8_t head_status[2]; 
 
+	U8 loop;
 	head_status[0] = user_rx_buf[0];
 	head_status[1] = user_rx_buf[1];
 	
 	if((rx_status == false) && (rx_inde > 1))
 	{
+		for(loop = 0; loop < 20; loop++)
+		{
+		//	NRF_LOG_INFO("user_rx_buf[%d] is 0x%x", loop, user_rx_buf[loop]);
+
+		}
 		if(head_status[0] == HD_1)
 		{
 			NRF_LOG_INFO("HD_1");
@@ -572,7 +578,6 @@ void Uart_Data_Choose(void)
 			{
 				NRF_LOG_INFO("FD_1");
 				CMCN_Save(user_rx_buf);
-				//Uart_Data_Transfer();
 				CMCN_Do();
 				rx_inde = 0;
 			}
@@ -599,13 +604,18 @@ void CMCN_Save(U8 *rx)
 	U8 loop1, loop2, loop3;
 	U8 space_data = 0;
 	U8 number_data = 0;
-	
+	U8 crc_digit = 0;
+
 	uart_data.length = rx[2];
 	number_data = (rx[2]) / 4;
 	space_data = CMCN_Check();
-	uart_data.cs = CMNC_CRC_Data(&rx[2]);
-	NRF_LOG_INFO("crc_value and rx[19] is 0x%x 0x%x", uart_data.cs, rx[19]);
-	if(uart_data.cs != rx[19])
+	//uart_data.cs = CMNC_CRC_Data(&rx[2], rx[2]+1);
+	//crc_digit = uart_data.length+3;
+	crc_digit = CMNC_Get_CRC_Digit(rx);
+	uart_data.cs = CMNC_CRC_Data(&rx[2], crc_digit-2);
+	NRF_LOG_INFO("crc_digit is %d", crc_digit);
+	NRF_LOG_INFO("crc_value and rx[7] is 0x%x 0x%x", uart_data.cs, rx[crc_digit]);
+	if(uart_data.cs != rx[crc_digit])
 	{
 		NRF_LOG_INFO("uart crc fail!");
 		return;
@@ -641,7 +651,7 @@ void CMCN_Save(U8 *rx)
 			{
 				uart_data.ret_block[loop1][loop2] = rx[3 + loop3];
 				loop3++;
-				NRF_LOG_INFO("uart_data.ret_block[x][x] is 0x%x", uart_data.ret_block[loop1][loop2]);
+				//NRF_LOG_INFO("uart_data.ret_block[x][x] is 0x%x", uart_data.ret_block[loop1][loop2]);
 			}
 			if(loop3 == len)            //如果待存数据长度小于剩余存储空间，则提前退出程序
 			{
@@ -656,42 +666,60 @@ void CMCN_Get(void)
 	U8 loop1 = 0;
 	U8 loop2 = 0;
 	U8 loop3 = 0;
-	U8 data[18];
-	data[0] = uart_data.length;
-	data[17] = uart_data.cs;
+	U8 data[20];
+	U8 crc = 0;
+	U8 length = 0x10;
+	
+	memset(data, 0, sizeof(data));
+	data[0] = 0x13;
+	data[1] = 0xEF;
+	//NRF_LOG_INFO("@@@@@@@@@@@@uart_data.ret_block[2][0] is 0x%x", uart_data.ret_block[2][0]);
 	for(loop1 = 0; loop1 < 4; loop1++)
 	{
 		for(loop2 = 0; loop2 < 4; loop2++)
 		{
-			data[loop3+1] = uart_data.ret_block[loop1][loop2];
-			//NRF_LOG_INFO("dat.data1[%d] is  0x%x", loop3, dat.data1[loop3]);
+			data[loop3+3] = uart_data.ret_block[loop1][loop2];
 			loop3++;
 		}
 	}
-	
+
+    data[2] = length;
+	crc = CMNC_CRC_Data(&data[2], 17);
+	data[19] = crc;
+	//NRF_LOG_INFO("@@@@@@@@@@@@uart_data.ret_block[3][0] is 0x%x", uart_data.ret_block[3][0]);
+	//NRF_LOG_INFO("@@@@@@@@@@@@data[10] is 0x%x", data[10]);
+	//NRF_LOG_INFO("data1 crc and length is  0x%x 0x%x", crc, length);
 	Param_ADV_Data_Set(data, ADV_DATA1);
 	
-	for(loop1 = 4; loop1 < 8; loop1++)
+	memset(data, 0, sizeof(data));
+	crc = 0;
+	data[0] = 0x13;
+	data[1] = 0xEF;
+	for(loop1 = 4,loop3 = 0; loop1 < 8; loop1++)
 	{
 		for(loop2 = 0; loop2 < 4; loop2++)
 		{
-			data[loop3] = uart_data.ret_block[loop1][loop2];
+			data[loop3+3] = uart_data.ret_block[loop1][loop2];
 			loop3++;
-			//NRF_LOG_INFO("uart_data.ret_block[%d][%d] is  0x%x", loop1, loop2, uart_data.ret_block[loop1][loop2]);
 		}
+		
 	}
+	data[2] = length;
+	crc = CMNC_CRC_Data(&data[2], 17);
+	data[19] = crc;
+	//NRF_LOG_INFO("data2 crc and length is  0x%x 0x%x", crc, length);
 	Param_ADV_Data_Set(data, ADV_DATA2);
 	
 }
 
 void CMCN_Do(void)
 {
-	U8 adv_data[18];
+	NRF_LOG_INFO("-----------CMCN_Do");
+	U8 adv_data[20];
 	CMCN_Get();
 	Param_ADV_Data_Get(adv_data, ADV_DATA1);
 	BLE_ADV_Stop();
-	BLE_ADV_Updata(HEAD_ID_2, adv_data);
-	//BLE_ADV_Init(HEAD_ID_2, adv_data);
+	BLE_ADV_Updata(adv_data);
 	BLE_ADV_Start();
 }
 void CMCN_Deal(E_BLOCK e_block)
@@ -721,21 +749,54 @@ U8 CMCN_Check(void)
 				group_sta[loop1] = true;  //真代表该数据行是空的
 				sum++;
 			}
+			else
+			{
+				uart_data.adv_sta[loop1] = true;
+			}
 		}
 	}
 	
 	return sum;
 	
 }
-U8 CMNC_CRC_Data(U8* rx)
+U8 CMNC_CRC_Data(U8* rx, U8 num)
 {
 	U8 loop;
 	U8 sum = 0;
 	
-	for(loop = 0; loop < 17; loop++)
+	for(loop = 0; loop < num; loop++)
 	{
 		sum += rx[loop];
+		//NRF_LOG_INFO("rx[%d] is 0x%x", loop, rx[loop]);
 	}
 	
 	return sum;
 }
+
+U8 CMNC_Get_CRC_Digit(U8* rx)
+{
+	U8 loop;
+	U8 digit = 0;
+
+	for(loop = 0; loop < 20; loop++)
+	{
+		if((rx[loop] == 0) && (loop < 19))
+		{
+			digit = loop - 1;
+			break;
+		}
+		else if(loop == 19)
+		{
+			NRF_LOG_INFO("crc digit is 19");
+			digit = 19; 
+		}
+//		else
+//		{
+//			NRF_LOG_INFO("crc digit is 0");
+//			digit = 0;  
+//		}
+	}
+	
+	return digit;
+}
+

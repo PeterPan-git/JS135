@@ -17,8 +17,8 @@ typedef struct
 
 typedef struct
 {
-	uint8_t data1[18];
-	uint8_t data2[18];
+	uint8_t data1[20];
+	uint8_t data2[20];
 }_adv_dat;
 
 typedef struct
@@ -60,5 +60,7 @@ bool Param_Scan_Status_Get(void);
 void Param_Set_Ble_Connect_Status(bool status);
 bool Param_Get_Ble_Connect_Status(void);
 void Param_Update_Who_Data(void);
+void Param_Update_One(void);
+void Param_Update_Two(void);
 void Param_Get_MacAddr(void);
 #endif

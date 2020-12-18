@@ -30,16 +30,21 @@ static ble_uuid_t m_adv_uuids[]          =                                      
 *---------ADV configuration---------
 *---------------START---------------
 ***********************************/
-void BLE_ADV_Init(U16 ID, U8 *data)
+void BLE_ADV_Init(U8 *data)
 {
 	uint32_t               err_code;
-//	U8 data[20];
+	U16 id = data[1];
+	id = id << 8;
+	id |= data[0];
+	NRF_LOG_INFO("id----- is 0x%x", id);
+	U8 adv_dat[18];
+	memcpy(adv_dat, &data[2], 18);
 //	Param_ADV_Data_Get(data, ADV_DATA1);
 #if 1	
 	ble_advdata_manuf_data_t manuf_specific_data;
 
-	manuf_specific_data.company_identifier = ID;//////
-	manuf_specific_data.data.p_data = data;//my_adv_dat;///////
+	manuf_specific_data.company_identifier = id;//////
+	manuf_specific_data.data.p_data = adv_dat;//my_adv_dat;///////
     manuf_specific_data.data.size   = 18;//sizeof(adv_data);//sizeof(my_adv_dat);//////
 #endif
 	ble_advertising_init_t init;
@@ -60,7 +65,7 @@ void BLE_ADV_Init(U16 ID, U8 *data)
 	
     init.config.ble_adv_fast_enabled  = true;
     init.config.ble_adv_fast_interval = adv_params.adv_interval;
-	init.config.ble_adv_fast_timeout = adv_params.adv_timeout;  //目前时间只能设置为0
+	init.config.ble_adv_fast_timeout = 0;//adv_params.adv_timeout;  //目前时间只能设置为0
    //init.config.ble_adv_fast_timeout  = APP_ADV_DURATION;
     init.evt_handler = BLE_ADV_Evt_Handle;
 
@@ -98,16 +103,26 @@ void BLE_ADV_Evt_Handle(ble_adv_evt_t ble_adv_evt)
 void BLE_ADV_Start(void)
 {
     uint32_t err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
-    APP_ERROR_CHECK(err_code);
+	if(err_code != NRF_SUCCESS)
+	{
+		NVIC_SystemReset();
+	}
+	APP_ERROR_CHECK(err_code);
+	
 	Param_ADV_Status_Set(ADV_OPEN);
 }
 
 void BLE_ADV_Stop(void)
 {
 	ret_code_t err_code;
-	
+
 	err_code = sd_ble_gap_adv_stop(m_advertising.adv_handle);
+	if(err_code != NRF_SUCCESS)
+	{
+		NVIC_SystemReset();
+	}
 	APP_ERROR_CHECK(err_code);
+
 	Param_ADV_Status_Set(ADV_CLOSE);
 }
 
@@ -341,44 +356,27 @@ void BLE_NUS_Data_Handler(ble_nus_evt_t * p_evt)
 *---------Update ADV data configuration--------
 *--------------------START---------------------
 **********************************************/
-void BLE_ADV_Updata(U16 ID, U8 *data)
+void BLE_ADV_Updata(U8 *data)
 {
 	ret_code_t err_code;
 	ble_advdata_t           adv_data; //广播数据
 	ble_advdata_t           sr_data;  //扫描响应数据
-//	U8 data[18];
-//	memset(data,0, 18);
-//	_adv_two sta;
-//	
-//	Param_ADV_Two_Get(&sta);
-//	if(sta.adv_two_status == true)
-//	{
-//		if(sta.who_block == false)
-//		{
-//		//	NRF_LOG_INFO("adv first message");
-//			sta.who_block = true;
-//			Param_ADV_Two_Set(&sta);
-//			Param_ADV_Data_Get(data, ADV_DATA1);
-//		}
-//		else
-//		{
-//		//	NRF_LOG_INFO("adv second message");
-//			sta.who_block = false;
-//			Param_ADV_Two_Set(&sta);
-//			Param_ADV_Data_Get(data, ADV_DATA2);
-//		}
-//	}
-//	else
-//	{
-//		Param_ADV_Data_Get(data, ADV_DATA1);
-//	}
+	U16 id = data[1];
+	id = id << 8;
+	id |= data[0];
+	
+	U8 adv_dat[18];
+	memcpy(adv_dat, &data[2], 18);
+	_adv_param adv_params;
+	Param_ADV_Get_Param(&adv_params);
+
 	ble_advdata_manuf_data_t manuf_specific_data;
 	//  ble_advdata_service_data_t serve_data;
 
 	//制造商ID，0x0059是Nordic的厂商ID
-	manuf_specific_data.company_identifier = ID;
+	manuf_specific_data.company_identifier = id;
 	//指向制造商自定义的数据
-	manuf_specific_data.data.p_data = data;
+	manuf_specific_data.data.p_data = adv_dat;
 	//制造商自定义的数据大小(字节数)
 	manuf_specific_data.data.size   = 18;
 	
@@ -389,6 +387,7 @@ void BLE_ADV_Updata(U16 ID, U8 *data)
 	//adv_data.name_type               = BLE_ADVDATA_FULL_NAME;
 	//是否包含外观：包含
 	adv_data.include_appearance      = false;
+	adv_data.p_tx_power_level= &adv_params.tx_power;
 	//广播中加入制造商自定义数据
 	adv_data.p_manuf_specific_data    = &manuf_specific_data;
 	// adv_data.p_service_data_array = &serve_data;
@@ -482,9 +481,10 @@ void BLE_Evt_Handler(ble_evt_t const * p_ble_evt, void * p_context)
     {
         case BLE_GAP_EVT_CONNECTED:
 			Param_Set_Ble_Connect_Status(BLE_CONNECT);
+			Drive_GPIO_Connect_State_Open();
+			BLE_Scan_Stop();
+			Param_ADV_Status_Set(ADV_CLOSE);
             NRF_LOG_INFO("Connected");
-//            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
-//            APP_ERROR_CHECK(err_code);
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
             err_code = nrf_ble_qwr_conn_handle_assign(&m_qwr, m_conn_handle);
             APP_ERROR_CHECK(err_code);
@@ -492,8 +492,10 @@ void BLE_Evt_Handler(ble_evt_t const * p_ble_evt, void * p_context)
 
         case BLE_GAP_EVT_DISCONNECTED:
 			Param_Set_Ble_Connect_Status(BLE_DISCONNECT);
+			Drive_GPIO_Connect_State_Close();
+			Param_ADV_Status_Set(ADV_OPEN);
+			BLE_Scan_Start();
             NRF_LOG_INFO("Disconnected");
-            // LED indication will be changed when advertising starts.
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
             break;
 

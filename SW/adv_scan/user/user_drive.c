@@ -1,7 +1,7 @@
 #include "user_head.h"
 #include "nrfx_wdt.h"
 bool rx_status = 0;
-uint32_t test_time = 0;
+U16 adv_loop = 0;
 unsigned char rx_timeout = 0;
 nrfx_wdt_channel_id m_channel_id;
 const nrfx_timer_t TIMER_DELAY = NRFX_TIMER_INSTANCE(3);
@@ -29,9 +29,9 @@ void Drive_UART_Init(void)
         .flow_control = APP_UART_FLOW_CONTROL_DISABLED,
         .use_parity   = false,
 #if defined (UART_PRESENT)
-        .baud_rate    = NRF_UART_BAUDRATE_115200
+        .baud_rate    = NRF_UART_BAUDRATE_57600
 #else
-        .baud_rate    = NRF_UARTE_BAUDRATE_115200
+        .baud_rate    = NRF_UART_BAUDRATE_57600
 #endif
     };
 
@@ -144,9 +144,9 @@ void Drive_Timer0_to_3_Init(void)
 
 void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_context)
 {
-	if(test_time > 1000000)
+	if(adv_loop > 1000)
 	{
-		test_time = 0;
+		adv_loop = 0;
 	}
 	switch (event_type)
     {
@@ -156,14 +156,22 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
             break;
 
 		case NRF_TIMER_EVENT_COMPARE1:
-			test_time++;
+			
 			if(Param_ADV_Status_Get() == true)
 			{
+				_adv_param adv_params;
+				Param_ADV_Get_Param(&adv_params);
+
+				if(adv_params.adv_timeout == 0)
+				{
+					//NRF_LOG_INFO("return");
+					return;
+				}
 			   if(uart_data.adv_sta[0] == true)
 	           {
 					uart_data.adv_timer[0]++;
-					NRF_LOG_INFO("time block0");
-					if(uart_data.adv_timer[0] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block0");
+					if(uart_data.adv_timer[0] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block0");
 						uart_data.adv_sta[0] =false;
@@ -175,8 +183,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[1] == true)
 			   {
 					uart_data.adv_timer[1]++;
-					NRF_LOG_INFO("time block1");
-					if(uart_data.adv_timer[1] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block1");
+					if(uart_data.adv_timer[1] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block1");
 						uart_data.adv_sta[1] =false;
@@ -188,8 +196,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[2] == true)
 			   {
 					uart_data.adv_timer[2]++;
-					NRF_LOG_INFO("time block2");
-					if(uart_data.adv_timer[2] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block2");
+					if(uart_data.adv_timer[2] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block2");
 						uart_data.adv_sta[2] =false;
@@ -201,8 +209,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[3] == true)
 			   {
 					uart_data.adv_timer[3]++;
-					NRF_LOG_INFO("time block3");
-					if(uart_data.adv_timer[3] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block3");
+					if(uart_data.adv_timer[3] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block3");
 						uart_data.adv_sta[3] =false;
@@ -214,8 +222,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[4] == true)
 			   {
 					uart_data.adv_timer[4]++;
-					NRF_LOG_INFO("time block4");
-					if(uart_data.adv_timer[4] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block4");
+					if(uart_data.adv_timer[4] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block4");
 						uart_data.adv_sta[4] =false;
@@ -227,8 +235,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[5] == true)
 			   {
 					uart_data.adv_timer[5]++;
-					NRF_LOG_INFO("time block5");
-					if(uart_data.adv_timer[5] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block5");
+					if(uart_data.adv_timer[5] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block5");
 						uart_data.adv_sta[5] =false;
@@ -240,8 +248,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[6] == true)
 			   {
 					uart_data.adv_timer[6]++;
-					NRF_LOG_INFO("time block6");
-					if(uart_data.adv_timer[6] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block6");
+					if(uart_data.adv_timer[6] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block6");
 						uart_data.adv_sta[6] =false;
@@ -253,8 +261,8 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 			   if(uart_data.adv_sta[7] == true)
 			   {
 					uart_data.adv_timer[7]++;
-					NRF_LOG_INFO("time block7");
-					if(uart_data.adv_timer[7] >= uart_data.adv_time)
+					//NRF_LOG_INFO("time block7");
+					if(uart_data.adv_timer[7] >= adv_params.adv_timeout)
 					{
 						NRF_LOG_INFO("Clean Block7");
 						uart_data.adv_sta[7] =false;
@@ -268,8 +276,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
             break;
 		
 		case NRF_TIMER_EVENT_COMPARE2:
-            
-		
+			adv_loop++;
             break;
 		case NRF_TIMER_EVENT_COMPARE3:
          
@@ -375,3 +382,20 @@ void Drive_WDT_Even_Handle(void)
 *----------------END----------------
 *---------Log configuration--------
 ****************************************************************/
+
+
+void Drive_GPIO_Connect_State_Init(void)
+{
+	//nrf_gpio_cfg_input(GPIO_CONNECT, NRF_GPIO_PIN_NOPULL);
+	nrf_gpio_cfg_output(GPIO_CONNECT);
+	Drive_GPIO_Connect_State_Close();
+}
+void Drive_GPIO_Connect_State_Open(void)
+{
+	nrf_gpio_pin_clear(GPIO_CONNECT);
+}
+void Drive_GPIO_Connect_State_Close(void)
+{
+	nrf_gpio_pin_set(GPIO_CONNECT);
+}
+

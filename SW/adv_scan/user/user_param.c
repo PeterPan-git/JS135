@@ -48,22 +48,27 @@ void Param_ADV_Data_Get(U8 *data, _dat_blk dat_blk)
 	switch(dat_blk)
 	{
 		case ADV_DATA1:
-			for(loop = 0; loop < sizeof(adv_dat.data1); loop++)
+		//	memcpy(data,adv_dat.data1, sizeof(data));
+			for(loop = 0; loop < 20; loop++)
 			{
 				data[loop] = adv_dat.data1[loop];
 			}
+		
 			break;
 
 		case ADV_DATA2:
-			for(loop = 0; loop < sizeof(adv_dat.data2); loop++)
+			//memcpy(data,adv_dat.data2, sizeof(data));
+			for(loop = 0; loop < 20; loop++)
 			{
 				data[loop] = adv_dat.data2[loop];
 			}
+	
 			break;
 
 		default:
 			break;
 	}
+	
 }
 void Param_ADV_Two_Set(_adv_two *sta)
 {
@@ -78,10 +83,10 @@ void Param_ADV_Two_Get(_adv_two *sta)
 
 void Param_ADV_Param_Init(void)
 {
-	strcpy(adv_prm.adv_name, "JS135---adv-22");//par.adv_name = "JS_12";
-	adv_prm.adv_interval = 64;
+	strcpy(adv_prm.adv_name, "JS135_000001");//par.adv_name = "JS_12";
+	adv_prm.adv_interval = 32;
 	adv_prm.adv_delay = 100;
-	adv_prm.adv_timeout = 10;
+	adv_prm.adv_timeout = 5000;
 	adv_prm.tx_power = 4;
 	
 }
@@ -207,12 +212,12 @@ void Param_ADV_Set_Delay(char *tim_buf)
         str[loop1] = tim_buf[residue + loop1];
     }
 	delay_buffer = atoi(str);
-	 uart_data.adv_time= delay_buffer*10;
-	for(loop1 = 0; loop1 < 4; loop1++)
-	{
-		uart_data.adv_sta[loop1] = true;
-	}
-	NRF_LOG_INFO("adv_delay is %d", uart_data.adv_time);
+	 adv_prm.adv_delay= delay_buffer*10;
+	//for(loop1 = 0; loop1 < 4; loop1++)
+	//{
+	//	uart_data.adv_sta[loop1] = true;
+	//}
+	NRF_LOG_INFO("adv_delay is %d", adv_prm.adv_delay);
 
 }
 char* Param_ADV_Get_Delay(void)
@@ -223,7 +228,7 @@ char* Param_ADV_Get_Delay(void)
 	
 	memset(send_str, 0, strlen(send_str));
   	strcpy(send_str, head_buf); 
-	delay_buffer = uart_data.adv_time / 10;
+	delay_buffer = adv_prm.adv_delay / 10;
 	sprintf((char*)buffer, "%d", delay_buffer);
 	
   	strcat(send_str, buffer); 
@@ -248,9 +253,9 @@ void Param_ADV_Set_Timeout(char *timeout_buf)
         str[loop1] = timeout_buf[residue + loop1];
     }
 
-	adv_prm.adv_timeout= atoi(str);
+	adv_prm.adv_timeout= atoi(str)*1000;
 	
-	NRF_LOG_INFO("adv_timeout is %d", adv_prm.adv_timeout);
+	NRF_LOG_INFO("^^^^^^^^^^^^^^^^adv_timeout is %d", adv_prm.adv_timeout);
 }
 char* Param_ADV_Get_Timeout(void)
 {
@@ -259,7 +264,7 @@ char* Param_ADV_Get_Timeout(void)
 	
 	memset(send_str, 0, strlen(send_str));
   	strcpy(send_str, head_buf); 
-	
+	adv_prm.adv_timeout = adv_prm.adv_timeout / 1000;
 	sprintf((char*)buffer, "%d", adv_prm.adv_timeout);
 	
   	strcat(send_str, buffer); 
@@ -330,22 +335,25 @@ char* Param_ADV_Get_TxPwr(void)
 void Param_ADV_Update_Data(void)
 {
 	uint8_t loop;
-	U8 adv_data[20];
+	U8 adv_data[18];
+	memset(adv_data, 0, 18);
 //	Param_ADV_Data_Get(adv_data, ADV_DATA1);
 	if(Param_ADV_Status_Get() == true)
 	{
+	//	NRF_LOG_INFO(" adv ok");
 		for(loop = 0; loop < 8; loop++)
 		{
 			if(uart_data.adv_timeout[loop] == true)
 			{
 				NRF_LOG_INFO("update adv ");
 				uart_data.adv_timeout[loop] = false;
-				BLE_ADV_Stop();
-				CMCN_Get();
-				Param_Update_Who_Data();
-				BLE_ADV_Init(HEAD_ID_2, adv_data);
-				BLE_ADV_Start();
+				
+				Param_Update_One();
 			}
+		}
+		if(CMCN_Check() < 4)  
+		{
+			Param_Update_Two();
 		}
 	}
 	
@@ -379,34 +387,97 @@ bool Param_Get_Ble_Connect_Status(void)
 }
 void Param_Update_Who_Data(void)
 {
-	U8 data[18];
-	memset(data,0, 18);
-	_adv_two sta;
+	U8 adv_data[18];
+	static U8 data_block = 0;
+	memset(adv_data, 0, 18);
+	if(CMCN_Check() < 4)       //广播两条消息
+	{
+		if(adv_loop >= 100)
+		{
+			
+			data_block++;
+			//NRF_LOG_INFO("data_block is %d", data_block);
+			adv_loop = 0;
+			BLE_ADV_Stop();
+			CMCN_Get();
+			//NRF_LOG_INFO("data_block is %d", data_block);
+			switch(data_block)
+			{
+				case 1:
+			//		NRF_LOG_INFO("ADV_DATA1");
+					Param_ADV_Data_Get(adv_data, ADV_DATA1);
+					break;
+				case 2:
+			//		NRF_LOG_INFO("ADV_DATA2");
+					Param_ADV_Data_Get(adv_data, ADV_DATA2);
+					data_block = 0;
+					break;
+				default:
+					data_block = 0;
+					break;
+			}
+			BLE_ADV_Updata(adv_data);
+			BLE_ADV_Start();
+		}
+	}
+	else                      //广播一条消息
+	{
+		BLE_ADV_Stop();
+		CMCN_Get();
+		Param_ADV_Data_Get(adv_data, ADV_DATA1);
+		BLE_ADV_Updata(adv_data);
+		BLE_ADV_Start();
+	}
+}
+
+void Param_Update_One(void)
+{
+	U8 adv_data[18];
+	memset(adv_data, 0, 18);
 	
-	Param_ADV_Two_Get(&sta);
-	if(sta.adv_two_status == true)
+	//NRF_LOG_INFO("one adv");
+	BLE_ADV_Stop();
+	CMCN_Get();
+	Param_ADV_Data_Get(adv_data, ADV_DATA1);
+	BLE_ADV_Updata(adv_data);
+	BLE_ADV_Start();
+	
+}
+void Param_Update_Two(void)
+{
+	U8 adv_data[18];
+	static U8 data_block = 0;
+	memset(adv_data, 0, 18);
+	
+//	NRF_LOG_INFO("two adv");
+	if(adv_loop >= adv_prm.adv_delay)
 	{
-		if(sta.who_block == false)
+		
+		data_block++;
+		//NRF_LOG_INFO("data_block is %d", data_block);
+		adv_loop = 0;
+		BLE_ADV_Stop();
+		CMCN_Get();
+		//NRF_LOG_INFO("data_block is %d", data_block);
+		switch(data_block)
 		{
-		//	NRF_LOG_INFO("adv first message");
-			sta.who_block = true;
-			Param_ADV_Two_Set(&sta);
-			Param_ADV_Data_Get(data, ADV_DATA1);
-			//BLE_ADV_Updata(HEAD_ID_2,data);
+			case 1:
+		//		NRF_LOG_INFO("ADV_DATA1");
+				Param_ADV_Data_Get(adv_data, ADV_DATA1);
+				break;
+			case 2:
+		//		NRF_LOG_INFO("ADV_DATA2");
+				Param_ADV_Data_Get(adv_data, ADV_DATA2);
+				data_block = 0;
+				break;
+			default:
+				data_block = 0;
+				break;
 		}
-		else
-		{
-		//	NRF_LOG_INFO("adv second message");
-			sta.who_block = false;
-			Param_ADV_Two_Set(&sta);
-			Param_ADV_Data_Get(data, ADV_DATA2);
-		}
+		BLE_ADV_Updata(adv_data);
+		BLE_ADV_Start();
 	}
-	else
-	{
-		Param_ADV_Data_Get(data, ADV_DATA1);
-	}
-	BLE_ADV_Updata(HEAD_ID_2,data);
+	
 }
 void Param_Get_MacAddr(void)
 {

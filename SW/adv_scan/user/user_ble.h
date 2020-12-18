@@ -1,7 +1,7 @@
 #ifndef _USER_BLE_H_
 #define _USER_BLE_H_
 #include "user_head.h"
-#define APP_COMPANY_IDENTIFIER          0xEF13
+//#define APP_COMPANY_IDENTIFIER          0xEF13
 #define APP_BLE_CONN_CFG_TAG            1                                           /**< Tag that identifies the SoftDevice BLE configuration. */
 
 #define FIRST_CONN_PARAMS_UPDATE_DELAY  APP_TIMER_TICKS(5000)                       /**< Time from initiating event (connect or start of notification) to the first time sd_ble_gap_conn_param_update is called (5 seconds). */
@@ -11,10 +11,10 @@
 #define DB_DISCOVERY_INSTANCE_CNT       2  /**< Number of DB Discovery instances. */
 #define NUS_SERVICE_UUID_TYPE          BLE_UUID_TYPE_BLE
 
-#define HEAD_ID_1              0x13ED
-#define HEAD_ID_2              0xEF13
+//#define HEAD_ID_1              0x13ED
+//#define HEAD_ID_2              0x0000
 
-void BLE_ADV_Init(U16 ID, U8 *data);
+void BLE_ADV_Init(U8 *data);
 void BLE_ADV_Evt_Handle(ble_adv_evt_t ble_adv_evt);
 void BLE_ADV_Start(void);
 void BLE_ADV_Stop(void);
@@ -32,7 +32,7 @@ void BLE_Disconnect(void);
 
 void BLE_GATT_Init(void);
 void BLE_NUS_Data_Handler(ble_nus_evt_t * p_evt);
-void BLE_ADV_Updata(U16 ID, U8 *data);
+void BLE_ADV_Updata(U8 *data);
 void BLE_Serve_Init(void);
 void BLE_QWR_Error_Handler(uint32_t nrf_error);
 void BLE_Stack_Init(void);

@@ -2,13 +2,14 @@
 
 int main(void)
 {
-	U8 data[16];
+	U8 data[20];
 
 	Drive_Log_Init();
 	Drive_WDT_Init();
+	Drive_GPIO_Connect_State_Init();
 	CMNC_Data_Init();                          //广播数据块初始化
 	Param_ADV_Data_Init();                     //广播buffer初始化      
-	CMCN_Get();                                //数据块转到buffer
+	//CMCN_Get();                                //数据块转到buffer
 	Param_ADV_Data_Get(data, ADV_DATA1);       //数据从buffer取出到data, 准备广播
 	
 	Drive_Timer_Init();
@@ -26,12 +27,13 @@ int main(void)
 	BLE_GATT_Init();
 	BLE_GAP_Conn_Params_Init();
 	BLE_Serve_Init();
-	BLE_ADV_Init(HEAD_ID_2, data);
+	BLE_ADV_Init(data);
 
 	BLE_ADV_Start();
 	BLE_Scan_Start();
+	Param_Get_MacAddr();
 	NRF_LOG_INFO("start main while");
-	 while(1)
+	while(1)
     {
 		Drive_Feed_Dog();
 		Uart_Data_Choose();

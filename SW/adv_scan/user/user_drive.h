@@ -5,9 +5,10 @@
 #include "Nrf_timer.h"
 
 #define UART_TX_BUF_SIZE                256                                        
-#define UART_RX_BUF_SIZE                256  
+#define UART_RX_BUF_SIZE                256 
+#define GPIO_CONNECT                    5
 extern bool rx_status;
-extern uint32_t test_time;
+extern U16 adv_loop;
 extern unsigned char rx_timeout;
 extern const nrfx_timer_t TIMER_DELAY;
 
@@ -31,4 +32,7 @@ void Drive_Log_Init(void);
 void Drive_WDT_Init(void);
 void Drive_Feed_Dog(void);
 void Drive_WDT_Even_Handle(void);
+void Drive_GPIO_Connect_State_Init(void);
+void Drive_GPIO_Connect_State_Open(void);
+void Drive_GPIO_Connect_State_Close(void);
 #endif
