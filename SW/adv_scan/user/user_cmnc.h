@@ -19,7 +19,7 @@
 extern uint8_t rx_inde;
 extern uint8_t user_tx_buf[USER_UART_BUF_SIZE];
 extern uint8_t user_rx_buf[USER_UART_BUF_SIZE];
-
+extern U8 name_hex[3];
 typedef struct
 {
 	bool adv_sta[8];                   //每组数据广播状态
@@ -63,7 +63,6 @@ extern _uart_data uart_data;
 
 void CMNC_Data_Init(void);
 void UART_Cmd(char *tx_buf, char *rx_buf);
-void Uart_Data(uint8_t *tx_buf, uint8_t *rx_buf);
 void Uart_Data_Choose(void);
 void Uart_Clean_Block(E_BLOCK e_block);
 
@@ -83,4 +82,6 @@ void CMCN_Deal(E_BLOCK e_block);
 U8 CMCN_Check(void);
 U8 CMNC_CRC_Data(U8* rx, U8 num);
 U8 CMNC_Get_CRC_Digit(U8* rx);
+void CMNC_String_To_Hex(char* str, unsigned char* hex);
+
 #endif

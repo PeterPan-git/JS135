@@ -4,8 +4,10 @@ uint8_t rx_inde = 0;
 uint8_t user_tx_buf[USER_UART_BUF_SIZE] = {0};
 uint8_t user_rx_buf[USER_UART_BUF_SIZE] = {0};
 static U8 app_data[20];
-static bool group_sta[8];
+U8 name_hex[3];
 
+static bool group_sta[8];
+//static U8 hand_shake;
 _uart_data uart_data;
 char rx_cmd1[]  = "<DISCONNECT>";
 char rx_cmd2[]  = "<CONNECT_STATE>";
@@ -129,10 +131,10 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	}
 	else if((strncmp(rx_buf, rx_cmd6, 10)) == 0)
 	{
-		#if (DEBUG_CMD)
+		//#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set ble name");
-		NRF_LOG_INFO("rx_buf is %s", rx_buf);
-		#endif
+		//NRF_LOG_INFO("rx_buf is %s", rx_buf);
+		//#endif
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 
 		BLE_ADV_Stop();
@@ -141,6 +143,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		
 		BLE_ADV_Init(adv_data);
 		BLE_ADV_Start();
+		
 	}
 	else if((strcmp(rx_buf, rx_cmd7)) == 0)
 	{
@@ -328,56 +331,6 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	
 }
 
-void Uart_Data(uint8_t *tx_buf, uint8_t *rx_buf)
-{
-	U8 loop1 = 0;
-	U8 loop2 = 0;
-	U8 loop3 = 0;
-//	U8 loop4 = 0;
-	U8 len = rx_buf[2] + 2;
-
-	uart_data.length = rx_buf[2]/4;
-	NRF_LOG_INFO("The uart_data.length is %d", uart_data.length);
-
-//	while((uart_data.adv_sta[loop4] == false) && (loop4 < 8))
-//	{
-//		uart_data.adv_sta[loop4] = true;
-//		loop4++;
-//	}
-	while(loop1 < 8)
-	{
-		if((uart_data.ret_block[loop1][0] == 0x00)
-		  &&(uart_data.ret_block[loop1][1] == 0x00)
-		  &&(uart_data.ret_block[loop1][2] == 0x00)
-		  &&(uart_data.ret_block[loop1][3] == 0x00))
-		{
-			//uart_data.adv_sta[loop1] = true;
-
-			for(loop2 = 0; loop2 < 4; loop2++)
-			{
-				uart_data.ret_block[loop1][loop2] = rx_buf[3 + loop3];
-				//NRF_LOG_INFO("uart_data.ret_block[%d][%d] is  0x%x", loop1, loop2, uart_data.ret_block[loop1][loop2]);
-				loop3++;
-			}
-			if(loop3 == len)
-			{
-				break;
-			}
-		}
-		
-		loop1++;
-		//NRF_LOG_INFO("The value of loop1 is %d", loop1);
-	}
-//	NRF_LOG_INFO("uart_data.ret_block[1][2] is  0x%x", uart_data.ret_block[1][2]);
-
-	memset(rx_buf, 0, 20);
-	memset(tx_buf, 0, 20);
-	
-	
-}
-
-
-
 /**************************************************
 *@Author:PeterPan
 *
@@ -528,8 +481,14 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 	//	NRF_LOG_RAW_INFO("\n");
 			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //13    EF
 			{
-				CMNC_APP_MCU_Data_Set(&p_data[7]);
-				CMCN_APP_MCU_Data_Send();
+				if((p_data[9] == name_hex[0])
+					&&(p_data[10] == name_hex[1])
+					&&(p_data[11] == name_hex[2]))
+				{
+					NRF_LOG_RAW_INFO("o--------------k");
+					CMNC_APP_MCU_Data_Set(&p_data[7]);
+					CMCN_APP_MCU_Data_Send();
+				}
 				
 				NRF_LOG_RAW_INFO("data:0x");
 				for(U8 i=0;i<field_length-1;i++)
@@ -568,7 +527,7 @@ void Uart_Data_Choose(void)
 	{
 		for(loop = 0; loop < 20; loop++)
 		{
-		//	NRF_LOG_INFO("user_rx_buf[%d] is 0x%x", loop, user_rx_buf[loop]);
+			//NRF_LOG_INFO("user_rx_buf[%d] is 0x%02x", loop, user_rx_buf[loop]);
 
 		}
 		if(head_status[0] == HD_1)
@@ -579,6 +538,7 @@ void Uart_Data_Choose(void)
 				NRF_LOG_INFO("FD_1");
 				CMCN_Save(user_rx_buf);
 				CMCN_Do();
+				
 				rx_inde = 0;
 			}
 		}
@@ -619,6 +579,10 @@ void CMCN_Save(U8 *rx)
 	{
 		NRF_LOG_INFO("uart crc fail!");
 		return;
+	}
+	else
+	{
+		rx[crc_digit] = 0;
 	}
 	if(space_data == 0)                   //剩余空间为0就退出
 	{
@@ -799,4 +763,43 @@ U8 CMNC_Get_CRC_Digit(U8* rx)
 	
 	return digit;
 }
+
+void CMNC_String_To_Hex(char* str, unsigned char* hex)
+{    
+	unsigned char temp[6];
+	unsigned char loop,loop1, loop2;
+	unsigned char diff;
+//	unsigned char digit; 
+	memset(temp, 0, sizeof(temp));
+	
+	for(loop = 14, loop1 = 0, diff = 0; loop < 20; loop++, loop1++)
+	{
+		if(str[loop] >= 0x41)
+		{ 
+			diff = 0x37;
+		}
+		else
+		{ 
+			diff = 0x30;
+		} 
+		temp[loop1] = (unsigned char)(str[loop] - diff);
+		//NRF_LOG_INFO("str[%d] is %x", loop, str[loop]);
+	}
+	for(loop = 0, diff = 0, loop2 = 0; loop < 6; loop++, loop2++)
+	{
+		diff = temp[loop];
+		loop++;
+		diff = diff << 4;
+		diff |= temp[loop];
+		hex[loop2] = diff;
+		//NRF_LOG_INFO("hex[%d] is %x", loop2, hex[loop2]);
+	}
+}
+
+
+
+
+
+
+
 

@@ -84,7 +84,7 @@ void Param_ADV_Two_Get(_adv_two *sta)
 void Param_ADV_Param_Init(void)
 {
 	strcpy(adv_prm.adv_name, "JS135_000001");//par.adv_name = "JS_12";
-	adv_prm.adv_interval = 32;
+	adv_prm.adv_interval = 48;
 	adv_prm.adv_delay = 100;
 	adv_prm.adv_timeout = 5000;
 	adv_prm.tx_power = 4;
@@ -141,8 +141,12 @@ void Param_ADV_Store_Name(char *name_buf)
 	{
 		adv_prm.adv_name[loop] = name_buf[loop+10];
 	}
-	
+	CMNC_String_To_Hex(adv_prm.adv_name, name_hex);
 	NRF_LOG_INFO("name is %s", adv_prm.adv_name);
+	for(loop = 0; loop < 3; loop++)
+		{
+			NRF_LOG_INFO("!!!!!!!!!!!!!!!!!name_hex[%d]:0x%02x", loop, name_hex[loop]);
+		}
 }
 char* Param_ADV_Get_Name(void)
 {
@@ -345,7 +349,7 @@ void Param_ADV_Update_Data(void)
 		{
 			if(uart_data.adv_timeout[loop] == true)
 			{
-				NRF_LOG_INFO("update adv ");
+				//NRF_LOG_INFO("update adv ");
 				uart_data.adv_timeout[loop] = false;
 				
 				Param_Update_One();

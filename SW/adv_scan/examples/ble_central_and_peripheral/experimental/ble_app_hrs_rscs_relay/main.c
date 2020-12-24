@@ -3,7 +3,6 @@
 int main(void)
 {
 	U8 data[20];
-
 	Drive_Log_Init();
 	Drive_WDT_Init();
 	Drive_GPIO_Connect_State_Init();
@@ -35,9 +34,10 @@ int main(void)
 	NRF_LOG_INFO("start main while");
 	while(1)
     {
+		
 		Drive_Feed_Dog();
 		Uart_Data_Choose();
-		Param_ADV_Update_Data();
+		//Param_ADV_Update_Data();
         Drive_Idle_State_Handle();
     }
 
