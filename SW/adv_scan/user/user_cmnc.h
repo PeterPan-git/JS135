@@ -41,7 +41,8 @@ enum
 
 typedef enum
 {
-	DATA_GROUP_1 = 1,
+	DATA_GAOUP_0 = 0,
+	DATA_GROUP_1,
 	DATA_GROUP_2,
 	DATA_GROUP_3,
 	DATA_GROUP_4,
@@ -83,5 +84,5 @@ U8 CMCN_Check(void);
 U8 CMNC_CRC_Data(U8* rx, U8 num);
 U8 CMNC_Get_CRC_Digit(U8* rx);
 void CMNC_String_To_Hex(char* str, unsigned char* hex);
-
+bool CMNC_Repeat_Filt(U8 *rx);
 #endif

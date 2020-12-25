@@ -485,18 +485,18 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 					&&(p_data[10] == name_hex[1])
 					&&(p_data[11] == name_hex[2]))
 				{
-					NRF_LOG_RAW_INFO("o--------------k");
+					//NRF_LOG_RAW_INFO("o--------------k");
 					CMNC_APP_MCU_Data_Set(&p_data[7]);
 					CMCN_APP_MCU_Data_Send();
 				}
 				
-				NRF_LOG_RAW_INFO("data:0x");
+				//NRF_LOG_RAW_INFO("data:0x");
 				for(U8 i=0;i<field_length-1;i++)
 		  		{
-					NRF_LOG_RAW_INFO("%x", app_data[i]);
+					//NRF_LOG_RAW_INFO("%x", app_data[i]);
 
 				}
-				NRF_LOG_RAW_INFO("\n");
+				//NRF_LOG_RAW_INFO("\n");
 			}
 			
 			break;
@@ -525,7 +525,7 @@ void Uart_Data_Choose(void)
 	
 	if((rx_status == false) && (rx_inde > 1))
 	{
-		for(loop = 0; loop < 20; loop++)
+		for(loop = 0; loop < 8; loop++)
 		{
 			//NRF_LOG_INFO("user_rx_buf[%d] is 0x%02x", loop, user_rx_buf[loop]);
 
@@ -536,8 +536,11 @@ void Uart_Data_Choose(void)
 			if(head_status[1] == FD_1)
 			{
 				NRF_LOG_INFO("FD_1");
-				CMCN_Save(user_rx_buf);
-				CMCN_Do();
+				if(CMNC_Repeat_Filt(user_rx_buf) == false)
+				{
+					CMCN_Save(user_rx_buf);
+					CMCN_Do();
+				}
 				
 				rx_inde = 0;
 			}
@@ -565,12 +568,11 @@ void CMCN_Save(U8 *rx)
 	U8 space_data = 0;
 	U8 number_data = 0;
 	U8 crc_digit = 0;
-
+	
 	uart_data.length = rx[2];
 	number_data = (rx[2]) / 4;
 	space_data = CMCN_Check();
-	//uart_data.cs = CMNC_CRC_Data(&rx[2], rx[2]+1);
-	//crc_digit = uart_data.length+3;
+	
 	crc_digit = CMNC_Get_CRC_Digit(rx);
 	uart_data.cs = CMNC_CRC_Data(&rx[2], crc_digit-2);
 	NRF_LOG_INFO("crc_digit is %d", crc_digit);
@@ -591,6 +593,9 @@ void CMCN_Save(U8 *rx)
 	}
 	switch(number_data)
 	{
+		case DATA_GAOUP_0:
+			len = 4;
+			break;
 		case DATA_GROUP_1:
 			len = 4;
 			break;
@@ -739,27 +744,17 @@ U8 CMNC_CRC_Data(U8* rx, U8 num)
 
 U8 CMNC_Get_CRC_Digit(U8* rx)
 {
-	U8 loop;
 	U8 digit = 0;
 
-	for(loop = 0; loop < 20; loop++)
+	if(rx[2] == 1)
 	{
-		if((rx[loop] == 0) && (loop < 19))
-		{
-			digit = loop - 1;
-			break;
-		}
-		else if(loop == 19)
-		{
-			NRF_LOG_INFO("crc digit is 19");
-			digit = 19; 
-		}
-//		else
-//		{
-//			NRF_LOG_INFO("crc digit is 0");
-//			digit = 0;  
-//		}
+		digit = 7;
 	}
+	else
+	{
+		digit = rx[2]+3;
+	}
+
 	
 	return digit;
 }
@@ -793,6 +788,29 @@ void CMNC_String_To_Hex(char* str, unsigned char* hex)
 		diff |= temp[loop];
 		hex[loop2] = diff;
 		//NRF_LOG_INFO("hex[%d] is %x", loop2, hex[loop2]);
+	}
+}
+bool CMNC_Repeat_Filt(U8 *rx)
+{
+	U8 loop;
+	U8 sign = 0;
+
+	for(loop = 0; loop < 4; loop++)
+	{
+		if(rx[3+loop] == uart_data.ret_block[0][loop])
+		{
+			sign++;
+		}
+	}
+	if(sign == 4)
+	{
+		NRF_LOG_INFO("return true");
+		return true;
+	}
+	else
+	{
+		NRF_LOG_INFO("return false");
+		return false;
 	}
 }
 

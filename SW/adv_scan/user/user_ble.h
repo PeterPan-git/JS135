@@ -32,6 +32,13 @@ void BLE_Disconnect(void);
 
 void BLE_GATT_Init(void);
 void BLE_NUS_Data_Handler(ble_nus_evt_t * p_evt);
+bool app_shutdown_handler(nrf_pwr_mgmt_evt_t event);
+void buttonless_dfu_sdh_state_observer(nrf_sdh_state_evt_t state, void * p_context);
+void advertising_config_get(ble_adv_modes_config_t * p_config);
+void disconnect(uint16_t conn_handle, void * p_context);
+void ble_dfu_evt_handler(ble_dfu_buttonless_evt_type_t event);
+
+
 void BLE_ADV_Updata(U8 *data);
 void BLE_Serve_Init(void);
 void BLE_QWR_Error_Handler(uint32_t nrf_error);

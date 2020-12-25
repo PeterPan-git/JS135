@@ -5,6 +5,7 @@ int main(void)
 	U8 data[20];
 	Drive_Log_Init();
 	Drive_WDT_Init();
+	ble_dfu_buttonless_async_svci_init();
 	Drive_GPIO_Connect_State_Init();
 	CMNC_Data_Init();                          //广播数据块初始化
 	Param_ADV_Data_Init();                     //广播buffer初始化      
@@ -37,7 +38,7 @@ int main(void)
 		
 		Drive_Feed_Dog();
 		Uart_Data_Choose();
-		//Param_ADV_Update_Data();
+		Param_ADV_Update_Data();
         Drive_Idle_State_Handle();
     }
 

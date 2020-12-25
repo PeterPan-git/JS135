@@ -108,6 +108,7 @@
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\nrf_ble_qwr\nrf_ble_qwr.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\pwr_mgmt\nrf_pwr_mgmt.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\nrf_ble_scan\nrf_ble_scan.h
+.\_build\user_param.o: ..\..\..\..\..\..\..\modules\nrfx\hal\nrf_power.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\strerror\nrf_strerror.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_internal.h
@@ -115,6 +116,8 @@
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_ctrl_internal.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log_backend_interface.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log_default_backends.h
+.\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\bootloader\nrf_bootloader_info.h
+.\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\ble_services\ble_dfu\ble_dfu.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\ble_services\ble_nus\ble_nus.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\ble_link_ctx_manager\ble_link_ctx_manager.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\uart\app_uart.h

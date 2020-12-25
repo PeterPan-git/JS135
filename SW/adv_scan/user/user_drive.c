@@ -186,7 +186,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block1");
 					if(uart_data.adv_timer[1] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block1");
+					//	NRF_LOG_INFO("Clean Block1");
 						uart_data.adv_sta[1] =false;
 						uart_data.adv_timer[1] = 0;
 						Uart_Clean_Block(BLOCK1);
@@ -199,7 +199,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block2");
 					if(uart_data.adv_timer[2] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block2");
+					//	NRF_LOG_INFO("Clean Block2");
 						uart_data.adv_sta[2] =false;
 						uart_data.adv_timer[2] = 0;
 						Uart_Clean_Block(BLOCK2);
@@ -212,7 +212,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block3");
 					if(uart_data.adv_timer[3] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block3");
+					//	NRF_LOG_INFO("Clean Block3");
 						uart_data.adv_sta[3] =false;
 						uart_data.adv_timer[3] = 0;
 						Uart_Clean_Block(BLOCK3);
@@ -225,7 +225,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block4");
 					if(uart_data.adv_timer[4] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block4");
+					//	NRF_LOG_INFO("Clean Block4");
 						uart_data.adv_sta[4] =false;
 						uart_data.adv_timer[4] = 0;
 						Uart_Clean_Block(BLOCK4);
@@ -238,7 +238,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block5");
 					if(uart_data.adv_timer[5] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block5");
+					//	NRF_LOG_INFO("Clean Block5");
 						uart_data.adv_sta[5] =false;
 						uart_data.adv_timer[5] = 0;
 						Uart_Clean_Block(BLOCK5);
@@ -251,7 +251,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block6");
 					if(uart_data.adv_timer[6] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block6");
+					//	NRF_LOG_INFO("Clean Block6");
 						uart_data.adv_sta[6] =false;
 						uart_data.adv_timer[6] = 0;
 						Uart_Clean_Block(BLOCK6);
@@ -264,7 +264,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block7");
 					if(uart_data.adv_timer[7] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block7");
+					//	NRF_LOG_INFO("Clean Block7");
 						uart_data.adv_sta[7] =false;
 						uart_data.adv_timer[7] = 0;
 						Uart_Clean_Block(BLOCK7);

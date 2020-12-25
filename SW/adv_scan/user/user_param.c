@@ -86,7 +86,7 @@ void Param_ADV_Param_Init(void)
 	strcpy(adv_prm.adv_name, "JS135_000001");//par.adv_name = "JS_12";
 	adv_prm.adv_interval = 48;
 	adv_prm.adv_delay = 100;
-	adv_prm.adv_timeout = 5000;
+	adv_prm.adv_timeout = 10000;
 	adv_prm.tx_power = 4;
 	
 }
