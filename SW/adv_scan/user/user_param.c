@@ -53,7 +53,7 @@ void Param_ADV_Data_Get(U8 *data, _dat_blk dat_blk)
 			{
 				data[loop] = adv_dat.data1[loop];
 			}
-		
+			
 			break;
 
 		case ADV_DATA2:
@@ -84,9 +84,9 @@ void Param_ADV_Two_Get(_adv_two *sta)
 void Param_ADV_Param_Init(void)
 {
 	strcpy(adv_prm.adv_name, "JS135_000001");//par.adv_name = "JS_12";
-	adv_prm.adv_interval = 48;
-	adv_prm.adv_delay = 100;
-	adv_prm.adv_timeout = 10000;
+	adv_prm.adv_interval = 32;
+	adv_prm.adv_delay = 32;
+	adv_prm.adv_timeout = 5000;
 	adv_prm.tx_power = 4;
 	
 }

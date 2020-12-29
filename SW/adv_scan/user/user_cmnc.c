@@ -213,7 +213,6 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		NRF_LOG_INFO("Stop Adv");
 		#endif
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
-		nrf_delay_ms(10);
 		BLE_ADV_Stop();
 		
 	}
@@ -224,7 +223,6 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#endif
 		//Beacon_Adv_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
-		nrf_delay_ms(10);
 		BLE_ADV_Start();
 	}
 	else if((strcmp(rx_buf, rx_cmd16)) == 0)
@@ -485,18 +483,19 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 					&&(p_data[10] == name_hex[1])
 					&&(p_data[11] == name_hex[2]))
 				{
-					//NRF_LOG_RAW_INFO("o--------------k");
+					NRF_LOG_RAW_INFO("o--------------k");
 					CMNC_APP_MCU_Data_Set(&p_data[7]);
 					CMCN_APP_MCU_Data_Send();
 				}
 				
-				//NRF_LOG_RAW_INFO("data:0x");
-				for(U8 i=0;i<field_length-1;i++)
+				NRF_LOG_RAW_INFO("data:0x");
+				//for(U8 i=0;i<field_length-1;i++)
+				for(U8 i=0;i<20;i++)
 		  		{
-					//NRF_LOG_RAW_INFO("%x", app_data[i]);
+					NRF_LOG_RAW_INFO("%02x", app_data[i]);
 
 				}
-				//NRF_LOG_RAW_INFO("\n");
+				NRF_LOG_RAW_INFO("\n");
 			}
 			
 			break;
@@ -519,17 +518,18 @@ void Uart_Data_Choose(void)
 {
 	uint8_t head_status[2]; 
 
-	U8 loop;
+	//U8 loop;
 	head_status[0] = user_rx_buf[0];
 	head_status[1] = user_rx_buf[1];
 	
 	if((rx_status == false) && (rx_inde > 1))
 	{
-		for(loop = 0; loop < 8; loop++)
-		{
-			//NRF_LOG_INFO("user_rx_buf[%d] is 0x%02x", loop, user_rx_buf[loop]);
+		//for(loop = 0; loop < 8; loop++)
+	//	{
+			NRF_LOG_INFO("user_rx_buf[5] is 0x%02x", user_rx_buf[5]);
 
-		}
+			
+	//	}
 		if(head_status[0] == HD_1)
 		{
 			NRF_LOG_INFO("HD_1");
@@ -622,6 +622,10 @@ void CMCN_Save(U8 *rx)
 				loop3++;
 				//NRF_LOG_INFO("uart_data.ret_block[x][x] is 0x%x", uart_data.ret_block[loop1][loop2]);
 			}
+			NRF_LOG_INFO("loop1 is %d", loop1);
+			NRF_LOG_INFO("after ADV xu hao is %x", rx[5]);
+	
+			NRF_LOG_INFO("befor ADV xu hao is %x", uart_data.ret_block[0][2]);
 			if(loop3 == len)            //如果待存数据长度小于剩余存储空间，则提前退出程序
 			{
 				return;
@@ -792,17 +796,46 @@ void CMNC_String_To_Hex(char* str, unsigned char* hex)
 }
 bool CMNC_Repeat_Filt(U8 *rx)
 {
-	U8 loop;
+	U8 loop1, loop2;
 	U8 sign = 0;
-
-	for(loop = 0; loop < 4; loop++)
+	U8 temp = 0;
+#if 0
+	for(loop1 = 0; loop1 < 4; loop++)
 	{
-		if(rx[3+loop] == uart_data.ret_block[0][loop])
+		if(rx[3+loop1] == uart_data.ret_block[0][loop1])
 		{
 			sign++;
 		}
 	}
 	if(sign == 4)
+	{
+		NRF_LOG_INFO("return true");
+		return true;
+	}
+	else
+	{
+		NRF_LOG_INFO("return false");
+		return false;
+	}
+#endif
+
+	for(loop1 = 0, sign = 0; loop1 < 8; loop1++)
+	{
+		for(loop2 = 0; loop2 < 4; loop2++)
+		{
+			if(rx[3+loop2] == uart_data.ret_block[loop1][loop2])
+			{
+				sign++;
+			}
+			if(sign == 4)
+			{
+				temp++;
+			}
+		}
+	
+	}
+
+	if(temp >= 1)
 	{
 		NRF_LOG_INFO("return true");
 		return true;
