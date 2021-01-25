@@ -15,6 +15,7 @@ void Param_ADV_Data_Init(void)
 	adv_two.who_block = false;
 	memset(adv_dat.data1, 0x00, sizeof(adv_dat.data1));
 	memset(adv_dat.data2, 0x00, sizeof(adv_dat.data2));
+	Param_Set_Ble_Connect_Status(BLE_DISCONNECT);
 }
 
 void Param_ADV_Data_Set(U8 *data, _dat_blk dat_blk)
@@ -490,10 +491,10 @@ void Param_Get_MacAddr(void)
 	
 	err_code = sd_ble_gap_addr_get(&addr);
 	APP_ERROR_CHECK(err_code);
-	NRF_LOG_INFO("MAC addr*****************");
-	NRF_LOG_INFO("%02x, %02x, %02x, %02x, %02x, %02x,", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
-	NRF_LOG_INFO("*****************MAC addr");
-	//addr.addr[0] += 1;
+	//NRF_LOG_INFO("MAC addr*****************");
+	//NRF_LOG_INFO("%02x, %02x, %02x, %02x, %02x, %02x,", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
+	//NRF_LOG_INFO("*****************MAC addr");
+	addr.addr[0] += 1;
 	#if 0
 	addr.addr[0] = 0x11;
 	addr.addr[1] = 0x22;

@@ -1,0 +1,552 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.27.1.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 111 潘亚光, 111, LIC=BL28T-R5L3G-35FTX-HA4QP-9LM2N-X7CAA
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.27.1.0
+Toolchain Path:  D:\SW_Install\keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.27.1.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      Segger\JL2CM3.dll V2.99.35.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+C:\Users\潘亚光\Desktop\新建文件夹\nRF5_SDK_17.0.2_d674dde - Copy\examples\dfu\secure_bootloader\pca10100_s140_ble_debug\arm5_no_packs\secure_bootloader_ble_s140_pca10100_debug.uvprojx
+Project File Date:  01/19/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\SW_Install\keil\ARM\ARMCC\Bin'
+Rebuild target 'nrf52833_xxaa_s140'
+compiling dfu_public_key.c...
+compiling ble_srv_common.c...
+compiling nrf_bootloader_app_start.c...
+compiling nrf_bootloader_dfu_timers.c...
+compiling nrf_bootloader_app_start_final.c...
+compiling boards.c...
+compiling main.c...
+compiling nrf_crypto_ecc.c...
+compiling nrf_bootloader_info.c...
+compiling nrf_bootloader_wdt.c...
+compiling nrf_crypto_ecdsa.c...
+compiling nrf_bootloader.c...
+compiling nrf_crypto_hash.c...
+compiling oberon_backend_ecdh.c...
+compiling oberon_backend_ecc.c...
+compiling nrf_bootloader_fw_activation.c...
+compiling oberon_backend_eddsa.c...
+compiling oberon_backend_ecdsa.c...
+compiling nrf_crypto_init.c...
+compiling nrf_crypto_shared.c...
+compiling oberon_backend_chacha_poly_aead.c...
+compiling oberon_backend_hash.c...
+compiling oberon_backend_hmac.c...
+compiling dfu-cc.pb.c...
+compiling nrf_sw_backend_hash.c...
+compiling micro_ecc_backend_ecc.c...
+compiling micro_ecc_backend_ecdh.c...
+compiling micro_ecc_backend_ecdsa.c...
+compiling nrf_dfu.c...
+compiling nrf_dfu_mbr.c...
+compiling nrf_dfu_handling_error.c...
+compiling nrf_dfu_flash.c...
+compiling nrf_dfu_ble.c...
+compiling nrf_dfu_req_handler.c...
+compiling nrf_dfu_settings.c...
+compiling nrf_dfu_transport.c...
+compiling nrf_dfu_settings_svci.c...
+compiling nrf_dfu_utils.c...
+compiling nrf_nvmc.c...
+compiling nrf_dfu_ver_validation.c...
+compiling nrf_dfu_validation.c...
+compiling nrfx_atomic.c...
+compiling app_util_platform.c...
+compiling crc32.c...
+compiling app_error_weak.c...
+compiling app_scheduler.c...
+compiling nrf_assert.c...
+compiling mem_manager.c...
+compiling nrf_fprintf.c...
+compiling nrf_atfifo.c...
+compiling nrf_atomic.c...
+compiling nrf_fprintf_format.c...
+compiling nrf_balloc.c...
+compiling nrf_fstorage.c...
+compiling nrf_queue.c...
+compiling nrf_section_iter.c...
+compiling nrf_ringbuf.c...
+compiling nrf_strerror.c...
+compiling nrf_memobj.c...
+compiling nrf_fstorage_nvmc.c...
+compiling nrf_fstorage_sd.c...
+compiling sha256.c...
+compiling nrf_dfu_svci.c...
+compiling nrf_log_default_backends.c...
+compiling nrf_log_backend_serial.c...
+compiling nrf_log_str_formatter.c...
+compiling nrf_log_frontend.c...
+compiling nrf_log_backend_rtt.c...
+compiling nrf_svc_handler.c...
+compiling SEGGER_RTT_Syscalls_KEIL.c...
+compiling SEGGER_RTT_printf.c...
+compiling SEGGER_RTT.c...
+compiling pb_common.c...
+assembling arm_startup_nrf52820.s...
+compiling nrf_dfu_svci_handler.c...
+compiling pb_decode.c...
+compiling nrf_sdh.c...
+..\..\..\..\..\components\softdevice\common\nrf_sdh.c(78): warning:  #1215-D: #warning directive: Please select NRF_CLOCK_LF_ACCURACY_500_PPM when using NRF_CLOCK_LF_SRC_RC
+      #warning Please select NRF_CLOCK_LF_ACCURACY_500_PPM when using NRF_CLOCK_LF_SRC_RC
+..\..\..\..\..\components\softdevice\common\nrf_sdh.c: 1 warning, 0 errors
+compiling nrf_sdh_ble.c...
+compiling nrf_sdh_soc.c...
+compiling system_nrf52820.c...
+linking...
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.is_major_softdevice_update).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.on_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.XYcZ_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_balloc.o(i.nrf_balloc_alloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(.emb_text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_serial.o(i.nrf_log_backend_serial_put).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.timer_activate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_cmd_obj_execute_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.nrf_fstorage_erase).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_data_obj_execute_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_transport.o(i.nrf_dfu_transports_close).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_transport.o(i.nrf_dfu_transports_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_str_formatter.o(i.nrf_log_std_entry_process).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf_format.o(i.unsigned_print).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(i.main).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.postvalidate_app).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_balloc.o(i.nrf_balloc_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_str_formatter.o(i.nrf_log_hexdump_entry_process).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.rodata.curve_secp256r1).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_cmd_obj_write_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_prevalidate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_hexdump).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf_format.o(i.int_print).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.RTC1_IRQHandler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_boot_validate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_field_set_to_default).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.on_ctrl_pt_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_flash.o(i.nrf_dfu_flash_store).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_scheduler.o(i.app_sched_event_put).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.nrf_fstorage_sys_evt_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.std_header_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.queue_process).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_fw_activation.o(i.sd_bl_activate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu.o(i.nrf_dfu_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_flash.o(i.nrf_dfu_flash_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_data_obj_select_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.postvalidate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_util_platform.o(i.app_util_critical_region_enter).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.buf_prealloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_str_formatter.o(i.prefix_process).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_balloc.o(i.nrf_balloc_free).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.bits2int).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.on_rw_authorize_req).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_append).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.softdevice_info_ok).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.update_data_addr_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_util_platform.o(i.app_util_critical_region_exit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_cmd_obj_create_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching ctype_o.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.nrf_dfu_obj_op).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_common.o(i.pb_field_iter_next).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.decode_callback_field).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.nrf_dfu_data_req).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_data_obj_crc_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.pb_decoding_callback).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf.o(i.nrf_fprintf).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.timer_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings_svci.o(i.nrf_dfu_settings_additional_erase).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ver_validation.o(i.sd_req_ok).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_sdh_enable_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.nrf_gpio_pin_port_decode).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.nrf_gpio_pin_port_decode).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.advertising_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i._DoInit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(i.nrf_sdh_ble_evts_poll).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian_in_place).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.nrf_fstorage_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.std_n).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_str_formatter.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(i.app_error_fault_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.on_dfu_complete).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.read_raw_value).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.advertising_start).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_alloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_sub).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.x_side_default).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_read).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_svc_handler.o(i.nrf_svc_handler_c).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i.SEGGER_RTT_WriteNoLock).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_fixed64).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i._WriteBlocking).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_varint).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_skip_field).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.bootloader_reset).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_on_req).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.crypto_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.softdevices_evt_irq_enable).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_svarint).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_uvarint).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_read).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching micro_ecc_backend_ecdsa.o(i.nrf_crypto_backend_micro_ecc_verify).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.bsp_board_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf.o(i.nrf_fprintf_buffer_flush).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.event_send).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_section_iter.o(i.nrf_section_iter_next).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching sha256.o(i.sha256_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching sha256.o(i.sha256_update).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_backend_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_sdh_disable_request).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_section_iter.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(i.on_error).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.bsp_board_led_off).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.bsp_board_led_on).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_app_start_final.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.nrf_fstorage_is_busy).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(i.serial_tx).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.timer_stop).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_ecdsa.o(i.nrf_crypto_ecdsa_verify).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ver_validation.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.erase).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_section_iter.o(i.nrf_section_iter_item_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_varint32).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_varint).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.dfu_observer).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.on_flash_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ver_validation.o(i.fw_version_ok).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.erase).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(i.nrf_sdh_soc_evts_poll).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_default_backends.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ver_validation.o(i.sd_req_check).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_nvmc.o(i.nrf_nvmc_write_words).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_flash.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_utils.o(.conststring).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i._WriteNoCheck).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_bytes).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_tag).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu_public_key.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(i.app_error_handler_bare).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(i.dfu_observer).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.nrf_dfu_init_user).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_app_start_final.o(i.nrf_bootloader_flash_protect).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_init.o(i.nrf_crypto_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_scheduler.o(i.app_sched_execute).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.softdevice_evt_irq_disable).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_submessage).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_numBits).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_string).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.apply_z).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.inactivity_timeout).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(i.wdt_feed).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching crc32.o(i.crc32_compute).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_str_formatter.o(i.postfix_process).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_svarint).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(i.wdt_feed_timer_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings_svci.o(i.nrf_dfu_settings_adv_name_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_strerror.o(i.nrf_strerror_find).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_svci_handler.o(i.nrf_dfu_set_adv_name_on_call).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.sdh_request_observer_notify).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_modAdd).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.vli_modInv_update).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_hash.o(i.nrf_crypto_hash_calculate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_hash.o(i.nrf_crypto_hash_finalize).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.event_send).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_make_string_substream).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_ecc.o(i.nrf_crypto_ecc_public_key_from_raw).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.response_send).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.nrf_dfu_settings_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_create).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.invalid_packets_omit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.sdh_state_observer_notify).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.nrf_gpio_cfg).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_free).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.do_reset).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_info.o(i.nrf_bootloader_mbr_addrs_populate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_nvmc.o(i.nrf_nvmc_page_erase).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_nvmc.o(i.nrf_nvmc_write_word).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_section_iter.o(i.nrf_section_iter_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.module_idx_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_color_id_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_sdh_evts_poll).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_hash.o(i.nrf_crypto_hash_update).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf_format.o(i.buffer_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_common.o(i.pb_field_iter_find).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.iter_from_extension).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_hash.o(i.nrf_crypto_hash_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.fw_hash_ok).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_scheduler.o(i.app_sched_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_default_backends.o(i.nrf_log_default_backends_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_panic).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_cmp_unsafe).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.nrf_bootloader_dfu_inactivity_timer_restart).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu.o(i.dfu_observer).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.nrf_dfu_settings_progress_reset).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_utils.o(i.nrf_dfu_bank0_start_addr).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_modSub).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.nrf_gpio_pin_write).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_message_set_to_defaults).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sw_backend_hash.o(i.nrf_sw_backend_hash_sha256_finalize).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.cmd_response_offset_and_crc_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.queue_start).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_svci_handler.o(i.nrf_dfu_set_adv_name_on_sys_evt).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.__sd_nvic_app_accessible_irq).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching arm_startup_nrf52820.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching memcpya.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching memseta.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_common.o(i.pb_field_iter_begin).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(i.WDT_IRQHandler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_hash.o(i.verify_context).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.response_crc_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.nrf_dfu_settings_write_and_backup).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings_svci.o(i.nrf_dfu_settings_adv_name_is_valid).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_utils.o(i.nrf_dfu_bank1_start_addr).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.nrf_fstorage_sdh_state_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.uninit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_svci_handler.o(i.nrf_dfu_set_adv_name_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode_fixed32).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_readbyte).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_modMult_fast).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.crc_ok).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_put).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_decode).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_isZero).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching llshl.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_ringbuf.o(i.nrf_ringbuf_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_5).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_module_name_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_sdh_request_continue).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.buf_read).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.timer_start).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_output_prepare).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_shared.o(i.nrf_crypto_internal_double_swap_endian).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching app_util_platform.o(i.privilege_level_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.decode_field).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_rshift1).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching memcmp.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.nrf_bootloader_dfu_timer_counter_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_input_check).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sw_backend_hash.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_mbr.o(i.nrf_dfu_mbr_init_sd).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings_svci.o(i.nrf_dfu_settings_adv_name_copy).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.addr_is_within_bounds).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.nrf_fstorage_sdh_req_handler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_put).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.buffer_is_empty).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_section_iter_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(i.nrf_section_iter_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(i.nrf_section_iter_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ver_validation.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_raw_input_check).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_crypto_shared.o(i.nrf_crypto_internal_double_swap_endian_in_place).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_mbr.o(i.nrf_dfu_mbr_copy_bl).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings_svci.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_item_alloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_item_free).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_item_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_item_put).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i._GetAvailWriteSpace).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_clear).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.nrf_bootloader_wdt_feed_timer_start).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(i.nrf_bootloader_wdt_feed).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(nrf_balloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_utils.o(i.nrf_dfu_bank_invalidate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_assert.o(i.assert_nrf_callback).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.queue_free).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_strerror.o(i.nrf_strerror_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.dropped_sat16_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_4).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_module_cnt_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(nrf_balloc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_svc_handler.o(.emb_text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(i.nrf_sdh_ble_app_ram_start_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_istream_from_buffer).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.bcopy).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_testBit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(i.bsp_board_leds_off).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(i.uint32_encode).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.addr_is_page_aligned).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_3).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching strcpy.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.boot_validate).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(i.nrf_wdt_started).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_public_key_from_raw).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_handling_error.o(i.ext_error_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_mbr.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atfifo.o(i.nrf_atfifo_clear).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fprintf_format.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.is_busy).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.uninit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.is_busy).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_default_backends.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_default_backends.o(log_backends).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_2).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_flash.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.ext_err_code_handle).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.read).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.read).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_1).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching strlen.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.flash_write_callback).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader.o(i.nrf_power_gpregret_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(i.nrf_rtc_event_clear).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_fw_activation.o(i.flash_write_callback).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching micro_ecc_backend_ecc.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_handling_error.o(i.ext_error_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_mbr.o(i.nrf_dfu_mbr_irq_forward_address_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.boot_validation_crc).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.nrf_dfu_settings_backup).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_present).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_add).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_and).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_or).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_sub).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage.o(i.addr_is_aligned32).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_svci_handler.o(svc_data).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.nrf_sdh_is_enabled).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_soc.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_settings.o(i.settings_crc_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_fetch_and).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_fetch_or).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_u32_fetch_store).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching mem_manager.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching boards.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching ble_srv_common.o(i.ble_srv_is_notification_enabled).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_wdt.o(log_const_data).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(dfu_trans).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_ble.o(sdh_ble_observers2).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(sdh_req_observers0).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(sdh_soc_observers0).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(sdh_state_observers0).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(i.nrf_log_frontend_std_0).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh_ble.o(sdh_stack_observers0).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_vli_modSquare_fast).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching uECC.c.o(.text.uECC_secp256r1).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching ctype_o.o(.text).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching main.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_bootloader_dfu_timers.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sw_backend_hash.o(i.nrf_sw_backend_hash_sha256_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sw_backend_hash.o(i.nrf_sw_backend_hash_sha256_update).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_curve_get).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_utils.o(i.nrf_dfu_softdevice_start_address).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_validation.o(i.nrf_dfu_validation_activation_prepare).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_flag_clear).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_flag_clear_fetch).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_flag_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_atomic.o(i.nrf_atomic_flag_set_fetch).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_fixed32).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching pb_decode.o(i.pb_dec_fixed64).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_req).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.rmap).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_nvmc.o(i.wmap).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.rmap).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_fstorage_sd.o(i.wmap).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_memobj.o(i.nrf_memobj_pool_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_frontend.o(.conststrlit).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching segger_rtt.o(i.SEGGER_RTT_Init).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_sdh.o(i.SWI2_EGU2_IRQHandler).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching ctype_o.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_flush).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_panic_set).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6406E: No space in execution regions with .ANY selector matching dfu-cc.pb.o(.constdata).
+.\_build\nrf52833_xxaa_s140.axf: Error: L6407E: Sections of aggregate size 0x5d04 bytes could not fit into .ANY selector(s).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 401 error messages.
+".\_build\nrf52833_xxaa_s140.axf" - 401 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.6.0.pack
+                ARM.CMSIS.5.6.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.3.0
+
+Package Vendor: NordicSemiconductor
+                http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.35.0.pack
+                NordicSemiconductor.nRF_DeviceFamilyPack.8.35.0
+                Nordic Semiconductor nRF ARM devices Device Family Pack with BSD license.
+   * Component: Startup Version: 8.35.0
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_nrf52833_xxaa_s140
+  D:\SW_Install\keil\ARM\CMSIS\5.6.0\CMSIS\Core\Include
+  D:\SW_Install\keil\NordicSemiconductor\nRF_DeviceFamilyPack\8.35.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.3.0
+
+   * Component: NordicSemiconductor::Device:Startup:8.35.0
+      Source file:   Device\Source\system_nrf52820.c
+      Include file:  Device\Include\system_nrf52820.h
+      Source file:   Device\Source\arm\arm_startup_nrf52820.s
+      Include file:  Device\Include\system_nrf.h
+Target not created.
+Build Time Elapsed:  00:00:24
+</pre>
+</body>
+</html>

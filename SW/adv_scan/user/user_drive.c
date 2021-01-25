@@ -54,9 +54,12 @@ void Drive_UART_Send_String(char* buf, uint16_t len)
 }
 void Drive_UART_Evt_Handle(app_uart_evt_t * p_event)
 {
+
 	switch (p_event->evt_type)
 	{
 		case APP_UART_DATA_READY:
+			
+		
 			//NRF_LOG_INFO("uart APP_UART_DATA_READY");
 			rx_status = true;
 
@@ -173,7 +176,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block0");
 					if(uart_data.adv_timer[0] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block0");
+						//NRF_LOG_INFO("Clean Block0");
 						uart_data.adv_sta[0] =false;
 						uart_data.adv_timer[0] = 0;
 						Uart_Clean_Block(BLOCK0);

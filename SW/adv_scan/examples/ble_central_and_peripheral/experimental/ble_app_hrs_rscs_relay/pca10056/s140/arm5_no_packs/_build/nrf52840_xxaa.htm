@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\_build\nrf52840_xxaa.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\_build\nrf52840_xxaa.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Dec 29 14:07:20 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Jan 25 09:25:29 2021
 <BR><P>
 <H3>Maximum Stack Usage =        888 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -161,6 +161,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_evt_handler
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_MacAddr
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_WDT_Init
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_UART_Init
@@ -180,8 +182,6 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_uart_get
 <LI><a href="#[23b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;softdevices_evt_irq_enable
 <LI><a href="#[23a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;softdevice_evt_irq_disable
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_QWR_Error_Handler
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_NUS_Data_Handler
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_GAP_Conn_Params_Error_Handler
@@ -403,8 +403,8 @@ Global Symbols
 <LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;manuf_specific_data_encode
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memobj_op
-<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteNoCheck
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteBlocking
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteNoCheck
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteBlocking
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Updata
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Set
 </UL>
@@ -435,12 +435,12 @@ Global Symbols
 <P><STRONG><a name="[6a]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_TxPwr
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_TxPwr
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Timeout
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Name
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Interval
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Delay
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[7a]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
@@ -497,6 +497,7 @@ Global Symbols
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Scan_Init
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_GAP_Params_Init
 <LI><a href="#[20d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;string_print
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Store_Name
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_TxPwr
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Timeout
@@ -508,14 +509,13 @@ Global Symbols
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Name
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Interval
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Delay
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
-<P><STRONG><a name="[f6]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
+<P><STRONG><a name="[f5]"></a>strcmp</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, strcmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_ble_scan_name_filter_add
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[142]"></a>memcmp</STRONG> (Thumb, 26 bytes, Stack size 12 bytes, memcmp.o(.text))
@@ -527,7 +527,7 @@ Global Symbols
 
 <P><STRONG><a name="[d4]"></a>strcpy</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, strcpy.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Param_Init
-<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DoInit
+<LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DoInit
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Param
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_TxPwr
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Timeout
@@ -536,10 +536,10 @@ Global Symbols
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Delay
 </UL>
 
-<P><STRONG><a name="[fa]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
+<P><STRONG><a name="[f9]"></a>strncmp</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, strncmp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strncmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[6d]"></a>atoi</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, atoi.o(.text))
@@ -616,7 +616,7 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[7d]"></a>BLE_ADV_Start</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, user_ble.o(i.BLE_ADV_Start))
@@ -628,7 +628,7 @@ Global Symbols
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Status_Set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_Two
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_One
@@ -641,7 +641,7 @@ Global Symbols
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SystemReset
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Status_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_Two
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_One
@@ -661,8 +661,8 @@ Global Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_One
 </UL>
 
-<P><STRONG><a name="[f7]"></a>BLE_Disconnect</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, user_ble.o(i.BLE_Disconnect))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<P><STRONG><a name="[f6]"></a>BLE_Disconnect</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, user_ble.o(i.BLE_Disconnect))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[58]"></a>BLE_Evt_Handler</STRONG> (Thumb, 374 bytes, Stack size 24 bytes, user_ble.o(i.BLE_Evt_Handler))
@@ -697,7 +697,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[8c]"></a>BLE_GAP_Params_Init</STRONG> (Thumb, 150 bytes, Stack size 64 bytes, user_ble.o(i.BLE_GAP_Params_Init))
+<P><STRONG><a name="[8c]"></a>BLE_GAP_Params_Init</STRONG> (Thumb, 152 bytes, Stack size 64 bytes, user_ble.o(i.BLE_GAP_Params_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = BLE_GAP_Params_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler
@@ -753,7 +753,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[89]"></a>BLE_Scan_Start</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, user_ble.o(i.BLE_Scan_Start))
+<P><STRONG><a name="[89]"></a>BLE_Scan_Start</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, user_ble.o(i.BLE_Scan_Start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360<LI>Call Chain = BLE_Scan_Start &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler
@@ -761,8 +761,8 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Scan_Status_Set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Evt_Handler
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[85]"></a>BLE_Scan_Stop</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, user_ble.o(i.BLE_Scan_Stop))
@@ -771,8 +771,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_ble_scan_stop
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Scan_Status_Set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Evt_Handler
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Evt_Handler
 </UL>
 
 <P><STRONG><a name="[99]"></a>BLE_Serve_Init</STRONG> (Thumb, 126 bytes, Stack size 24 bytes, user_ble.o(i.BLE_Serve_Init))
@@ -822,7 +822,7 @@ Global Symbols
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Stop
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Get
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 </UL>
 
 <P><STRONG><a name="[a4]"></a>CMCN_Get</STRONG> (Thumb, 208 bytes, Stack size 48 bytes, user_cmnc.o(i.CMCN_Get))
@@ -847,7 +847,7 @@ Global Symbols
 <LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_CRC_Data
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Check
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 </UL>
 
 <P><STRONG><a name="[ac]"></a>CMNC_APP_MCU_Data_Init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, user_cmnc.o(i.CMNC_APP_MCU_Data_Init))
@@ -901,7 +901,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 </UL>
 
 <P><STRONG><a name="[e2]"></a>CMNC_String_To_Hex</STRONG> (Thumb, 96 bytes, Stack size 28 bytes, user_cmnc.o(i.CMNC_String_To_Hex))
@@ -1008,7 +1008,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_uart_put
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_APP_MCU_Data_Send
 </UL>
 
@@ -1052,16 +1052,17 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[a5]"></a>Param_ADV_Data_Get</STRONG> (Thumb, 58 bytes, Stack size 0 bytes, user_param.o(i.Param_ADV_Data_Get))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_Two
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Update_One
 </UL>
 
-<P><STRONG><a name="[d2]"></a>Param_ADV_Data_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, user_param.o(i.Param_ADV_Data_Init))
+<P><STRONG><a name="[d2]"></a>Param_ADV_Data_Init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, user_param.o(i.Param_ADV_Data_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Param_ADV_Data_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Set_Ble_Connect_Status
+<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1081,7 +1082,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[d7]"></a>Param_ADV_Get_Interval</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, user_param.o(i.Param_ADV_Get_Interval))
@@ -1093,7 +1094,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[d8]"></a>Param_ADV_Get_Name</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, user_param.o(i.Param_ADV_Get_Name))
@@ -1104,7 +1105,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[79]"></a>Param_ADV_Get_Param</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, user_param.o(i.Param_ADV_Get_Param))
@@ -1127,7 +1128,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[da]"></a>Param_ADV_Get_TxPwr</STRONG> (Thumb, 84 bytes, Stack size 40 bytes, user_param.o(i.Param_ADV_Get_TxPwr))
@@ -1139,7 +1140,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[db]"></a>Param_ADV_Param_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, user_param.o(i.Param_ADV_Param_Init))
@@ -1157,7 +1158,7 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[dd]"></a>Param_ADV_Set_Interval</STRONG> (Thumb, 82 bytes, Stack size 32 bytes, user_param.o(i.Param_ADV_Set_Interval))
@@ -1167,7 +1168,7 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[de]"></a>Param_ADV_Set_Name</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, user_param.o(i.Param_ADV_Set_Name))
@@ -1176,7 +1177,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[df]"></a>Param_ADV_Set_Timeout</STRONG> (Thumb, 88 bytes, Stack size 32 bytes, user_param.o(i.Param_ADV_Set_Timeout))
@@ -1186,7 +1187,7 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[e0]"></a>Param_ADV_Set_TxPwr</STRONG> (Thumb, 168 bytes, Stack size 32 bytes, user_param.o(i.Param_ADV_Set_TxPwr))
@@ -1197,13 +1198,13 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[e4]"></a>Param_ADV_Status_Get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_ADV_Status_Get))
 <BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Update_Data
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Timer_Delay_Event_Handler
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[7f]"></a>Param_ADV_Status_Set</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_ADV_Status_Set))
@@ -1221,7 +1222,7 @@ Global Symbols
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[74]"></a>Param_ADV_Two_Get</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, user_param.o(i.Param_ADV_Two_Get))
@@ -1240,22 +1241,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f8]"></a>Param_Get_Ble_Connect_Status</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Get_Ble_Connect_Status))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<P><STRONG><a name="[f7]"></a>Param_Get_Ble_Connect_Status</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Get_Ble_Connect_Status))
+<BR><BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
-<P><STRONG><a name="[e7]"></a>Param_Get_MacAddr</STRONG> (Thumb, 154 bytes, Stack size 40 bytes, user_param.o(i.Param_Get_MacAddr))
-<BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = Param_Get_MacAddr &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
+<P><STRONG><a name="[e7]"></a>Param_Get_MacAddr</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, user_param.o(i.Param_Get_MacAddr))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368<LI>Call Chain = Param_Get_MacAddr &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_6
 </UL>
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f9]"></a>Param_Scan_Status_Get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Scan_Status_Get))
-<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<P><STRONG><a name="[f8]"></a>Param_Scan_Status_Get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Scan_Status_Get))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
 </UL>
 
 <P><STRONG><a name="[97]"></a>Param_Scan_Status_Set</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Scan_Status_Set))
@@ -1264,7 +1264,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[83]"></a>Param_Set_Ble_Connect_Status</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Set_Ble_Connect_Status))
-<BR><BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Evt_Handler
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Data_Init
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Evt_Handler
 </UL>
 
 <P><STRONG><a name="[e5]"></a>Param_Update_One</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, user_param.o(i.Param_Update_One))
@@ -1298,20 +1299,20 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
-<P><STRONG><a name="[e9]"></a>SEGGER_RTT_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, segger_rtt.o(i.SEGGER_RTT_Init))
+<P><STRONG><a name="[e8]"></a>SEGGER_RTT_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, segger_rtt.o(i.SEGGER_RTT_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SEGGER_RTT_Init &rArr; _DoInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DoInit
+<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_DoInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_backend_rtt_init
 </UL>
 
-<P><STRONG><a name="[eb]"></a>SEGGER_RTT_WriteNoLock</STRONG> (Thumb, 126 bytes, Stack size 32 bytes, segger_rtt.o(i.SEGGER_RTT_WriteNoLock))
+<P><STRONG><a name="[ea]"></a>SEGGER_RTT_WriteNoLock</STRONG> (Thumb, 126 bytes, Stack size 32 bytes, segger_rtt.o(i.SEGGER_RTT_WriteNoLock))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = SEGGER_RTT_WriteNoLock &rArr; _WriteNoCheck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteNoCheck
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteBlocking
-<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GetAvailWriteSpace
+<BR>[Calls]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteNoCheck
+<LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_WriteBlocking
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GetAvailWriteSpace
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;serial_tx
 </UL>
@@ -1319,49 +1320,49 @@ Global Symbols
 <P><STRONG><a name="[20]"></a>SWI2_EGU2_IRQHandler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, nrf_sdh.o(i.SWI2_EGU2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SWI2_EGU2_IRQHandler &rArr; nrf_sdh_evts_poll &rArr; nrf_section_iter_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
-<P><STRONG><a name="[f3]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_nrf52820.o(i.SystemCoreClockUpdate))
+<P><STRONG><a name="[f2]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_nrf52820.o(i.SystemCoreClockUpdate))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
 <P><STRONG><a name="[27]"></a>SystemInit</STRONG> (Thumb, 386 bytes, Stack size 8 bytes, system_nrf52820.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SystemInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_66
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_36
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_136
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR>[Calls]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_66
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_36
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf52_errata_136
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(.text)
 </UL>
 <P><STRONG><a name="[12]"></a>TIMER0_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrfx_timer.o(i.TIMER0_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIMER0_IRQHandler &rArr; irq_handler &rArr; nrf_timer_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
 <P><STRONG><a name="[13]"></a>TIMER1_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrfx_timer.o(i.TIMER1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIMER1_IRQHandler &rArr; irq_handler &rArr; nrf_timer_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
 <P><STRONG><a name="[14]"></a>TIMER2_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrfx_timer.o(i.TIMER2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIMER2_IRQHandler &rArr; irq_handler &rArr; nrf_timer_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
 <P><STRONG><a name="[24]"></a>TIMER3_IRQHandler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrfx_timer.o(i.TIMER3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = TIMER3_IRQHandler &rArr; irq_handler &rArr; nrf_timer_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
@@ -1370,12 +1371,12 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> arm_startup_nrf52820.o(RESET)
 </UL>
-<P><STRONG><a name="[fb]"></a>Uart_Clean_Block</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, user_cmnc.o(i.Uart_Clean_Block))
-<BR><BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Timer_Delay_Event_Handler
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<P><STRONG><a name="[fa]"></a>Uart_Clean_Block</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, user_cmnc.o(i.Uart_Clean_Block))
+<BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_Timer_Delay_Event_Handler
 </UL>
 
-<P><STRONG><a name="[f5]"></a>Uart_Cmd</STRONG> (Thumb, 1284 bytes, Stack size 48 bytes, user_cmnc.o(i.Uart_Cmd))
+<P><STRONG><a name="[f4]"></a>Uart_Cmd</STRONG> (Thumb, 1360 bytes, Stack size 48 bytes, user_cmnc.o(i.Uart_Cmd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 656<LI>Call Chain = Uart_Cmd &rArr; BLE_ADV_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
@@ -1383,14 +1384,14 @@ Global Symbols
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Scan_Start
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Start
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Init
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_Ble_Connect_Status
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Scan_Stop
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Disconnect
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Disconnect
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Stop
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Clean_Block
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Status_Get
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_UART_Send_String
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Clean_Block
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Scan_Status_Get
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_Ble_Connect_Status
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Scan_Status_Get
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Store_Name
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_TxPwr
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Timeout
@@ -1402,20 +1403,21 @@ Global Symbols
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Name
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Interval
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Delay
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strncmp
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 </UL>
 
-<P><STRONG><a name="[fc]"></a>Uart_Data_Choose</STRONG> (Thumb, 212 bytes, Stack size 8 bytes, user_cmnc.o(i.Uart_Data_Choose))
-<BR><BR>[Stack]<UL><LI>Max Depth = 664<LI>Call Chain = Uart_Data_Choose &rArr; Uart_Cmd &rArr; BLE_ADV_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
+<P><STRONG><a name="[fb]"></a>Uart_Data_Choose</STRONG> (Thumb, 194 bytes, Stack size 16 bytes, user_ble.o(i.Uart_Data_Choose))
+<BR><BR>[Stack]<UL><LI>Max Depth = 672<LI>Call Chain = Uart_Data_Choose &rArr; Uart_Cmd &rArr; BLE_ADV_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
-<BR>[Calls]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_nus_data_send
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_Ble_Connect_Status
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_Repeat_Filt
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
@@ -1423,13 +1425,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[2f]"></a>User_Timer_Delay_Event_Handler</STRONG> (Thumb, 594 bytes, Stack size 56 bytes, user_drive.o(i.User_Timer_Delay_Event_Handler))
+<P><STRONG><a name="[2f]"></a>User_Timer_Delay_Event_Handler</STRONG> (Thumb, 574 bytes, Stack size 56 bytes, user_drive.o(i.User_Timer_Delay_Event_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = User_Timer_Delay_Event_Handler &rArr; nrf_log_frontend_std_0 &rArr;  std_n (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Get_Param
+<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Clean_Block
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Status_Get
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Clean_Block
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_drive.o(i.Drive_Timer0_to_3_Init)
 </UL>
@@ -1612,7 +1614,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_nvic_critical_region_enter
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_state_evt_handler
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_enable_request
+<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_disable_request
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_state_evt_handler
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_queue_push
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_queue_generic_pop
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_clock_lfclk_release
@@ -1622,8 +1626,6 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buf_prealloc
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_prs_acquire
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_wdt_channel_alloc
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_enable_request
-<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_disable_request
 </UL>
 
 <P><STRONG><a name="[126]"></a>app_util_critical_region_exit</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, app_util_platform.o(i.app_util_critical_region_exit))
@@ -1631,7 +1633,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sd_nvic_irq_disable
 </UL>
-<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_state_evt_handler
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_enable_request
+<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_disable_request
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_state_evt_handler
 <LI><a href="#[1f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_queue_push
 <LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_queue_generic_pop
 <LI><a href="#[204]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_drv_clock_lfclk_release
@@ -1641,8 +1645,6 @@ Global Symbols
 <LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buf_prealloc
 <LI><a href="#[243]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_prs_acquire
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_wdt_channel_alloc
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_enable_request
-<LI><a href="#[237]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_disable_request
 </UL>
 
 <P><STRONG><a name="[136]"></a>blcm_link_ctx_get</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, ble_link_ctx_manager.o(i.blcm_link_ctx_get))
@@ -1650,7 +1652,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_conn_state_conn_idx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_write
+<BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_nus_data_send
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_write
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_hvx_tx_complete
 <LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_connect
 </UL>
@@ -1892,8 +1895,16 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_ble.o(i.BLE_Serve_Init)
 </UL>
-<P><STRONG><a name="[9b]"></a>ble_nus_init</STRONG> (Thumb, 260 bytes, Stack size 72 bytes, ble_nus.o(i.ble_nus_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = ble_nus_init &rArr; characteristic_add
+<P><STRONG><a name="[fc]"></a>ble_nus_data_send</STRONG> (Thumb, 122 bytes, Stack size 48 bytes, ble_nus.o(i.ble_nus_data_send))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = ble_nus_data_send &rArr; blcm_link_ctx_get &rArr; ble_conn_state_conn_idx &rArr; ble_conn_state_valid &rArr; nrf_atflags_get
+</UL>
+<BR>[Calls]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;blcm_link_ctx_get
+</UL>
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+</UL>
+
+<P><STRONG><a name="[9b]"></a>ble_nus_init</STRONG> (Thumb, 382 bytes, Stack size 88 bytes, ble_nus.o(i.ble_nus_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = ble_nus_init &rArr; characteristic_add
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;characteristic_add
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
@@ -2077,12 +2088,11 @@ Global Symbols
 <LI><a href="#[1fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_ble_scan_on_adv_report
 </UL>
 
-<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 688<LI>Call Chain = main &rArr; Uart_Data_Choose &rArr; Uart_Cmd &rArr; BLE_ADV_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
+<P><STRONG><a name="[26]"></a>main</STRONG> (Thumb, 120 bytes, Stack size 24 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 696<LI>Call Chain = main &rArr; Uart_Data_Choose &rArr; Uart_Cmd &rArr; BLE_ADV_Init &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
 </UL>
-<BR>[Calls]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
-<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_buttonless_async_svci_init
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
+<BR>[Calls]<UL><LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_buttonless_async_svci_init
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_MacAddr
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Update_Data
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Param_Init
@@ -2558,7 +2568,7 @@ Global Symbols
 <P><STRONG><a name="[21c]"></a>nrf_log_backend_rtt_init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_log_backend_rtt_init &rArr; SEGGER_RTT_Init &rArr; _DoInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_Init
+<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_default_backends_init
 </UL>
@@ -2596,9 +2606,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_write
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_alloc
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_util_critical_region_exit
 <LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_util_critical_region_enter
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_put
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_get
 <LI><a href="#[223]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;buffer_is_empty
@@ -2616,18 +2626,20 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std_n
 </UL>
-<BR>[Called By]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_svci_vector_table_unset
+<BR>[Called By]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
+<LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_svci_vector_table_unset
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_svci_vector_table_set
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;set_adv_name
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;queue_process
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_MacAddr
-<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;drv_rtc_init
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_Repeat_Filt
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Receice
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
+<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_evt_handler
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_shutdown_handler
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Scan_Evt_Handler
@@ -2637,10 +2649,6 @@ Global Symbols
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_WDT_Even_Handle
 <LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_UART_Evt_Handle
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_TxPwr
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Cmd
-<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_Repeat_Filt
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Do
 </UL>
 
 <P><STRONG><a name="[77]"></a>nrf_log_frontend_std_1</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_1))
@@ -2652,15 +2660,15 @@ Global Symbols
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_exchange_mtu_request_evt
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_connected_evt
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_length_update
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_default_cfg_set
 <LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_svci_vector_table_unset
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_svci_vector_table_set
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_ble_scan_start
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Data_Choose
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_ADV_Init
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
-<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_default_cfg_set
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Receice
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_evt_handler
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_NUS_Data_Handler
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Store_Name
@@ -2668,7 +2676,6 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Timeout
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Interval
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Delay
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
 </UL>
 
 <P><STRONG><a name="[ab]"></a>nrf_log_frontend_std_2</STRONG> (Thumb, 32 bytes, Stack size 32 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_2))
@@ -2677,11 +2684,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std_n
 </UL>
 <BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_length_update
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;disconnect
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Store_Name
-<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_Save
 </UL>
 
 <P><STRONG><a name="[20e]"></a>nrf_log_frontend_std_3</STRONG> (Thumb, 40 bytes, Stack size 40 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_3))
@@ -2700,14 +2707,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std_n
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
-</UL>
-
-<P><STRONG><a name="[e8]"></a>nrf_log_frontend_std_6</STRONG> (Thumb, 60 bytes, Stack size 64 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_6))
-<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = nrf_log_frontend_std_6 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr; nrf_memobj_alloc &rArr; nrf_memobj_free &rArr; nrf_balloc_free &rArr; app_util_critical_region_enter &rArr; sd_nvic_critical_region_enter
-</UL>
-<BR>[Calls]<UL><LI><a href="#[224]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;std_n
-</UL>
-<BR>[Called By]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Get_MacAddr
 </UL>
 
 <P><STRONG><a name="[221]"></a>nrf_log_hexdump_entry_process</STRONG> (Thumb, 164 bytes, Stack size 40 bytes, nrf_log_str_formatter.o(i.nrf_log_hexdump_entry_process))
@@ -2765,8 +2764,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[22a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_free
 <LI><a href="#[1e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_balloc_alloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_alloc
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gatts_hvx_alloc
+<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gatts_hvx_alloc
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_alloc
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 </UL>
 
@@ -2821,8 +2820,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memobj_op
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_alloc
-<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gatts_hvx_alloc
+<BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gatts_hvx_alloc
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gattc_write_alloc
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_dequeue
 </UL>
 
@@ -2914,8 +2913,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_strerror_get
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_2
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
-<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[235]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ram_end_address_get
+<LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_Stack_Init
 </UL>
@@ -2945,7 +2944,7 @@ Global Symbols
 <LI><a href="#[215]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_request_continue
 </UL>
 
-<P><STRONG><a name="[ef]"></a>nrf_sdh_evts_poll</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_sdh.o(i.nrf_sdh_evts_poll))
+<P><STRONG><a name="[ee]"></a>nrf_sdh_evts_poll</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_sdh.o(i.nrf_sdh_evts_poll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_sdh_evts_poll &rArr; nrf_section_iter_init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[236]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_section_iter_next
@@ -2976,12 +2975,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[23d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_section_iter_item_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_pwr_mgmt_init
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
+<LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_pwr_mgmt_init
 <LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_state_observer_notify
 <LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_request_observer_notify
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
 </UL>
 
 <P><STRONG><a name="[236]"></a>nrf_section_iter_next</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, nrf_section_iter.o(i.nrf_section_iter_next))
@@ -2989,12 +2988,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[23d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_section_iter_item_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shutdown_process
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
+<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
+<LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;shutdown_process
 <LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_state_observer_notify
 <LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_request_observer_notify
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_soc_evts_poll
-<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_evts_poll
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
 </UL>
 
 <P><STRONG><a name="[27e]"></a>nrf_sortlist_add</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, nrf_sortlist.o(i.nrf_sortlist_add))
@@ -3034,9 +3033,9 @@ Global Symbols
 <LI><a href="#[1ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_exchange_mtu_request_evt
 <LI><a href="#[1ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_connected_evt
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;data_length_update
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_default_cfg_set
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 </UL>
 
 <P><STRONG><a name="[203]"></a>nrfx_clock_enable</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, nrfx_clock.o(i.nrfx_clock_enable))
@@ -3718,8 +3717,8 @@ Local Symbols
 <BR>[Calls]<UL><LI><a href="#[22f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_queue_generic_pop
 <LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_read
 <LI><a href="#[22a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_memobj_free
-<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;request_err_code_handle
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
+<LI><a href="#[26b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;request_err_code_handle
 </UL>
 <BR>[Called By]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_ble_gq_on_ble_evt
 </UL>
@@ -3793,7 +3792,7 @@ Local Symbols
 <P><STRONG><a name="[1f8]"></a>nrf_ble_scan_name_filter_add</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, nrf_ble_scan.o(i.nrf_ble_scan_name_filter_add))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_ble_scan_name_filter_add &rArr; strcmp
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
@@ -4407,7 +4406,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_uarte_0_irq_handler
 </UL>
 
-<P><STRONG><a name="[f4]"></a>irq_handler</STRONG> (Thumb, 92 bytes, Stack size 32 bytes, nrfx_timer.o(i.irq_handler))
+<P><STRONG><a name="[f3]"></a>irq_handler</STRONG> (Thumb, 92 bytes, Stack size 32 bytes, nrfx_timer.o(i.irq_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = irq_handler &rArr; nrf_timer_event_clear
 </UL>
 <BR>[Calls]<UL><LI><a href="#[1ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_timer_event_clear
@@ -4423,12 +4422,12 @@ Local Symbols
 <P><STRONG><a name="[1c8]"></a>nrf_timer_compare_event_get</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrfx_timer.o(i.nrf_timer_compare_event_get))
 <BR><BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_timer_init
 <LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_timer_compare
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 
 <P><STRONG><a name="[1c9]"></a>nrf_timer_compare_int_get</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, nrfx_timer.o(i.nrf_timer_compare_int_get))
 <BR><BR>[Called By]<UL><LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_timer_compare
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 
 <P><STRONG><a name="[1ca]"></a>nrf_timer_event_clear</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, nrfx_timer.o(i.nrf_timer_event_clear))
@@ -4436,7 +4435,7 @@ Local Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_timer_init
 <LI><a href="#[245]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrfx_timer_compare
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;irq_handler
 </UL>
 
 <P><STRONG><a name="[247]"></a>nrf_timer_int_disable</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrfx_timer.o(i.nrf_timer_int_disable))
@@ -5333,7 +5332,7 @@ Local Symbols
 <P><STRONG><a name="[3b]"></a>serial_tx</STRONG> (Thumb, 124 bytes, Stack size 40 bytes, nrf_log_backend_rtt.o(i.serial_tx))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = serial_tx &rArr; SEGGER_RTT_WriteNoLock &rArr; _WriteNoCheck
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
+<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_log_backend_rtt.o(i.nrf_log_backend_rtt_put)
 </UL>
@@ -5405,7 +5404,6 @@ Local Symbols
 <LI><a href="#[20e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_3
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_5
-<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_6
 </UL>
 
 <P><STRONG><a name="[226]"></a>postfix_process</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, nrf_log_str_formatter.o(i.postfix_process))
@@ -5434,34 +5432,34 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[225]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prefix_process
 </UL>
 
-<P><STRONG><a name="[ea]"></a>_DoInit</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, segger_rtt.o(i._DoInit))
+<P><STRONG><a name="[e9]"></a>_DoInit</STRONG> (Thumb, 74 bytes, Stack size 8 bytes, segger_rtt.o(i._DoInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _DoInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_Init
+<BR>[Called By]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_Init
 </UL>
 
-<P><STRONG><a name="[ec]"></a>_GetAvailWriteSpace</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, segger_rtt.o(i._GetAvailWriteSpace))
+<P><STRONG><a name="[eb]"></a>_GetAvailWriteSpace</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, segger_rtt.o(i._GetAvailWriteSpace))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _GetAvailWriteSpace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
 </UL>
 
-<P><STRONG><a name="[ee]"></a>_WriteBlocking</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, segger_rtt.o(i._WriteBlocking))
+<P><STRONG><a name="[ed]"></a>_WriteBlocking</STRONG> (Thumb, 114 bytes, Stack size 32 bytes, segger_rtt.o(i._WriteBlocking))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = _WriteBlocking
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
 </UL>
 
-<P><STRONG><a name="[ed]"></a>_WriteNoCheck</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, segger_rtt.o(i._WriteNoCheck))
+<P><STRONG><a name="[ec]"></a>_WriteNoCheck</STRONG> (Thumb, 76 bytes, Stack size 32 bytes, segger_rtt.o(i._WriteNoCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = _WriteNoCheck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
+<BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SEGGER_RTT_WriteNoLock
 </UL>
 
 <P><STRONG><a name="[281]"></a>__sd_nvic_app_accessible_irq</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, nrf_sdh.o(i.__sd_nvic_app_accessible_irq))
@@ -5470,9 +5468,9 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[23c]"></a>nrf_section_iter_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_sdh.o(i.nrf_section_iter_get))
-<BR><BR>[Called By]<UL><LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_state_observer_notify
+<BR><BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
+<LI><a href="#[239]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_state_observer_notify
 <LI><a href="#[238]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sdh_request_observer_notify
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_evts_poll
 </UL>
 
 <P><STRONG><a name="[280]"></a>sd_nvic_DisableIRQ</STRONG> (Thumb, 114 bytes, Stack size 8 bytes, nrf_sdh.o(i.sd_nvic_DisableIRQ))
@@ -5566,15 +5564,15 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[bb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Drive_Timer0_to_3_Init
 </UL>
 
-<P><STRONG><a name="[f2]"></a>nrf52_errata_136</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_136))
+<P><STRONG><a name="[f1]"></a>nrf52_errata_136</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_136))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[f0]"></a>nrf52_errata_36</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_36))
+<P><STRONG><a name="[ef]"></a>nrf52_errata_36</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_36))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[f1]"></a>nrf52_errata_66</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_66))
+<P><STRONG><a name="[f0]"></a>nrf52_errata_66</STRONG> (Thumb, 88 bytes, Stack size 0 bytes, system_nrf52820.o(i.nrf52_errata_66))
 <BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 

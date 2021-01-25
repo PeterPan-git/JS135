@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\..\config -I ..\config --reduce_paths
+-I"C:\Work Disk\nordic nrf52840\nRF5_SDK_17.0.2_d674dde\examples\ble_peripheral\ble_app_blinky\pca10056\s140\arm5_no_packs\RTE"
+-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.35.0\Device\Include
+-IC:\Keil_v5\ARM\CMSIS\Include
+-D__UVISION_VERSION="521" -D_RTE_ -DNRF52840_XXAA -D__HEAP_SIZE="8192" -D__STACK_SIZE="8192"
+-o ..\..\..\..\..\..\components\softdevice\s140\hex\main.o --omf_browse ..\..\..\..\..\..\components\softdevice\s140\hex\main.crf --depend ..\..\..\..\..\..\components\softdevice\s140\hex\main.d "..\..\..\main.c"

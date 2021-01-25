@@ -17,22 +17,77 @@ Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
 CPU DLL:         SARMCM3.DLL V5.27.1.0
 Dialog DLL:      DCM.DLL V1.17.2.0
-Target DLL:      UL2CM3.DLL V1.162.15.0
+Target DLL:      Segger\JL2CM3.dll V2.99.35.0
 Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
-D:\Work_Code\js_135\nRF5_SDK_17.0.2_d674dde\examples\ble_central_and_peripheral\experimental\ble_app_hrs_rscs_relay\pca10056\s140\arm5_no_packs\ble_app_hrs_rscs_relay_pca10056_s140.uvprojx
-Project File Date:  11/18/2020
+C:\Users\ลหัวนโ\Desktop\git\JS135\SW\adv_scan\examples\ble_central_and_peripheral\experimental\ble_app_hrs_rscs_relay\pca10056\s140\arm5_no_packs\ble_app_hrs_rscs_relay_pca10056_s140.uvprojx
+Project File Date:  01/11/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\SW_Install\keil\ARM\ARMCC\Bin'
-Build target 'flash_s140_nrf52_7.2.0_softdevice'
+Rebuild target 'flash_s140_nrf52_7.2.0_softdevice'
 Before Build - User command #1: attrib +R ..\..\..\..\..\..\..\components\softdevice\s140\hex\\*
 compiling main.c...
-..\..\..\main.c(78): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
-  #include "nordic_common.h"
+"no source": Error:  #219: error while deleting file "..\..\..\..\..\..\..\components\softdevice\s140\hex\main.d": Permission denied
 ..\..\..\main.c: 0 warnings, 1 error
-"..\..\..\..\..\..\..\components\softdevice\s140\hex\s140_nrf52_7.2.0_softdevice.hex" - 1 Error(s), 0 Warning(s).
+compiling ble_dfu_unbonded.c...
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu_unbonded.c(44): error:  #5: cannot open source input file "nrf_dfu_ble_svci_bond_sharing.h": No such file or directory
+  #include "nrf_dfu_ble_svci_bond_sharing.h"
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu_unbonded.c: 0 warnings, 1 error
+compiling nrf_dfu_svci.c...
+D:\Work_Code\js_135.3\adv_scan\components\libraries\bootloader\dfu\nrf_dfu_svci.c(43): error:  #5: cannot open source input file "nrf_log.h": No such file or directory
+  #include "nrf_log.h"
+D:\Work_Code\js_135.3\adv_scan\components\libraries\bootloader\dfu\nrf_dfu_svci.c: 0 warnings, 1 error
+compiling ble_link_ctx_manager.c...
+..\..\..\..\..\..\..\components\ble\ble_link_ctx_manager\ble_link_ctx_manager.h(60): error:  #5: cannot open source input file "ble_conn_state.h": No such file or directory
+  #include "ble_conn_state.h"
+..\..\..\..\..\..\..\components\ble\ble_link_ctx_manager\ble_link_ctx_manager.c: 0 warnings, 1 error
+compiling ble_nus.c...
+..\..\..\..\..\..\..\components\ble\ble_services\ble_nus\ble_nus.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\..\components\ble\ble_services\ble_nus\ble_nus.c: 0 warnings, 1 error
+compiling ble_dfu_bonded.c...
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu_bonded.c(44): error:  #5: cannot open source input file "nrf_dfu_ble_svci_bond_sharing.h": No such file or directory
+  #include "nrf_dfu_ble_svci_bond_sharing.h"
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu_bonded.c: 0 warnings, 1 error
+compiling ble_dfu.c...
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu.h(60): error:  #5: cannot open source input file "ble_srv_common.h": No such file or directory
+  #include "ble_srv_common.h"
+D:\Work_Code\js_135.3\adv_scan\components\ble\ble_services\ble_dfu\ble_dfu.c: 0 warnings, 1 error
+compiling nrfx_timer.c...
+..\..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_timer.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+..\..\..\..\..\..\..\modules\nrfx\drivers\src\nrfx_timer.c: 0 warnings, 1 error
+compiling nrfx_wdt.c...
+D:\Work_Code\js_135.3\adv_scan\modules\nrfx\drivers\src\nrfx_wdt.c(41): error:  #5: cannot open source input file "nrfx.h": No such file or directory
+  #include <nrfx.h>
+D:\Work_Code\js_135.3\adv_scan\modules\nrfx\drivers\src\nrfx_wdt.c: 0 warnings, 1 error
+compiling app_uart_fifo.c...
+..\..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c: 0 warnings, 1 error
+compiling app_fifo.c...
+..\..\..\..\..\..\..\components\libraries\fifo\app_fifo.c(40): error:  #5: cannot open source input file "sdk_common.h": No such file or directory
+  #include "sdk_common.h"
+..\..\..\..\..\..\..\components\libraries\fifo\app_fifo.c: 0 warnings, 1 error
+compiling user_ble.c...
+..\..\..\..\..\..\..\user\user_head.h(6): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
+  #include "nordic_common.h"
+..\..\..\..\..\..\..\user\user_ble.c: 0 warnings, 1 error
+compiling user_drive.c...
+..\..\..\..\..\..\..\user\user_head.h(6): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
+  #include "nordic_common.h"
+..\..\..\..\..\..\..\user\user_drive.c: 0 warnings, 1 error
+compiling user_cmnc.c...
+..\..\..\..\..\..\..\user\user_head.h(6): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
+  #include "nordic_common.h"
+..\..\..\..\..\..\..\user\user_cmnc.c: 0 warnings, 1 error
+compiling user_param.c...
+..\..\..\..\..\..\..\user\user_head.h(6): error:  #5: cannot open source input file "nordic_common.h": No such file or directory
+  #include "nordic_common.h"
+..\..\..\..\..\..\..\user\user_param.c: 0 warnings, 1 error
+"..\..\..\..\..\..\..\components\softdevice\s140\hex\s140_nrf52_7.2.0_softdevice.hex" - 15 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,10 +106,10 @@ Package Vendor: NordicSemiconductor
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: NordicSemiconductor::Device:Startup:8.35.0
-      Source file:   Device\Source\system_nrf52833.c
-      Include file:  Device\Include\system_nrf.h
       Source file:   Device\Source\arm\arm_startup_nrf52833.s
       Include file:  Device\Include\system_nrf52833.h
+      Source file:   Device\Source\system_nrf52833.c
+      Include file:  Device\Include\system_nrf.h
 Target not created.
 Build Time Elapsed:  00:00:01
 </pre>

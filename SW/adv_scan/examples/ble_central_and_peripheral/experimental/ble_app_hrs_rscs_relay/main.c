@@ -32,7 +32,8 @@ int main(void)
 	BLE_ADV_Start();
 	BLE_Scan_Start();
 	Param_Get_MacAddr();
-	NRF_LOG_INFO("start main while");
+	//NRF_LOG_INFO("start main while");
+	
 	while(1)
     {
 		

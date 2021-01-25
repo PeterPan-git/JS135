@@ -10,10 +10,10 @@
 #define APP_BLE_OBSERVER_PRIO           3
 #define DB_DISCOVERY_INSTANCE_CNT       2  /**< Number of DB Discovery instances. */
 #define NUS_SERVICE_UUID_TYPE          BLE_UUID_TYPE_BLE
-
+#define ADV_SER_UUID             0x6958
 //#define HEAD_ID_1              0x13ED
 //#define HEAD_ID_2              0x0000
-
+extern uint8_t rx_inde;
 void BLE_ADV_Init(U8 *data);
 void BLE_ADV_Evt_Handle(ble_adv_evt_t ble_adv_evt);
 void BLE_ADV_Start(void);
@@ -44,6 +44,8 @@ void BLE_Serve_Init(void);
 void BLE_QWR_Error_Handler(uint32_t nrf_error);
 void BLE_Stack_Init(void);
 void BLE_Evt_Handler(ble_evt_t const * p_ble_evt, void * p_context);
+
+void Uart_Cmd(char *tx_buf, char *rx_buf);
 #endif
 
 

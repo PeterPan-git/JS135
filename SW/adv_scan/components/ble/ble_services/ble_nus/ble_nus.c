@@ -37,6 +37,7 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+ #if 1
 #include "sdk_common.h"
 #if NRF_MODULE_ENABLED(BLE_NUS)
 #include "ble.h"
@@ -55,13 +56,13 @@
 NRF_LOG_MODULE_REGISTER();
 
 
-#define BLE_UUID_NUS_TX_CHARACTERISTIC 0x0003               /**< The UUID of the TX Characteristic. */
-#define BLE_UUID_NUS_RX_CHARACTERISTIC 0x0002               /**< The UUID of the RX Characteristic. */
+#define BLE_UUID_NUS_TX_CHARACTERISTIC 0xFFF1              /**< The UUID of the TX Characteristic. */
+#define BLE_UUID_NUS_RX_CHARACTERISTIC 0xFFF2               /**< The UUID of the RX Characteristic. */
 
 #define BLE_NUS_MAX_RX_CHAR_LEN        BLE_NUS_MAX_DATA_LEN /**< Maximum length of the RX Characteristic (in bytes). */
 #define BLE_NUS_MAX_TX_CHAR_LEN        BLE_NUS_MAX_DATA_LEN /**< Maximum length of the TX Characteristic (in bytes). */
 
-#define NUS_BASE_UUID                  {{0x9E, 0xCA, 0xDC, 0x24, 0x0E, 0xE5, 0xA9, 0xE0, 0x93, 0xF3, 0xA3, 0xB5, 0x00, 0x00, 0x40, 0x6E}} /**< Used vendor specific UUID. */
+#define NUS_BASE_UUID                  {{0xfb, 0x34, 0x9b, 0x5f, 0x80, 0x00, 0x00, 0x80, 0x00, 0x10, 0x00, 0x00, 0xf0, 0xff, 0x00, 0x00}} /**< Used vendor specific UUID. */
 
 
 /**@brief Function for handling the @ref BLE_GAP_EVT_CONNECTED event from the SoftDevice.
@@ -243,8 +244,104 @@ void ble_nus_on_ble_evt(ble_evt_t const * p_ble_evt, void * p_context)
             break;
     }
 }
+#if 1
+uint32_t ble_nus_init(ble_nus_t * p_nus, ble_nus_init_t const * p_nus_init)
+{
+    ret_code_t            err_code;
+    ble_uuid_t            ble_uuid;
+    ble_uuid128_t         nus_base_uuid = NUS_BASE_UUID;
+    ble_add_char_params_t add_char_params;
+	ble_add_char_user_desc_t char_md;
+	
+	//static char user_desc1[] = "BLE DATA BUFF";
+
+    VERIFY_PARAM_NOT_NULL(p_nus);
+    VERIFY_PARAM_NOT_NULL(p_nus_init);
+
+    // Initialize the service structure.
+    p_nus->data_handler = p_nus_init->data_handler;
+
+    /**@snippet [Adding proprietary Service to the SoftDevice] */
+    // Add a custom base UUID.
+    err_code = sd_ble_uuid_vs_add(&nus_base_uuid, &p_nus->uuid_type);
+    VERIFY_SUCCESS(err_code);
+
+    ble_uuid.type = p_nus->uuid_type;
+    ble_uuid.uuid = BLE_UUID_NUS_SERVICE;
+
+    // Add the service.
+    err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY,
+                                        &ble_uuid,
+                                        &p_nus->service_handle);
+    /**@snippet [Adding proprietary Service to the SoftDevice] */
+    VERIFY_SUCCESS(err_code);
+
+    // Add the RX Characteristic.
+   
 
 
+	 memset(&add_char_params, 0, sizeof(add_char_params));
+	memset(&char_md, 0, sizeof(char_md));
+    add_char_params.uuid              = BLE_UUID_NUS_TX_CHARACTERISTIC;
+    add_char_params.uuid_type         = p_nus->uuid_type;
+    add_char_params.max_len           = BLE_NUS_MAX_TX_CHAR_LEN;
+    add_char_params.init_len          = sizeof(uint8_t);
+    add_char_params.is_var_len        = true;
+    add_char_params.char_props.notify = 1;
+	add_char_params.char_props.read   = 1;
+	
+    //add_char_params.char_ext_props.wr_aux   =1;
+   
+	
+    add_char_params.read_access       = SEC_OPEN;
+    add_char_params.write_access      = SEC_OPEN;
+    add_char_params.cccd_write_access = SEC_OPEN;
+	
+	static char user_desc1[] = "BLE DATA BUFF";	
+	char_md.p_char_user_desc  = (uint8_t *) user_desc1;
+	char_md.size = 20;//strlen(user_desc);
+	char_md.max_size =20;// strlen(user_desc);	
+	char_md.char_props.read = 1;
+	//char_md.char_props.write = 1;
+	char_md.read_access  = SEC_OPEN;
+	//char_md.write_access = SEC_OPEN;
+	add_char_params.p_user_descr  = &char_md;
+    err_code = characteristic_add(p_nus->service_handle, &add_char_params, &p_nus->tx_handles);
+    if (err_code != NRF_SUCCESS)
+    {
+        return err_code;
+    }
+	
+    // Add the TX Characteristic.
+    /**@snippet [Adding proprietary characteristic to the SoftDevice] */
+   
+	 memset(&add_char_params, 0, sizeof(add_char_params));
+//	memset(&char_md, 0, sizeof(char_md));
+    add_char_params.uuid                     = BLE_UUID_NUS_RX_CHARACTERISTIC;
+    add_char_params.uuid_type                = p_nus->uuid_type;
+    add_char_params.max_len                  = BLE_NUS_MAX_RX_CHAR_LEN;
+    add_char_params.init_len                 = sizeof(uint8_t);
+    add_char_params.is_var_len               = true;
+    add_char_params.char_props.write         = 1;
+    add_char_params.char_props.write_wo_resp = 1;
+	add_char_params.char_props.read          = 1;
+	//add_char_params.char_ext_props.wr_aux   =1;
+	
+    add_char_params.read_access  = SEC_OPEN;
+    add_char_params.write_access = SEC_OPEN;
+	static char user_desc2[] = "CENTER DATA BUFF";
+	char_md.p_char_user_desc  = (uint8_t *) user_desc2;
+	char_md.size = 20;//strlen(user_desc);
+	char_md.max_size =20;// strlen(user_desc);	
+	char_md.char_props.read = 1;
+	//char_md.char_props.write = 1;
+	char_md.read_access  = SEC_OPEN;
+	//char_md.write_access = SEC_OPEN;
+	add_char_params.p_user_descr  = &char_md;
+    return characteristic_add(p_nus->service_handle, &add_char_params, &p_nus->rx_handles);
+    /**@snippet [Adding proprietary characteristic to the SoftDevice] */
+}
+#else
 uint32_t ble_nus_init(ble_nus_t * p_nus, ble_nus_init_t const * p_nus_init)
 {
     ret_code_t            err_code;
@@ -280,12 +377,13 @@ uint32_t ble_nus_init(ble_nus_t * p_nus, ble_nus_init_t const * p_nus_init)
     add_char_params.max_len                  = BLE_NUS_MAX_RX_CHAR_LEN;
     add_char_params.init_len                 = sizeof(uint8_t);
     add_char_params.is_var_len               = true;
+	 add_char_params.char_props.read    = 1;
     add_char_params.char_props.write         = 1;
     add_char_params.char_props.write_wo_resp = 1;
 
     add_char_params.read_access  = SEC_OPEN;
     add_char_params.write_access = SEC_OPEN;
-
+	//add_char_params.cccd_write_access = SEC_OPEN;
     err_code = characteristic_add(p_nus->service_handle, &add_char_params, &p_nus->rx_handles);
     if (err_code != NRF_SUCCESS)
     {
@@ -301,16 +399,19 @@ uint32_t ble_nus_init(ble_nus_t * p_nus, ble_nus_init_t const * p_nus_init)
     add_char_params.init_len          = sizeof(uint8_t);
     add_char_params.is_var_len        = true;
     add_char_params.char_props.notify = 1;
-
+	add_char_params.char_props.read    = 1;
+	
+	
+	add_char_params.p_user_descr->is_value_user = true;
     add_char_params.read_access       = SEC_OPEN;
     add_char_params.write_access      = SEC_OPEN;
     add_char_params.cccd_write_access = SEC_OPEN;
-
+	
     return characteristic_add(p_nus->service_handle, &add_char_params, &p_nus->tx_handles);
     /**@snippet [Adding proprietary characteristic to the SoftDevice] */
 }
 
-
+#endif
 uint32_t ble_nus_data_send(ble_nus_t * p_nus,
                            uint8_t   * p_data,
                            uint16_t  * p_length,
@@ -352,3 +453,6 @@ uint32_t ble_nus_data_send(ble_nus_t * p_nus,
 
 
 #endif // NRF_MODULE_ENABLED(BLE_NUS)
+#endif
+
+

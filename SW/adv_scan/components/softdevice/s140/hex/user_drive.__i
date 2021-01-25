@@ -1,0 +1,6 @@
+--c99 -c --cpu Cortex-M4.fp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\..\config -I ..\config --reduce_paths
+-I.\RTE\_flash_s140_nrf52_7.2.0_softdevice
+-ID:\SW_Install\keil\NordicSemiconductor\nRF_DeviceFamilyPack\8.35.0\Device\Include
+-ID:\SW_Install\keil\ARM\CMSIS\Include
+-D__UVISION_VERSION="527" -D_RTE_ -DNRF52833_XXAA -D__HEAP_SIZE="0" -D__STACK_SIZE="8192"
+-o ..\..\..\..\..\..\..\components\softdevice\s140\hex\user_drive.o --omf_browse ..\..\..\..\..\..\..\components\softdevice\s140\hex\user_drive.crf --depend ..\..\..\..\..\..\..\components\softdevice\s140\hex\user_drive.d "..\..\..\..\..\..\..\user\user_drive.c"

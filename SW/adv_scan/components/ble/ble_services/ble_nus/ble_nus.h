@@ -94,10 +94,10 @@ extern "C" {
                          ble_nus_on_ble_evt,                      \
                          &_name)
 
-#define BLE_UUID_NUS_SERVICE 0x0001 /**< The UUID of the Nordic UART Service. */
+#define BLE_UUID_NUS_SERVICE 0xFFF0 /**< The UUID of the Nordic UART Service. */
 
-#define OPCODE_LENGTH        1
-#define HANDLE_LENGTH        2
+#define OPCODE_LENGTH        1//1
+#define HANDLE_LENGTH        2//2
 
 /**@brief   Maximum length of data (in bytes) that can be transmitted to the peer by the Nordic UART service module. */
 #if defined(NRF_SDH_BLE_GATT_MAX_MTU_SIZE) && (NRF_SDH_BLE_GATT_MAX_MTU_SIZE != 0)

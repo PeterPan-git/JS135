@@ -22,10 +22,68 @@ static ble_gap_scan_params_t m_scan_param =                 /**< Scan parameters
 };
 static ble_uuid_t m_adv_uuids[]          =                                          /**< Universally unique service identifier. */
 {
-    {BLE_UUID_NUS_SERVICE, NUS_SERVICE_UUID_TYPE}
+    {ADV_SER_UUID, NUS_SERVICE_UUID_TYPE}
 };
 
 
+void Uart_Data_Choose(void)
+{
+
+	
+	uint8_t head_status[2]; 
+
+	head_status[0] = user_rx_buf[0];
+	head_status[1] = user_rx_buf[1];
+	
+	if((rx_status == false) && (rx_inde > 1))
+	{
+		if(Param_Get_Ble_Connect_Status())
+		{
+			uint16_t length = (uint16_t)rx_inde;
+			if(head_status[0] == HD_2)
+			{
+				Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
+			}
+			else
+			{
+				ble_nus_data_send(&m_nus, user_rx_buf, &length, m_conn_handle);
+			}
+				
+			rx_inde = 0;
+		}
+		else
+		{
+			if(head_status[0] == HD_1)
+			{
+				//NRF_LOG_INFO("HD_1");
+				if(head_status[1] == FD_1)
+				{
+					//NRF_LOG_INFO("FD_1");
+					if(CMNC_Repeat_Filt(user_rx_buf) == false)
+					{
+						CMCN_Save(user_rx_buf);
+						CMCN_Do();
+					}
+					
+					rx_inde = 0;
+				}
+			}
+			else if(head_status[0] == HD_2)
+			{
+				NRF_LOG_INFO("<");
+				Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
+				rx_inde = 0;
+			}
+			else
+			{
+				NRF_LOG_INFO("uart no");
+
+			}
+		}
+		
+	}
+	
+}
 /****************************************************************
 *---------ADV configuration---------
 *---------------START---------------

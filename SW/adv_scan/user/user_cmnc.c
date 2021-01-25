@@ -5,7 +5,7 @@ uint8_t user_tx_buf[USER_UART_BUF_SIZE] = {0};
 uint8_t user_rx_buf[USER_UART_BUF_SIZE] = {0};
 static U8 app_data[20];
 U8 name_hex[3];
-
+//static uint16_t m_conn_handle = BLE_CONN_HANDLE_INVALID;
 static bool group_sta[8];
 //static U8 hand_shake;
 _uart_data uart_data;
@@ -209,21 +209,37 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	}
 	else if((strcmp(rx_buf, rx_cmd14)) == 0)
 	{
+		NRF_LOG_INFO("Stop Adv");
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Stop Adv");
 		#endif
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
-		BLE_ADV_Stop();
+		if(!Param_ADV_Status_Get())
+		{
+			return;
+		}
+		else
+		{	
+			BLE_ADV_Stop();
+		}
 		
 	}
 	else if((strcmp(rx_buf, rx_cmd15)) == 0)
 	{
+		NRF_LOG_INFO("Start Adv");
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Start Adv");
 		#endif
 		//Beacon_Adv_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
-		BLE_ADV_Start();
+		if(Param_ADV_Status_Get())
+		{
+			return;
+		}
+		else
+		{	
+			BLE_ADV_Start();
+		}
 	}
 	else if((strcmp(rx_buf, rx_cmd16)) == 0)
 	{
@@ -514,52 +530,65 @@ void CMCN_APP_MCU_Data_Send(void)
 *-------------MCU <----> APP----------
 ****************************************************************/
 
-void Uart_Data_Choose(void)
-{
-	uint8_t head_status[2]; 
+//void Uart_Data_Choose(void)
+//{
+//	uint8_t head_status[2]; 
+//	uint32_t       err_code;
 
-	//U8 loop;
-	head_status[0] = user_rx_buf[0];
-	head_status[1] = user_rx_buf[1];
-	
-	if((rx_status == false) && (rx_inde > 1))
-	{
-		//for(loop = 0; loop < 8; loop++)
-	//	{
-			NRF_LOG_INFO("user_rx_buf[5] is 0x%02x", user_rx_buf[5]);
+//	//U8 loop;
+//	head_status[0] = user_rx_buf[0];
+//	head_status[1] = user_rx_buf[1];
+//	
+//	if((rx_status == false) && (rx_inde > 1))
+//	{
+//		//for(loop = 0; loop < 8; loop++)
+//	//	{
+//			NRF_LOG_INFO("user_rx_buf[5] is 0x%02x", user_rx_buf[5]);
 
-			
-	//	}
-		if(head_status[0] == HD_1)
-		{
-			NRF_LOG_INFO("HD_1");
-			if(head_status[1] == FD_1)
-			{
-				NRF_LOG_INFO("FD_1");
-				if(CMNC_Repeat_Filt(user_rx_buf) == false)
-				{
-					CMCN_Save(user_rx_buf);
-					CMCN_Do();
-				}
-				
-				rx_inde = 0;
-			}
-		}
-		else if(head_status[0] == HD_2)
-		{
-			NRF_LOG_INFO("HD_2");
-			Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
-			rx_inde = 0;
-		}
-		else
-		{
-			NRF_LOG_INFO("HD error");
-			rx_inde = 0;
-		}
-		
-	}
-	
-}
+//			
+//	//	}
+//		#if 1
+//		if(head_status[0] == HD_1)
+//		{
+//			NRF_LOG_INFO("HD_1");
+//			if(head_status[1] == FD_1)
+//			{
+//				NRF_LOG_INFO("FD_1");
+//				if(CMNC_Repeat_Filt(user_rx_buf) == false)
+//				{
+//					CMCN_Save(user_rx_buf);
+//					CMCN_Do();
+//				}
+//				
+//				rx_inde = 0;
+//			}
+//		}
+//		else if(head_status[0] == HD_2)
+//		{
+//			NRF_LOG_INFO("HD_2");
+//			Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
+//			rx_inde = 0;
+//		}
+//		else
+//		{
+//			 do
+//			{
+
+//				err_code = ble_nus_data_send(&m_nus, user_rx_buf, &rx_inde, m_conn_handle);
+//				if ((err_code != NRF_ERROR_INVALID_STATE) &&
+//					(err_code != NRF_ERROR_RESOURCES) &&
+//					(err_code != NRF_ERROR_NOT_FOUND))
+//				{
+//					APP_ERROR_CHECK(err_code);
+//				}
+//			} while (err_code == NRF_ERROR_RESOURCES);
+//			rx_inde = 0;
+//		}
+//		#endif
+//		
+//	}
+//	
+//}
 
 void CMCN_Save(U8 *rx)
 {

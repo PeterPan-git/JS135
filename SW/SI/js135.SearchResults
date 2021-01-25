@@ -1,0 +1,7 @@
+---- Param_Set_Ble_Connect_Status Matches (6 in 4 files) ----
+Nrf52840_xxaa.htm (examples\ble_central_and_peripheral\experimental\ble_app_hrs_rscs_relay\pca10056\s140\arm5_no_packs\_build):<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_Set_Ble_Connect_Status
+Nrf52840_xxaa.htm (examples\ble_central_and_peripheral\experimental\ble_app_hrs_rscs_relay\pca10056\s140\arm5_no_packs\_build):<P><STRONG><a name="[83]"></a>Param_Set_Ble_Connect_Status</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, user_param.o(i.Param_Set_Ble_Connect_Status))
+User_ble.c (user):			Param_Set_Ble_Connect_Status(BLE_CONNECT);
+User_ble.c (user):			Param_Set_Ble_Connect_Status(BLE_DISCONNECT);
+User_param.c (user):void Param_Set_Ble_Connect_Status(bool status)
+User_param.h (user):void Param_Set_Ble_Connect_Status(bool status);
