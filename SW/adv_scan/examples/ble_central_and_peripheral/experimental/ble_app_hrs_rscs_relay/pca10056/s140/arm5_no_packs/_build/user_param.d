@@ -109,6 +109,7 @@
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\pwr_mgmt\nrf_pwr_mgmt.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\ble\nrf_ble_scan\nrf_ble_scan.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\modules\nrfx\hal\nrf_power.h
+.\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\fstorage\nrf_fstorage_sd.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\strerror\nrf_strerror.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_internal.h
@@ -138,3 +139,4 @@
 .\_build\user_param.o: ..\..\..\..\..\..\..\modules\nrfx\hal/nrf_timer.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\user\user_cmnc.h
 .\_build\user_param.o: ..\..\..\..\..\..\..\user\user_param.h
+.\_build\user_param.o: ..\..\..\..\..\..\..\user\user_fds.h

@@ -7,6 +7,7 @@ int main(void)
 	Drive_WDT_Init();
 	ble_dfu_buttonless_async_svci_init();
 	Drive_GPIO_Connect_State_Init();
+
 	CMNC_Data_Init();                          //广播数据块初始化
 	Param_ADV_Data_Init();                     //广播buffer初始化      
 	//CMCN_Get();                                //数据块转到buffer
@@ -20,7 +21,7 @@ int main(void)
 	Drive_Power_Manage_Init();
 	
 	BLE_Stack_Init();
-	
+	FDS_Init();
 	Param_ADV_Param_Init();
 	BLE_Scan_Init();
 	BLE_GAP_Params_Init();
@@ -32,14 +33,14 @@ int main(void)
 	BLE_ADV_Start();
 	BLE_Scan_Start();
 	Param_Get_MacAddr();
+
 	//NRF_LOG_INFO("start main while");
-	
-	while(1)
+	while(true)
     {
-		
 		Drive_Feed_Dog();
 		Uart_Data_Choose();
 		Param_ADV_Update_Data();
+		FDS_Run();
         Drive_Idle_State_Handle();
     }
 

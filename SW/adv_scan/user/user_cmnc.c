@@ -131,10 +131,11 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	}
 	else if((strncmp(rx_buf, rx_cmd6, 10)) == 0)
 	{
-		//#if (DEBUG_CMD)
+		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set ble name");
 		//NRF_LOG_INFO("rx_buf is %s", rx_buf);
-		//#endif
+		#endif
+		FDS_Set_Update_Status(true);
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 
 		BLE_ADV_Stop();
@@ -158,6 +159,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set Adv interval");
 		#endif
+		FDS_Set_Update_Status(true);
 		BLE_ADV_Stop();
 		Param_ADV_Set_Interval(rx_buf);
 		BLE_ADV_Init(adv_data);
@@ -177,6 +179,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set Adv delay");
 		#endif
+		FDS_Set_Update_Status(true);
 		Param_ADV_Set_Delay(rx_buf);
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 	}
@@ -193,6 +196,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set Adv timeout");
 		#endif
+		FDS_Set_Update_Status(true);
 		BLE_ADV_Stop();
 		Param_ADV_Set_Timeout(rx_buf);
 		BLE_ADV_Init(adv_data);
@@ -290,7 +294,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set TX power");
 		#endif
-		
+		FDS_Set_Update_Status(true);
 		BLE_ADV_Stop();
 		Param_ADV_Set_TxPwr(rx_buf);
 		BLE_ADV_Init(adv_data);

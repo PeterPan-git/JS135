@@ -28,6 +28,10 @@
 #include "nrf_pwr_mgmt.h"
 #include "nrf_ble_scan.h"
 #include "nrf_power.h"
+#include "fds.h"
+#include "nrf_fstorage.h"
+#include "nrf_fstorage_sd.h"
+
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
@@ -44,11 +48,11 @@
 #include "nrfx_wdt.h"
 #include "user_app.h"
 #include "user_def.h"
-//#include "user_timer.h"
-//#include "user_adv.h"
-//#include "user_uart.h"
+
 #include "user_ble.h"
 #include "user_drive.h"
 #include "user_cmnc.h"
 #include "user_param.h"
+#include "user_fds.h"
+
 #endif

@@ -84,12 +84,13 @@ void Param_ADV_Two_Get(_adv_two *sta)
 
 void Param_ADV_Param_Init(void)
 {
-	strcpy(adv_prm.adv_name, "JS135_000001");//par.adv_name = "JS_12";
-	adv_prm.adv_interval = 32;
-	adv_prm.adv_delay = 32;
-	adv_prm.adv_timeout = 5000;
-	adv_prm.tx_power = 4;
-	
+	strcpy(adv_prm.adv_name, FDS_Get_Params()->adv_nam);
+	adv_prm.adv_interval = FDS_Get_Params()->adv_int;
+	adv_prm.adv_delay = FDS_Get_Params()->adv_dly;
+	adv_prm.adv_timeout = FDS_Get_Params()->adv_tmo;
+	adv_prm.tx_power = FDS_Get_Params()->adv_tx_pwr;
+	NRF_LOG_INFO(" FDS_Get_Params()->adv_nam is : %s", FDS_Get_Params()->adv_nam);
+	NRF_LOG_INFO(" adv_prm.adv_name is : %s", adv_prm.adv_name);
 }
 
 bool Param_ADV_Set_Param(_adv_param *prm)
@@ -134,7 +135,7 @@ void Param_ADV_Store_Name(char *name_buf)
 	uint8_t name_len = 0;  //接收到名字实际长度
 	uint8_t loop;
 	
-	
+
 	name_len = strlen(name_buf) - 11;
 	memset(adv_prm.adv_name, 0, sizeof(adv_prm.adv_name));
 	
@@ -143,6 +144,8 @@ void Param_ADV_Store_Name(char *name_buf)
 		adv_prm.adv_name[loop] = name_buf[loop+10];
 	}
 	CMNC_String_To_Hex(adv_prm.adv_name, name_hex);
+	//FDS_Set_Name(adv_prm.adv_name);
+	FDS_Set_Params(adv_prm);
 	NRF_LOG_INFO("name is %s", adv_prm.adv_name);
 	for(loop = 0; loop < 3; loop++)
 		{
@@ -196,6 +199,7 @@ void Param_ADV_Set_Interval(char *itv_buf)
     }
 
 	adv_prm.adv_interval = atoi(str);
+	FDS_Set_Params(adv_prm);
 	
 	NRF_LOG_INFO("adv_itv is %d", adv_prm.adv_interval);
 	
@@ -218,10 +222,7 @@ void Param_ADV_Set_Delay(char *tim_buf)
     }
 	delay_buffer = atoi(str);
 	 adv_prm.adv_delay= delay_buffer*10;
-	//for(loop1 = 0; loop1 < 4; loop1++)
-	//{
-	//	uart_data.adv_sta[loop1] = true;
-	//}
+	FDS_Set_Params(adv_prm);
 	NRF_LOG_INFO("adv_delay is %d", adv_prm.adv_delay);
 
 }
@@ -259,7 +260,7 @@ void Param_ADV_Set_Timeout(char *timeout_buf)
     }
 
 	adv_prm.adv_timeout= atoi(str)*1000;
-	
+	FDS_Set_Params(adv_prm);
 	NRF_LOG_INFO("^^^^^^^^^^^^^^^^adv_timeout is %d", adv_prm.adv_timeout);
 }
 char* Param_ADV_Get_Timeout(void)
@@ -317,6 +318,7 @@ void Param_ADV_Set_TxPwr(char *txp_buf)
 	NRF_LOG_INFO("str is %s", str);
 	adv_prm.tx_power= atoi(str);
 	#endif
+	FDS_Set_Params(adv_prm);
 	NRF_LOG_INFO("tx_power is %d", adv_prm.tx_power);
 }
 char* Param_ADV_Get_TxPwr(void)

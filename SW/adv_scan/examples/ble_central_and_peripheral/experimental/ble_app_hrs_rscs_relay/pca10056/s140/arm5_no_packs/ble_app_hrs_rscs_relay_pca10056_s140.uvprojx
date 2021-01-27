@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -275,7 +275,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x27000</StartAddress>
-                <Size>0xdc00</Size>
+                <Size>0xe838</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -300,7 +300,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x200039e8</StartAddress>
-                <Size>0x3c00</Size>
+                <Size>0x4200</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -3562,6 +3562,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c</FilePath>
             </File>
+            <File>
+              <FileName>nrf_fstorage_nvmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>D:\Work_Code\js_135.3\adv_scan\components\libraries\fstorage\nrf_fstorage_nvmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_nvmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>D:\Work_Code\js_135.3\adv_scan\modules\nrfx\hal\nrf_nvmc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4273,6 +4283,16 @@
               <FileName>user_param.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\user\user_param.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_fds.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\user\user_fds.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_fds.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\..\..\..\user\user_fds.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -7891,6 +7911,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c</FilePath>
             </File>
+            <File>
+              <FileName>nrf_fstorage_nvmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>D:\Work_Code\js_135.3\adv_scan\components\libraries\fstorage\nrf_fstorage_nvmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf_nvmc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>D:\Work_Code\js_135.3\adv_scan\modules\nrfx\hal\nrf_nvmc.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -8602,6 +8632,16 @@
               <FileName>user_param.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\user\user_param.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_fds.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\..\user\user_fds.c</FilePath>
+            </File>
+            <File>
+              <FileName>user_fds.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\..\..\..\user\user_fds.h</FilePath>
             </File>
           </Files>
         </Group>
