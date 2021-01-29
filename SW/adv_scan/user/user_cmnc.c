@@ -471,6 +471,7 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 {
 	uint32_t  index = 0;
 	uint8_t * p_data;
+	U8 data_len = 0;
 
 	p_data = p_adv_report->data.p_data;
    //¼ìË÷¹ã²¥Êý¾Ý
@@ -495,16 +496,19 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 		
 		case BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA:
 			
-		//NRF_LOG_RAW_INFO("p_data[5]-[6]:0x %x %x", p_data[5], p_data[6]);
-	//	NRF_LOG_RAW_INFO("\n");
-			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //13    EF
+		//NRF_LOG_RAW_INFO("p_data[5]-[10]:0x %x %x %x %x %x %x", p_data[5], p_data[6],p_data[7], p_data[8],p_data[9], p_data[10]);
+		//NRF_LOG_RAW_INFO("\n");
+			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //7     8
 			{
-				if((p_data[9] == name_hex[0])
-					&&(p_data[10] == name_hex[1])
-					&&(p_data[11] == name_hex[2]))
+				data_len = p_data[17] + 12;                    //17
+				NRF_LOG_RAW_INFO("data_len is %d\n", data_len);
+				if((p_data[9] == name_hex[0])                  //9
+					&&(p_data[10] == name_hex[1])              //10
+					&&(p_data[11] == name_hex[2]))             //11
 				{
 					NRF_LOG_RAW_INFO("o--------------k");
-					CMNC_APP_MCU_Data_Set(&p_data[7]);
+					CMNC_APP_MCU_Data_Set(&p_data[7]);         //7
+					//CMCN_APP_MCU_Data_Send(data_len);
 					CMCN_APP_MCU_Data_Send();
 				}
 				

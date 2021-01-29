@@ -4,6 +4,7 @@ int main(void)
 {
 	U8 data[20];
 	Drive_Log_Init();
+
 	Drive_WDT_Init();
 	ble_dfu_buttonless_async_svci_init();
 	Drive_GPIO_Connect_State_Init();
@@ -23,6 +24,7 @@ int main(void)
 	BLE_Stack_Init();
 	FDS_Init();
 	Param_ADV_Param_Init();
+	//Param_PA_Test();
 	BLE_Scan_Init();
 	BLE_GAP_Params_Init();
 	BLE_GATT_Init();
@@ -34,7 +36,6 @@ int main(void)
 	BLE_Scan_Start();
 	Param_Get_MacAddr();
 
-	//NRF_LOG_INFO("start main while");
 	while(true)
     {
 		Drive_Feed_Dog();
@@ -42,6 +43,7 @@ int main(void)
 		Param_ADV_Update_Data();
 		FDS_Run();
         Drive_Idle_State_Handle();
+		
     }
 
 }

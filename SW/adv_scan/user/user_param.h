@@ -6,6 +6,9 @@
 #define ADV_CLOSE        false
 #define SCAN_OPEN        true
 #define SCAN_CLOSE       false 
+	
+#define PA_PIN     17
+#define LNA_PIN    16
 typedef struct
 {
 	char adv_name[22];
@@ -63,4 +66,6 @@ void Param_Update_Who_Data(void);
 void Param_Update_One(void);
 void Param_Update_Two(void);
 void Param_Get_MacAddr(void);
+void Param_Set_PA_LNA(U32 gpio_pa_pin, U32 gpio_lna_pin);
+void Param_PA_Test(void);
 #endif

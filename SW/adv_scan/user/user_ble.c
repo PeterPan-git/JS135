@@ -31,15 +31,16 @@ void Uart_Data_Choose(void)
 
 	
 	uint8_t head_status[2]; 
-
 	head_status[0] = user_rx_buf[0];
 	head_status[1] = user_rx_buf[1];
+	uint16_t length = (uint16_t)rx_inde;
 	
 	if((rx_status == false) && (rx_inde > 1))
 	{
+		//NRF_LOG_INFO("%s", user_rx_buf);
+			
 		if(Param_Get_Ble_Connect_Status())
-		{
-			uint16_t length = (uint16_t)rx_inde;
+		{	
 			if(head_status[0] == HD_2)
 			{
 				Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
@@ -53,6 +54,7 @@ void Uart_Data_Choose(void)
 		}
 		else
 		{
+			
 			if(head_status[0] == HD_1)
 			{
 				//NRF_LOG_INFO("HD_1");
@@ -77,12 +79,11 @@ void Uart_Data_Choose(void)
 			else
 			{
 				NRF_LOG_INFO("uart no");
-
+				rx_inde = 0;
 			}
 		}
-		
-	}
 	
+	}
 }
 /****************************************************************
 *---------ADV configuration---------
@@ -313,9 +314,11 @@ void BLE_GAP_Params_Init(void)
     gap_conn_params.max_conn_interval = m_scan.conn_params.max_conn_interval;
     gap_conn_params.slave_latency     = m_scan.conn_params.slave_latency;
     gap_conn_params.conn_sup_timeout  = m_scan.conn_params.conn_sup_timeout;
-
+	
     err_code = sd_ble_gap_ppcp_set(&gap_conn_params);
+	//Param_Set_PA_LNA(PA_PIN, LNA_PIN);
     APP_ERROR_CHECK(err_code);
+	Param_Set_PA_LNA(PA_PIN, LNA_PIN);
 }
 void BLE_GAP_Conn_Params_Init(void)
 {

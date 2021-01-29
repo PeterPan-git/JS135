@@ -275,7 +275,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x27000</StartAddress>
-                <Size>0xe838</Size>
+                <Size>0xea00</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -300,7 +300,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x200039e8</StartAddress>
-                <Size>0x4200</Size>
+                <Size>0x5200</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -4288,11 +4288,6 @@
               <FileName>user_fds.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\user\user_fds.c</FilePath>
-            </File>
-            <File>
-              <FileName>user_fds.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\..\..\..\user\user_fds.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -8637,11 +8632,6 @@
               <FileName>user_fds.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\..\user\user_fds.c</FilePath>
-            </File>
-            <File>
-              <FileName>user_fds.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\..\..\..\..\user\user_fds.h</FilePath>
             </File>
           </Files>
         </Group>
