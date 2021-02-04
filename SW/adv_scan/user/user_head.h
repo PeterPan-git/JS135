@@ -31,7 +31,7 @@
 #include "fds.h"
 #include "nrf_fstorage.h"
 #include "nrf_fstorage_sd.h"
-
+#include "bignum.h"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"

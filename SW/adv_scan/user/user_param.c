@@ -341,26 +341,22 @@ char* Param_ADV_Get_TxPwr(void)
 
 void Param_ADV_Update_Data(void)
 {
-	uint8_t loop;
 	U8 adv_data[18];
 	memset(adv_data, 0, 18);
-//	Param_ADV_Data_Get(adv_data, ADV_DATA1);
+
 	if(Param_ADV_Status_Get() == true)
 	{
-	//	NRF_LOG_INFO(" adv ok");
-		for(loop = 0; loop < 8; loop++)
+		if(adv_update_tim == 100)
 		{
-			if(uart_data.adv_timeout[loop] == true)
+			adv_update_tim = 0;
+			if(CMCN_Check() > 4)
 			{
-				//NRF_LOG_INFO("update adv ");
-				uart_data.adv_timeout[loop] = false;
-				
 				Param_Update_One();
 			}
-		}
-		if(CMCN_Check() < 4)  
-		{
-			Param_Update_Two();
+			else
+			{
+				Param_Update_Two();
+			}
 		}
 	}
 	
@@ -392,67 +388,29 @@ bool Param_Get_Ble_Connect_Status(void)
 {
 	return con_sta;
 }
-void Param_Update_Who_Data(void)
-{
-	U8 adv_data[18];
-	static U8 data_block = 0;
-	memset(adv_data, 0, 18);
-	if(CMCN_Check() < 4)       //广播两条消息
-	{
-		if(adv_loop >= 100)
-		{
-			
-			data_block++;
-			//NRF_LOG_INFO("data_block is %d", data_block);
-			adv_loop = 0;
-			BLE_ADV_Stop();
-			CMCN_Get();
-			//NRF_LOG_INFO("data_block is %d", data_block);
-			switch(data_block)
-			{
-				case 1:
-			//		NRF_LOG_INFO("ADV_DATA1");
-					Param_ADV_Data_Get(adv_data, ADV_DATA1);
-					break;
-				case 2:
-			//		NRF_LOG_INFO("ADV_DATA2");
-					Param_ADV_Data_Get(adv_data, ADV_DATA2);
-					data_block = 0;
-					break;
-				default:
-					data_block = 0;
-					break;
-			}
-			BLE_ADV_Updata(adv_data);
-			BLE_ADV_Start();
-		}
-	}
-	else                      //广播一条消息
-	{
-		BLE_ADV_Stop();
-		CMCN_Get();
-		Param_ADV_Data_Get(adv_data, ADV_DATA1);
-		BLE_ADV_Updata(adv_data);
-		BLE_ADV_Start();
-	}
-}
 
 void Param_Update_One(void)
 {
-	U8 adv_data[18];
-	memset(adv_data, 0, 18);
+	U8 adv_data[20];
+	memset(adv_data, 0, 20);
 	
-	//NRF_LOG_INFO("one adv");
-	BLE_ADV_Stop();
 	CMCN_Get();
 	Param_ADV_Data_Get(adv_data, ADV_DATA1);
+	BLE_ADV_Stop();
 	BLE_ADV_Updata(adv_data);
 	BLE_ADV_Start();
+//	NRF_LOG_RAW_INFO("scan data:0x");
+//	for(U8 i=0;i<20;i++)
+//	{
+//		NRF_LOG_RAW_INFO("%02x", adv_data[i]);
+
+//	}
+//	NRF_LOG_RAW_INFO("\n");
 	
 }
 void Param_Update_Two(void)
 {
-	U8 adv_data[18];
+	U8 adv_data[20];
 	static U8 data_block = 0;
 	memset(adv_data, 0, 18);
 	
@@ -463,17 +421,16 @@ void Param_Update_Two(void)
 		data_block++;
 		//NRF_LOG_INFO("data_block is %d", data_block);
 		adv_loop = 0;
-		BLE_ADV_Stop();
 		CMCN_Get();
 		//NRF_LOG_INFO("data_block is %d", data_block);
 		switch(data_block)
 		{
 			case 1:
-		//		NRF_LOG_INFO("ADV_DATA1");
+			//	NRF_LOG_INFO("ADV_DATA1");
 				Param_ADV_Data_Get(adv_data, ADV_DATA1);
 				break;
 			case 2:
-		//		NRF_LOG_INFO("ADV_DATA2");
+			//	NRF_LOG_INFO("ADV_DATA2");
 				Param_ADV_Data_Get(adv_data, ADV_DATA2);
 				data_block = 0;
 				break;
@@ -481,6 +438,7 @@ void Param_Update_Two(void)
 				data_block = 0;
 				break;
 		}
+		BLE_ADV_Stop();
 		BLE_ADV_Updata(adv_data);
 		BLE_ADV_Start();
 	}
@@ -493,9 +451,9 @@ void Param_Get_MacAddr(void)
 	
 	err_code = sd_ble_gap_addr_get(&addr);
 	APP_ERROR_CHECK(err_code);
-	//NRF_LOG_INFO("MAC addr*****************");
-	//NRF_LOG_INFO("%02x, %02x, %02x, %02x, %02x, %02x,", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
-	//NRF_LOG_INFO("*****************MAC addr");
+	NRF_LOG_INFO("MAC addr*****************");
+	NRF_LOG_INFO("%02x, %02x, %02x, %02x, %02x, %02x,", addr.addr[0], addr.addr[1], addr.addr[2], addr.addr[3], addr.addr[4], addr.addr[5]);
+	NRF_LOG_INFO("*****************MAC addr");
 	addr.addr[0] += 1;
 	#if 0
 	addr.addr[0] = 0x11;

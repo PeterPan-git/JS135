@@ -412,7 +412,7 @@ void Uart_Data_Transfer(void)
 *-----------------END-----------------
 *-------------MCU <----> BLE----------
 ****************************************************************/
-
+#if 0
 /****************************************************************
 *-------------MCU ----> APP-----------
 *-----------Frame Header: 0xED--------
@@ -432,7 +432,7 @@ void CMNC_MCU_APP_Date_Get(U8 *rx_buf)
 *-----------------END-----------------
 *-------------MCU <----> APP----------
 ****************************************************************/
-
+#endif
 
 /****************************************************************
 *-------------APP ----> MCU-----------
@@ -496,30 +496,42 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 		
 		case BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA:
 			
-		//NRF_LOG_RAW_INFO("p_data[5]-[10]:0x %x %x %x %x %x %x", p_data[5], p_data[6],p_data[7], p_data[8],p_data[9], p_data[10]);
-		//NRF_LOG_RAW_INFO("\n");
+//		if((p_data[8] == 0x13) && (p_data[9] == 0xEF)) 
+//		{	NRF_LOG_RAW_INFO("scan data:0x");
+//				for(U8 i=0;i<20;i++)
+//				{
+//					NRF_LOG_RAW_INFO("%02x", p_data[8+i]);
+
+//				}
+//				NRF_LOG_RAW_INFO("\n");
+//			}
+		
+			
 			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //7     8
 			{
+				//NRF_LOG_INFO("@1:scan data18 is %d",p_data[16]);
+				
+				
 				data_len = p_data[17] + 12;                    //17
-				NRF_LOG_RAW_INFO("data_len is %d\n", data_len);
+			
 				if((p_data[9] == name_hex[0])                  //9
 					&&(p_data[10] == name_hex[1])              //10
 					&&(p_data[11] == name_hex[2]))             //11
 				{
-					NRF_LOG_RAW_INFO("o--------------k");
 					CMNC_APP_MCU_Data_Set(&p_data[7]);         //7
 					//CMCN_APP_MCU_Data_Send(data_len);
-					CMCN_APP_MCU_Data_Send();
+					CMCN_APP_MCU_Data_Send(data_len);
+					
+			
 				}
-				
-				NRF_LOG_RAW_INFO("data:0x");
-				//for(U8 i=0;i<field_length-1;i++)
+				NRF_LOG_RAW_INFO("scan data:0x");
 				for(U8 i=0;i<20;i++)
-		  		{
-					NRF_LOG_RAW_INFO("%02x", app_data[i]);
+				{
+					NRF_LOG_RAW_INFO("%02x", p_data[7+i]);
 
 				}
 				NRF_LOG_RAW_INFO("\n");
+				
 			}
 			
 			break;
@@ -529,77 +541,20 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 	 return NRF_ERROR_NOT_FOUND;
 }
 
-void CMCN_APP_MCU_Data_Send(void)
+void CMCN_APP_MCU_Data_Send(U8 len)
 {
-	Drive_UART_Send_String((char*)app_data, sizeof(app_data));
+	Drive_UART_Send_String((char*)app_data, len);
+	//NRF_LOG_INFO("@2:ble --> mcu by uart");				
 }
 /*************************************
 *-----------------END-----------------
 *-------------MCU <----> APP----------
 ****************************************************************/
 
-//void Uart_Data_Choose(void)
-//{
-//	uint8_t head_status[2]; 
-//	uint32_t       err_code;
-
-//	//U8 loop;
-//	head_status[0] = user_rx_buf[0];
-//	head_status[1] = user_rx_buf[1];
-//	
-//	if((rx_status == false) && (rx_inde > 1))
-//	{
-//		//for(loop = 0; loop < 8; loop++)
-//	//	{
-//			NRF_LOG_INFO("user_rx_buf[5] is 0x%02x", user_rx_buf[5]);
-
-//			
-//	//	}
-//		#if 1
-//		if(head_status[0] == HD_1)
-//		{
-//			NRF_LOG_INFO("HD_1");
-//			if(head_status[1] == FD_1)
-//			{
-//				NRF_LOG_INFO("FD_1");
-//				if(CMNC_Repeat_Filt(user_rx_buf) == false)
-//				{
-//					CMCN_Save(user_rx_buf);
-//					CMCN_Do();
-//				}
-//				
-//				rx_inde = 0;
-//			}
-//		}
-//		else if(head_status[0] == HD_2)
-//		{
-//			NRF_LOG_INFO("HD_2");
-//			Uart_Cmd((char*)user_tx_buf, (char*)user_rx_buf);
-//			rx_inde = 0;
-//		}
-//		else
-//		{
-//			 do
-//			{
-
-//				err_code = ble_nus_data_send(&m_nus, user_rx_buf, &rx_inde, m_conn_handle);
-//				if ((err_code != NRF_ERROR_INVALID_STATE) &&
-//					(err_code != NRF_ERROR_RESOURCES) &&
-//					(err_code != NRF_ERROR_NOT_FOUND))
-//				{
-//					APP_ERROR_CHECK(err_code);
-//				}
-//			} while (err_code == NRF_ERROR_RESOURCES);
-//			rx_inde = 0;
-//		}
-//		#endif
-//		
-//	}
-//	
-//}
 
 void CMCN_Save(U8 *rx)
 {
+//	NRF_LOG_INFO("store data");
 	U8 len = 0;
 	U8 loop1, loop2, loop3;
 	U8 space_data = 0;
@@ -608,12 +563,13 @@ void CMCN_Save(U8 *rx)
 	
 	uart_data.length = rx[2];
 	number_data = (rx[2]) / 4;
+	//NRF_LOG_INFO("number_data is %d!", number_data);
 	space_data = CMCN_Check();
 	
 	crc_digit = CMNC_Get_CRC_Digit(rx);
 	uart_data.cs = CMNC_CRC_Data(&rx[2], crc_digit-2);
-	NRF_LOG_INFO("crc_digit is %d", crc_digit);
-	NRF_LOG_INFO("crc_value and rx[7] is 0x%x 0x%x", uart_data.cs, rx[crc_digit]);
+//	NRF_LOG_INFO("crc_digit is %d", crc_digit);
+//	NRF_LOG_INFO("crc_value and rx[7] is 0x%x 0x%x", uart_data.cs, rx[crc_digit]);
 	if(uart_data.cs != rx[crc_digit])
 	{
 		NRF_LOG_INFO("uart crc fail!");
@@ -653,22 +609,25 @@ void CMCN_Save(U8 *rx)
 	{
 		if(group_sta[loop1] == true)
 		{
+			uart_data.adv_sta[loop1] = true;
 			for(loop2 = 0; loop2 < 4; loop2++)
 			{
 				uart_data.ret_block[loop1][loop2] = rx[3 + loop3];
 				loop3++;
 				//NRF_LOG_INFO("uart_data.ret_block[x][x] is 0x%x", uart_data.ret_block[loop1][loop2]);
 			}
-			NRF_LOG_INFO("loop1 is %d", loop1);
-			NRF_LOG_INFO("after ADV xu hao is %x", rx[5]);
-	
-			NRF_LOG_INFO("befor ADV xu hao is %x", uart_data.ret_block[0][2]);
+//			NRF_LOG_INFO("loop1 is %d", loop1);
+//			NRF_LOG_INFO("after ADV xu hao is %x", rx[5]);
+//	
+//			NRF_LOG_INFO("befor ADV xu hao is %x", uart_data.ret_block[0][2]);
 			if(loop3 == len)            //如果待存数据长度小于剩余存储空间，则提前退出程序
 			{
+				//NRF_LOG_INFO("save success 111111111!");
 				return;
 			}
 		}
 	}
+	//NRF_LOG_INFO("save success 2222222222!");
 }
 
 void CMCN_Get(void)
@@ -722,16 +681,6 @@ void CMCN_Get(void)
 	
 }
 
-void CMCN_Do(void)
-{
-	NRF_LOG_INFO("-----------CMCN_Do");
-	U8 adv_data[20];
-	CMCN_Get();
-	Param_ADV_Data_Get(adv_data, ADV_DATA1);
-	BLE_ADV_Stop();
-	BLE_ADV_Updata(adv_data);
-	BLE_ADV_Start();
-}
 void CMCN_Deal(E_BLOCK e_block)
 {
 	U8 loop;
@@ -757,11 +706,14 @@ U8 CMCN_Check(void)
 			if(loop3 == 4)
 			{
 				group_sta[loop1] = true;  //真代表该数据行是空的
+				//uart_data.adv_timer[loop1]=0;
+			//	uart_data.adv_sta[loop1] = false;
 				sum++;
 			}
 			else
 			{
-				uart_data.adv_sta[loop1] = true;
+				group_sta[loop1] = false;
+			//	uart_data.adv_sta[loop1] = true;
 			}
 		}
 	}
@@ -834,53 +786,33 @@ void CMNC_String_To_Hex(char* str, unsigned char* hex)
 bool CMNC_Repeat_Filt(U8 *rx)
 {
 	U8 loop1, loop2;
-	U8 sign = 0;
+	//U8 sign = 0;
 	U8 temp = 0;
-#if 0
-	for(loop1 = 0; loop1 < 4; loop++)
-	{
-		if(rx[3+loop1] == uart_data.ret_block[0][loop1])
-		{
-			sign++;
-		}
-	}
-	if(sign == 4)
-	{
-		NRF_LOG_INFO("return true");
-		return true;
-	}
-	else
-	{
-		NRF_LOG_INFO("return false");
-		return false;
-	}
-#endif
 
-	for(loop1 = 0, sign = 0; loop1 < 8; loop1++)
-	{
-		for(loop2 = 0; loop2 < 4; loop2++)
-		{
-			if(rx[3+loop2] == uart_data.ret_block[loop1][loop2])
-			{
-				sign++;
-			}
-			if(sign == 4)
-			{
-				temp++;
-			}
-		}
 	
-	}
+	for(loop1 = 0; loop1 < 8; loop1++)
+		{
+			for(loop2 = 0; loop2 < 4; loop2++)
+			{
+				if(rx[3+loop2] != uart_data.ret_block[loop1][loop2])
+				{
+					temp++;
+					break;
+				}
+				
+			}
+		
+		}
 
-	if(temp >= 1)
+	if(temp == 8)      //如果八个块和接收到的数据都无重复
 	{
-		NRF_LOG_INFO("return true");
-		return true;
+		//NRF_LOG_INFO("No duplicate data was received");
+		return false;
 	}
 	else
 	{
-		NRF_LOG_INFO("return false");
-		return false;
+		//NRF_LOG_INFO("Receive data duplication");
+		return true;
 	}
 }
 

@@ -4,8 +4,8 @@ static fds_params_t fds_params =
 {
 	.adv_nam = "JS135----------1",
 	.adv_int = 32,
-	.adv_tmo = 1000,
 	.adv_dly = 32,
+	.adv_tmo = 5000,
 	.adv_tx_pwr = 12,
 };
 

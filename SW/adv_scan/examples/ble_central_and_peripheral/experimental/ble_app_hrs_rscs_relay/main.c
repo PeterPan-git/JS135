@@ -18,6 +18,7 @@ int main(void)
 	Drive_Timer0_to_3_Init();
 	
 	Drive_UART_Init();
+	//Drive_Log_Init();
 	CMNC_APP_MCU_Data_Init();
 	Drive_Power_Manage_Init();
 	

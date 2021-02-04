@@ -10,8 +10,8 @@ typedef struct
 {
 	char adv_nam[22];
 	U32 adv_int;
-	U32 adv_tmo;
 	U32 adv_dly;
+	U32 adv_tmo;
 	U8 adv_tx_pwr;
 }
 __attribute__((aligned(4)))fds_params_t;

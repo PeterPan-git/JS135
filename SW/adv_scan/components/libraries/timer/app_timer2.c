@@ -110,7 +110,8 @@ NRF_SORTLIST_DEF(m_app_timer_sortlist, compare_func); /**< Sortlist used for sto
 /**
  * @brief Return current 64 bit timestamp
  */
-static uint64_t get_now(void)
+//static uint64_t get_now(void)
+uint64_t get_now(void)
 {
     uint64_t now = m_base_counter + drv_rtc_counter_get(&m_rtc_inst);
 

@@ -35,8 +35,13 @@ void Uart_Data_Choose(void)
 	head_status[1] = user_rx_buf[1];
 	uint16_t length = (uint16_t)rx_inde;
 	
+	
 	if((rx_status == false) && (rx_inde > 1))
 	{
+//		for(U8 loop = 0; loop < 10; loop++)
+//		{
+//			NRF_LOG_INFO("user_rx_buf[%d]:0x%x", loop, user_rx_buf[loop]);
+//		}
 		//NRF_LOG_INFO("%s", user_rx_buf);
 			
 		if(Param_Get_Ble_Connect_Status())
@@ -60,11 +65,14 @@ void Uart_Data_Choose(void)
 				//NRF_LOG_INFO("HD_1");
 				if(head_status[1] == FD_1)
 				{
+					//NRF_LOG_INFO("@3:mcu --> ble by uart");
 					//NRF_LOG_INFO("FD_1");
+					//NRF_LOG_INFO("user_rx_buf[5]: %d", user_rx_buf[5]);
+				
 					if(CMNC_Repeat_Filt(user_rx_buf) == false)
 					{
+						//NRF_LOG_INFO("NO repeat!!!!!!!!!!!!!!!!!!");
 						CMCN_Save(user_rx_buf);
-						CMCN_Do();
 					}
 					
 					rx_inde = 0;
@@ -169,10 +177,12 @@ void BLE_ADV_Start(void)
 	APP_ERROR_CHECK(err_code);
 	
 	Param_ADV_Status_Set(ADV_OPEN);
+	
 }
 
 void BLE_ADV_Stop(void)
 {
+
 	ret_code_t err_code;
 
 	err_code = sd_ble_gap_adv_stop(m_advertising.adv_handle);
@@ -565,6 +575,14 @@ void BLE_ADV_Updata(U8 *data)
 	
 	U8 adv_dat[18];
 	memcpy(adv_dat, &data[2], 18);
+	
+	//NRF_LOG_RAW_INFO("adv data:0x");			
+	//for(U8 i=0;i<18;i++)
+	//{
+	//	NRF_LOG_RAW_INFO("adv_dat[1] is %02x", adv_dat[1]);
+
+	//}
+	//NRF_LOG_RAW_INFO("\n");
 	_adv_param adv_params;
 	Param_ADV_Get_Param(&adv_params);
 

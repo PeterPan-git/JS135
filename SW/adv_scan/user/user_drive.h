@@ -11,7 +11,7 @@ extern bool rx_status;
 extern U16 adv_loop;
 extern unsigned char rx_timeout;
 extern const nrfx_timer_t TIMER_DELAY;
-
+extern U16 adv_update_tim;
 typedef struct
 {
 	nrfx_timer_t timer_compare0;
@@ -35,4 +35,6 @@ void Drive_WDT_Even_Handle(void);
 void Drive_GPIO_Connect_State_Init(void);
 void Drive_GPIO_Connect_State_Open(void);
 void Drive_GPIO_Connect_State_Close(void);
+
+uint64_t get_now(void);
 #endif

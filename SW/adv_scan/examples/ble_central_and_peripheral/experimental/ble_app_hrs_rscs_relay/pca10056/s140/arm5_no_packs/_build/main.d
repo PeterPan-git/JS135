@@ -110,6 +110,10 @@
 .\_build\main.o: ..\..\..\..\..\..\..\components\ble\nrf_ble_scan\nrf_ble_scan.h
 .\_build\main.o: ..\..\..\..\..\..\..\modules\nrfx\hal\nrf_power.h
 .\_build\main.o: ..\..\..\..\..\..\..\components\libraries\fstorage\nrf_fstorage_sd.h
+.\_build\main.o: ..\..\..\..\..\..\..\external\mbedtls\include\mbedtls\bignum.h
+.\_build\main.o: ..\..\..\..\..\..\..\external\mbedtls\include\mbedtls\config.h
+.\_build\main.o: ..\..\..\..\..\..\..\external\mbedtls\include\mbedtls\check_config.h
+.\_build\main.o: D:\SW_Install\keil\ARM\ARMCC\Bin\..\include\limits.h
 .\_build\main.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log.h
 .\_build\main.o: ..\..\..\..\..\..\..\components\libraries\strerror\nrf_strerror.h
 .\_build\main.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_internal.h
