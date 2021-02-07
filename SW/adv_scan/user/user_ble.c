@@ -603,7 +603,7 @@ void BLE_ADV_Updata(U8 *data)
 	//adv_data.name_type               = BLE_ADVDATA_FULL_NAME;
 	//是否包含外观：包含
 	adv_data.include_appearance      = false;
-	adv_data.p_tx_power_level= &adv_params.tx_power;
+	//adv_data.p_tx_power_level= &adv_params.tx_power;
 	//广播中加入制造商自定义数据
 	adv_data.p_manuf_specific_data    = &manuf_specific_data;
 	// adv_data.p_service_data_array = &serve_data;

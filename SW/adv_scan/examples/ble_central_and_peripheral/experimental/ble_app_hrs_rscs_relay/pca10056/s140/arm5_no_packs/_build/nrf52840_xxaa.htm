@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\_build\nrf52840_xxaa.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\_build\nrf52840_xxaa.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Feb 04 17:00:40 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Feb 07 10:59:37 2021
 <BR><P>
 <H3>Maximum Stack Usage =        888 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -749,7 +749,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> user_ble.o(i.BLE_Serve_Init)
 </UL>
 <P><STRONG><a name="[2b]"></a>BLE_Scan_Evt_Handler</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, user_ble.o(i.BLE_Scan_Evt_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = BLE_Scan_Evt_Handler &rArr; CMNC_APP_MCU_Data_Receice &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
+<BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = BLE_Scan_Evt_Handler &rArr; CMNC_APP_MCU_Data_Receice &rArr; nrf_log_frontend_std_0 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Receice
@@ -857,11 +857,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[94]"></a>CMNC_APP_MCU_Data_Receice</STRONG> (Thumb, 210 bytes, Stack size 32 bytes, user_cmnc.o(i.CMNC_APP_MCU_Data_Receice))
-<BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = CMNC_APP_MCU_Data_Receice &rArr; nrf_log_frontend_std_1 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
+<P><STRONG><a name="[94]"></a>CMNC_APP_MCU_Data_Receice</STRONG> (Thumb, 222 bytes, Stack size 32 bytes, user_cmnc.o(i.CMNC_APP_MCU_Data_Receice))
+<BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = CMNC_APP_MCU_Data_Receice &rArr; nrf_log_frontend_std_0 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_0
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Set
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMCN_APP_MCU_Data_Send
 </UL>
@@ -1058,11 +1057,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[d1]"></a>FDS_Read_Params_Record</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, user_fds.o(i.FDS_Read_Params_Record))
+<P><STRONG><a name="[d1]"></a>FDS_Read_Params_Record</STRONG> (Thumb, 122 bytes, Stack size 40 bytes, user_fds.o(i.FDS_Read_Params_Record))
 <BR><BR>[Stack]<UL><LI>Max Depth = 384<LI>Call Chain = FDS_Read_Params_Record &rArr; app_error_handler &rArr; app_error_fault_handler &rArr; nrf_log_frontend_std_5 &rArr; std_n &rArr; nrf_log_frontend_dequeue &rArr;  nrf_log_frontend_std_0 (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_log_frontend_std_1
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fds_record_open
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fds_record_find
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fds_record_close
@@ -2888,7 +2886,6 @@ Global Symbols
 <LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_fault_handler
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_enable
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_sdh_ble_default_cfg_set
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CMNC_APP_MCU_Data_Receice
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_evt_handler
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BLE_NUS_Data_Handler
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Store_Name
@@ -2896,7 +2893,6 @@ Global Symbols
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Timeout
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Interval
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Param_ADV_Set_Delay
-<LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FDS_Read_Params_Record
 </UL>
 
 <P><STRONG><a name="[f2]"></a>nrf_log_frontend_std_2</STRONG> (Thumb, 32 bytes, Stack size 32 bytes, nrf_log_frontend.o(i.nrf_log_frontend_std_2))

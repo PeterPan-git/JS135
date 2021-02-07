@@ -346,7 +346,7 @@ void Param_ADV_Update_Data(void)
 
 	if(Param_ADV_Status_Get() == true)
 	{
-		if(adv_update_tim == 100)
+		if(adv_update_tim == 60)
 		{
 			adv_update_tim = 0;
 			if(CMCN_Check() > 4)

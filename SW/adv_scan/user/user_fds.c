@@ -2,9 +2,9 @@
 
 static fds_params_t fds_params = 
 {
-	.adv_nam = "JS135----------1",
-	.adv_int = 32,
-	.adv_dly = 32,
+	.adv_nam = "JX15N2C1051111AAA3",
+	.adv_int = 64,
+	.adv_dly = 64,
 	.adv_tmo = 5000,
 	.adv_tx_pwr = 12,
 };
@@ -121,7 +121,7 @@ void FDS_Read_Params_Record(void)
 		memcpy(&fds_params, temp.p_data,  sizeof(fds_params_t));
 		rc = fds_record_close(&desc);
 		APP_ERROR_CHECK(rc);
-		NRF_LOG_INFO("FDS name is %s", fds_params.adv_nam);
+	//	NRF_LOG_INFO("FDS name is %s", fds_params.adv_nam);
 	}
 	
 }

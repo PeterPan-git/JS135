@@ -493,25 +493,26 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 		  	NRF_LOG_RAW_INFO("%c", p_data[index+2+i]);
 			#endif
 			break;
+		case BLE_GAP_AD_TYPE_TX_POWER_LEVEL:
+
+			if((p_data[8] == 0x13) && (p_data[9] == 0xEE))
+			{
+				data_len = p_data[18] + 12;                    //17
+			
+				if((p_data[10] == name_hex[0])                  //9
+					&&(p_data[11] == name_hex[1])              //10
+					&&(p_data[12] == name_hex[2]))             //11
+				{
+					CMNC_APP_MCU_Data_Set(&p_data[8]);         //7
+					CMCN_APP_MCU_Data_Send(data_len);
+				}
+			}
+			break;
 		
 		case BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA:
 			
-//		if((p_data[8] == 0x13) && (p_data[9] == 0xEF)) 
-//		{	NRF_LOG_RAW_INFO("scan data:0x");
-//				for(U8 i=0;i<20;i++)
-//				{
-//					NRF_LOG_RAW_INFO("%02x", p_data[8+i]);
-
-//				}
-//				NRF_LOG_RAW_INFO("\n");
-//			}
-		
-			
-			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))      //7     8
+			if((p_data[7] == 0x13) && (p_data[8] == 0xEE))
 			{
-				//NRF_LOG_INFO("@1:scan data18 is %d",p_data[16]);
-				
-				
 				data_len = p_data[17] + 12;                    //17
 			
 				if((p_data[9] == name_hex[0])                  //9
@@ -519,25 +520,21 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 					&&(p_data[11] == name_hex[2]))             //11
 				{
 					CMNC_APP_MCU_Data_Set(&p_data[7]);         //7
-					//CMCN_APP_MCU_Data_Send(data_len);
 					CMCN_APP_MCU_Data_Send(data_len);
-					
-			
 				}
 				NRF_LOG_RAW_INFO("scan data:0x");
-				for(U8 i=0;i<20;i++)
-				{
-					NRF_LOG_RAW_INFO("%02x", p_data[7+i]);
+//				for(U8 i=0;i<20;i++)
+//				{
+//					NRF_LOG_RAW_INFO("%02x", p_data[7+i]);
 
-				}
-				NRF_LOG_RAW_INFO("\n");
-				
+//				}
+//				NRF_LOG_RAW_INFO("\n");	
 			}
-			
 			break;
 	  }
       index += field_length + 1;
     }
+
 	 return NRF_ERROR_NOT_FOUND;
 }
 
