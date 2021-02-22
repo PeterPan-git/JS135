@@ -1,7 +1,7 @@
 #ifndef _USER_BLE_H_
 #define _USER_BLE_H_
 #include "user_head.h"
-//#define APP_COMPANY_IDENTIFIER          0xEF13
+#define APP_COMPANY_IDENTIFIER          0xEF13
 #define APP_BLE_CONN_CFG_TAG            1                                           /**< Tag that identifies the SoftDevice BLE configuration. */
 
 #define FIRST_CONN_PARAMS_UPDATE_DELAY  APP_TIMER_TICKS(5000)                       /**< Time from initiating event (connect or start of notification) to the first time sd_ble_gap_conn_param_update is called (5 seconds). */
@@ -18,6 +18,12 @@ void BLE_ADV_Init(U8 *data);
 void BLE_ADV_Evt_Handle(ble_adv_evt_t ble_adv_evt);
 void BLE_ADV_Start(void);
 void BLE_ADV_Stop(void);
+
+void BLE_ADV_CON(void);
+void BLE_ADV_Name(void);
+void BLE_ADV_Data(U8 *data);
+void BLE_Beacon_Start(void);
+void BLE_Beacon_Stop(void);
 
 void BLE_Scan_Init(void);
 void BLE_Scan_Evt_Handler(scan_evt_t const * p_scan_evt);

@@ -131,19 +131,17 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 	}
 	else if((strncmp(rx_buf, rx_cmd6, 10)) == 0)
 	{
-		#if (DEBUG_CMD)
+		//#if (DEBUG_CMD)
 		NRF_LOG_INFO("Set ble name");
 		//NRF_LOG_INFO("rx_buf is %s", rx_buf);
-		#endif
+		//#endif
 		FDS_Set_Update_Status(true);
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
-
-		BLE_ADV_Stop();
+		BLE_Beacon_Stop();
 		Param_ADV_Store_Name(rx_buf);
 		Param_ADV_Set_Name();
-		
-		BLE_ADV_Init(adv_data);
-		BLE_ADV_Start();
+		BLE_ADV_CON();
+		BLE_Beacon_Start();
 		
 	}
 	else if((strcmp(rx_buf, rx_cmd7)) == 0)
@@ -160,10 +158,11 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		NRF_LOG_INFO("Set Adv interval");
 		#endif
 		FDS_Set_Update_Status(true);
-		BLE_ADV_Stop();
+		
 		Param_ADV_Set_Interval(rx_buf);
-		BLE_ADV_Init(adv_data);
-		BLE_ADV_Start();
+		BLE_Beacon_Stop();
+		BLE_ADV_CON();
+		BLE_Beacon_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 	}
 	else if((strcmp(rx_buf, rx_cmd9)) == 0)
@@ -197,10 +196,10 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		NRF_LOG_INFO("Set Adv timeout");
 		#endif
 		FDS_Set_Update_Status(true);
-		BLE_ADV_Stop();
+		BLE_Beacon_Stop();
 		Param_ADV_Set_Timeout(rx_buf);
-		BLE_ADV_Init(adv_data);
-		BLE_ADV_Start();
+		BLE_ADV_CON();
+		BLE_Beacon_Start();
 		Drive_UART_Send_String(tx_cmd1, strlen(tx_cmd1));
 	}
 	else if((strcmp(rx_buf, rx_cmd13)) == 0)
@@ -242,7 +241,7 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		}
 		else
 		{	
-			BLE_ADV_Start();
+			BLE_Beacon_Start();
 		}
 	}
 	else if((strcmp(rx_buf, rx_cmd16)) == 0)
@@ -295,10 +294,10 @@ void Uart_Cmd(char *tx_buf, char *rx_buf)
 		NRF_LOG_INFO("Set TX power");
 		#endif
 		FDS_Set_Update_Status(true);
-		BLE_ADV_Stop();
+		BLE_Beacon_Stop();
 		Param_ADV_Set_TxPwr(rx_buf);
-		BLE_ADV_Init(adv_data);
-		BLE_ADV_Start();
+		BLE_ADV_CON();
+		BLE_Beacon_Start();
 		
 		Drive_UART_Send_String(tx_cmd6, strlen(tx_cmd6));
 	}
@@ -522,7 +521,8 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 					CMNC_APP_MCU_Data_Set(&p_data[7]);         //7
 					CMCN_APP_MCU_Data_Send(data_len);
 				}
-				NRF_LOG_RAW_INFO("scan data:0x");
+				NRF_LOG_INFO("@1:app --> ble by scan");	
+//				NRF_LOG_RAW_INFO("scan data:0x");
 //				for(U8 i=0;i<20;i++)
 //				{
 //					NRF_LOG_RAW_INFO("%02x", p_data[7+i]);
@@ -551,7 +551,6 @@ void CMCN_APP_MCU_Data_Send(U8 len)
 
 void CMCN_Save(U8 *rx)
 {
-//	NRF_LOG_INFO("store data");
 	U8 len = 0;
 	U8 loop1, loop2, loop3;
 	U8 space_data = 0;
@@ -560,16 +559,14 @@ void CMCN_Save(U8 *rx)
 	
 	uart_data.length = rx[2];
 	number_data = (rx[2]) / 4;
-	//NRF_LOG_INFO("number_data is %d!", number_data);
 	space_data = CMCN_Check();
 	
 	crc_digit = CMNC_Get_CRC_Digit(rx);
 	uart_data.cs = CMNC_CRC_Data(&rx[2], crc_digit-2);
-//	NRF_LOG_INFO("crc_digit is %d", crc_digit);
-//	NRF_LOG_INFO("crc_value and rx[7] is 0x%x 0x%x", uart_data.cs, rx[crc_digit]);
+
 	if(uart_data.cs != rx[crc_digit])
 	{
-		NRF_LOG_INFO("uart crc fail!");
+		//NRF_LOG_INFO("uart crc fail!");
 		return;
 	}
 	else
@@ -578,7 +575,7 @@ void CMCN_Save(U8 *rx)
 	}
 	if(space_data == 0)                   //剩余空间为0就退出
 	{
-		NRF_LOG_INFO("There is no extra data space !");
+		//NRF_LOG_INFO("There is no extra data space !");
 		return;
 	}
 	switch(number_data)
@@ -611,20 +608,16 @@ void CMCN_Save(U8 *rx)
 			{
 				uart_data.ret_block[loop1][loop2] = rx[3 + loop3];
 				loop3++;
-				//NRF_LOG_INFO("uart_data.ret_block[x][x] is 0x%x", uart_data.ret_block[loop1][loop2]);
+
 			}
-//			NRF_LOG_INFO("loop1 is %d", loop1);
-//			NRF_LOG_INFO("after ADV xu hao is %x", rx[5]);
-//	
-//			NRF_LOG_INFO("befor ADV xu hao is %x", uart_data.ret_block[0][2]);
+
 			if(loop3 == len)            //如果待存数据长度小于剩余存储空间，则提前退出程序
 			{
-				//NRF_LOG_INFO("save success 111111111!");
 				return;
 			}
 		}
 	}
-	//NRF_LOG_INFO("save success 2222222222!");
+	
 }
 
 void CMCN_Get(void)

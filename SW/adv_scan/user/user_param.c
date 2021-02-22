@@ -8,7 +8,8 @@ static _adv_two adv_two;
 static bool adv_status;
 static bool scan_status;
 static bool con_sta = false;
-
+U8 adv_name_cot = 0;
+U8 adv_mode = 0;
 void Param_ADV_Data_Init(void)
 {
 	adv_two.adv_two_status = true;
@@ -89,8 +90,8 @@ void Param_ADV_Param_Init(void)
 	adv_prm.adv_delay = FDS_Get_Params()->adv_dly;
 	adv_prm.adv_timeout = FDS_Get_Params()->adv_tmo;
 	adv_prm.tx_power = FDS_Get_Params()->adv_tx_pwr;
-	NRF_LOG_INFO(" FDS_Get_Params()->adv_nam is : %s", FDS_Get_Params()->adv_nam);
-	NRF_LOG_INFO(" adv_prm.adv_name is : %s", adv_prm.adv_name);
+	//NRF_LOG_INFO(" FDS_Get_Params()->adv_nam is : %s", FDS_Get_Params()->adv_nam);
+	//NRF_LOG_INFO(" adv_prm.adv_name is : %s", adv_prm.adv_name);
 }
 
 bool Param_ADV_Set_Param(_adv_param *prm)
@@ -124,7 +125,7 @@ void Param_ADV_Set_Name(void)
 
     err_code = sd_ble_gap_device_name_set(&sec_mode,
                                           (const uint8_t *) adv_prm.adv_name,
-                                          strlen(adv_prm.adv_name));
+                                          sizeof(adv_prm.adv_name));   //strlen(adv_prm.adv_name)
     APP_ERROR_CHECK(err_code);
 
 	
@@ -146,11 +147,11 @@ void Param_ADV_Store_Name(char *name_buf)
 	CMNC_String_To_Hex(adv_prm.adv_name, name_hex);
 	//FDS_Set_Name(adv_prm.adv_name);
 	FDS_Set_Params(adv_prm);
-	NRF_LOG_INFO("name is %s", adv_prm.adv_name);
-	for(loop = 0; loop < 3; loop++)
-		{
-			NRF_LOG_INFO("!!!!!!!!!!!!!!!!!name_hex[%d]:0x%02x", loop, name_hex[loop]);
-		}
+	//NRF_LOG_INFO("name is %s", adv_prm.adv_name);
+	//for(loop = 0; loop < 3; loop++)
+	//	{
+	//		NRF_LOG_INFO("!!!!!!!!!!!!!!!!!name_hex[%d]:0x%02x", loop, name_hex[loop]);
+	//	}
 }
 char* Param_ADV_Get_Name(void)
 {
@@ -201,7 +202,7 @@ void Param_ADV_Set_Interval(char *itv_buf)
 	adv_prm.adv_interval = atoi(str);
 	FDS_Set_Params(adv_prm);
 	
-	NRF_LOG_INFO("adv_itv is %d", adv_prm.adv_interval);
+	//NRF_LOG_INFO("adv_itv is %d", adv_prm.adv_interval);
 	
 }
 
@@ -223,7 +224,7 @@ void Param_ADV_Set_Delay(char *tim_buf)
 	delay_buffer = atoi(str);
 	 adv_prm.adv_delay= delay_buffer*10;
 	FDS_Set_Params(adv_prm);
-	NRF_LOG_INFO("adv_delay is %d", adv_prm.adv_delay);
+	//NRF_LOG_INFO("adv_delay is %d", adv_prm.adv_delay);
 
 }
 char* Param_ADV_Get_Delay(void)
@@ -261,7 +262,7 @@ void Param_ADV_Set_Timeout(char *timeout_buf)
 
 	adv_prm.adv_timeout= atoi(str)*1000;
 	FDS_Set_Params(adv_prm);
-	NRF_LOG_INFO("^^^^^^^^^^^^^^^^adv_timeout is %d", adv_prm.adv_timeout);
+	//NRF_LOG_INFO("^^^^^^^^^^^^^^^^adv_timeout is %d", adv_prm.adv_timeout);
 }
 char* Param_ADV_Get_Timeout(void)
 {
@@ -346,6 +347,7 @@ void Param_ADV_Update_Data(void)
 
 	if(Param_ADV_Status_Get() == true)
 	{
+		
 		if(adv_update_tim == 60)
 		{
 			adv_update_tim = 0;
@@ -361,7 +363,40 @@ void Param_ADV_Update_Data(void)
 	}
 	
 }
-
+void Param_ADV_Update_By_Time(void)
+{
+	if(Param_ADV_Status_Get() == true)
+	{
+	//	Param_Update_One();
+		if(CMCN_Check() == 8)//如果数据为空则工作在可连接广播模式
+		{
+		//	NRF_LOG_INFO("con mode");
+			if(adv_mode != 0)
+			{
+				//NRF_LOG_INFO("modified con mode");
+				BLE_Beacon_Stop();
+				BLE_ADV_CON();
+				BLE_Beacon_Start();
+			}
+		}
+		else
+		{
+			if(adv_update_tim == 0)
+			{
+				if(CMCN_Check() > 4)
+				{
+					Param_Update_One();
+				//	NRF_LOG_INFO("@4:ble --> app by adv");	
+				}
+				else
+				{
+					Param_Update_Two();
+				}
+			}
+		}
+					
+	}
+}
 void Param_ADV_Status_Set(bool sta)
 {
 	adv_status = sta;
@@ -396,16 +431,17 @@ void Param_Update_One(void)
 	
 	CMCN_Get();
 	Param_ADV_Data_Get(adv_data, ADV_DATA1);
-	BLE_ADV_Stop();
-	BLE_ADV_Updata(adv_data);
-	BLE_ADV_Start();
-//	NRF_LOG_RAW_INFO("scan data:0x");
+//	NRF_LOG_RAW_INFO("adv data:0x");
 //	for(U8 i=0;i<20;i++)
 //	{
 //		NRF_LOG_RAW_INFO("%02x", adv_data[i]);
 
 //	}
 //	NRF_LOG_RAW_INFO("\n");
+	BLE_Beacon_Stop();
+	BLE_ADV_Data(adv_data);
+	BLE_Beacon_Start();
+
 	
 }
 void Param_Update_Two(void)
@@ -438,9 +474,9 @@ void Param_Update_Two(void)
 				data_block = 0;
 				break;
 		}
-		BLE_ADV_Stop();
-		BLE_ADV_Updata(adv_data);
-		BLE_ADV_Start();
+		BLE_Beacon_Stop();
+		BLE_ADV_Data(adv_data);
+		BLE_Beacon_Start();
 	}
 	
 }

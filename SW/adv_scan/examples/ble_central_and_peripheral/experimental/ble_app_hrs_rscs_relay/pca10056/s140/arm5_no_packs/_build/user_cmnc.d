@@ -115,7 +115,6 @@
 .\_build\user_cmnc.o: ..\..\..\..\..\..\..\external\mbedtls\include\mbedtls\check_config.h
 .\_build\user_cmnc.o: D:\SW_Install\keil\ARM\ARMCC\Bin\..\include\limits.h
 .\_build\user_cmnc.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log.h
-.\_build\user_cmnc.o: ..\..\..\..\..\..\..\components\libraries\strerror\nrf_strerror.h
 .\_build\user_cmnc.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_internal.h
 .\_build\user_cmnc.o: ..\..\..\..\..\..\..\components\libraries\log\nrf_log_ctrl.h
 .\_build\user_cmnc.o: ..\..\..\..\..\..\..\components\libraries\log\src\nrf_log_ctrl_internal.h

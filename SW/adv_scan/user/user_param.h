@@ -36,6 +36,7 @@ typedef enum
 	ADV_DATA2,
 }_dat_blk;
 
+extern U8 adv_mode;
 void Param_ADV_Data_Init(void);
 void Param_ADV_Data_Set(U8 *data, _dat_blk dat_blk);
 void Param_ADV_Data_Get(U8 *data, _dat_blk dat_blk);
@@ -56,6 +57,7 @@ char* Param_ADV_Get_Timeout(void);
 void Param_ADV_Set_TxPwr(char *tim_buf);
 char* Param_ADV_Get_TxPwr(void);
 void Param_ADV_Update_Data(void);
+void Param_ADV_Update_By_Time(void);
 void Param_ADV_Status_Set(bool sta);
 bool Param_ADV_Status_Get(void);
 void Param_Scan_Status_Set(bool sta);

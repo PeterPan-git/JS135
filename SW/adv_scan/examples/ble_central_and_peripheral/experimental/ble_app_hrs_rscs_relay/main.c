@@ -1,8 +1,10 @@
 #include "user_head.h"
 
+
 int main(void)
 {
 	U8 data[20];
+
 	Drive_Log_Init();
 
 	Drive_WDT_Init();
@@ -18,12 +20,11 @@ int main(void)
 	Drive_Timer0_to_3_Init();
 	
 	Drive_UART_Init();
-	//Drive_Log_Init();
 	CMNC_APP_MCU_Data_Init();
 	Drive_Power_Manage_Init();
 	
 	BLE_Stack_Init();
-	FDS_Init();
+	//FDS_Init();
 	Param_ADV_Param_Init();
 	//Param_PA_Test();
 	BLE_Scan_Init();
@@ -31,18 +32,19 @@ int main(void)
 	BLE_GATT_Init();
 	BLE_GAP_Conn_Params_Init();
 	BLE_Serve_Init();
-	BLE_ADV_Init(data);
-
-	BLE_ADV_Start();
+	BLE_ADV_CON();
 	BLE_Scan_Start();
-	Param_Get_MacAddr();
+	BLE_Beacon_Start();
 
+	Param_Get_MacAddr();
+	
 	while(true)
     {
+
 		Drive_Feed_Dog();
 		Uart_Data_Choose();
-		Param_ADV_Update_Data();
-		FDS_Run();
+		Param_ADV_Update_By_Time();
+	//	FDS_Run();
         Drive_Idle_State_Handle();
 		
     }

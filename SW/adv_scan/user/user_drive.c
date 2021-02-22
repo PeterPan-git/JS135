@@ -76,18 +76,18 @@ void Drive_UART_Evt_Handle(app_uart_evt_t * p_event)
 			break;
 
 		case APP_UART_COMMUNICATION_ERROR:
-			NRF_LOG_INFO("@@uart APP_UART_COMMUNICATION_ERROR error");
+			//NRF_LOG_INFO("@@uart APP_UART_COMMUNICATION_ERROR error");
 			APP_ERROR_HANDLER(p_event->data.error_communication);
 
 			break;
 
 		case APP_UART_FIFO_ERROR:
-			NRF_LOG_INFO("uart APP_UART_FIFO_ERROR error");
+			//NRF_LOG_INFO("uart APP_UART_FIFO_ERROR error");
 			APP_ERROR_HANDLER(p_event->data.error_code);
 			break;
 
 		case APP_UART_DATA:
-			NRF_LOG_INFO("uart APP_UART_DATA error");
+			//NRF_LOG_INFO("uart APP_UART_DATA error");
 			break;
 
 		default:
@@ -153,7 +153,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 	{
 		adv_loop = 0;
 	}
-	if(adv_update_tim > 1000)
+	if(adv_update_tim >= 100)
 	{
 		adv_update_tim = 0;
 	}
@@ -162,7 +162,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
     {
   
 		case NRF_TIMER_EVENT_COMPARE0:
-            NRF_LOG_INFO("timer INT0");
+           // NRF_LOG_INFO("timer INT0");
             break;
 
 		case NRF_TIMER_EVENT_COMPARE1:
@@ -210,7 +210,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block2");
 					if(uart_data.adv_timer[2] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block2");
+					//	NRF_LOG_INFO("Clean Block2");
 						uart_data.adv_sta[2] =false;
 						uart_data.adv_timer[2] = 0;
 						Uart_Clean_Block(BLOCK2);
@@ -223,7 +223,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block3");
 					if(uart_data.adv_timer[3] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block3");
+						//NRF_LOG_INFO("Clean Block3");
 						uart_data.adv_sta[3] =false;
 						uart_data.adv_timer[3] = 0;
 						Uart_Clean_Block(BLOCK3);
@@ -236,7 +236,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block4");
 					if(uart_data.adv_timer[4] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block4");
+						//NRF_LOG_INFO("Clean Block4");
 						uart_data.adv_sta[4] =false;
 						uart_data.adv_timer[4] = 0;
 						Uart_Clean_Block(BLOCK4);
@@ -249,7 +249,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block5");
 					if(uart_data.adv_timer[5] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block5");
+						//NRF_LOG_INFO("Clean Block5");
 						uart_data.adv_sta[5] =false;
 						uart_data.adv_timer[5] = 0;
 						Uart_Clean_Block(BLOCK5);
@@ -262,7 +262,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block6");
 					if(uart_data.adv_timer[6] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block6");
+						//NRF_LOG_INFO("Clean Block6");
 						uart_data.adv_sta[6] =false;
 						uart_data.adv_timer[6] = 0;
 						Uart_Clean_Block(BLOCK6);
@@ -275,7 +275,7 @@ void User_Timer_Delay_Event_Handler(nrf_timer_event_t event_type, void* p_contex
 					//NRF_LOG_INFO("time block7");
 					if(uart_data.adv_timer[7] >= adv_params.adv_timeout)
 					{
-						NRF_LOG_INFO("Clean Block7");
+						//NRF_LOG_INFO("Clean Block7");
 						uart_data.adv_sta[7] =false;
 						uart_data.adv_timer[7] = 0;
 						Uart_Clean_Block(BLOCK7);
@@ -352,11 +352,10 @@ void Drive_Idle_State_Handle(void)
 *---------Log configuration--------
 *---------------START---------------
 ***********************************/
-//extern uint64_t get_now(void);
+
 void Drive_Log_Init(void)
 {
-    ret_code_t err_code = NRF_LOG_INIT((nrf_log_timestamp_func_t)get_now);
-//	ret_code_t err_code = NRF_LOG_INIT(NULL);
+	ret_code_t err_code = NRF_LOG_INIT(NULL);
     APP_ERROR_CHECK(err_code);
 
     NRF_LOG_DEFAULT_BACKENDS_INIT();
