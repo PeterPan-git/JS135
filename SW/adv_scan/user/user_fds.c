@@ -2,7 +2,7 @@
 
 static fds_params_t fds_params = 
 {
-	.adv_nam = "JX15N2C1051111AAA300",
+	.adv_nam = "MJ-JSBLE------BBBCCC",
 	.adv_int = 32,
 	.adv_dly = 32,
 	.adv_tmo = 5000,

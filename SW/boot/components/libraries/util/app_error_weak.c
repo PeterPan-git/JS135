@@ -59,7 +59,7 @@ __WEAK void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info)
     NRF_LOG_FINAL_FLUSH();
 
 #ifndef DEBUG
-    NRF_LOG_ERROR("Fatal error");
+   // NRF_LOG_ERROR("Fatal error");
 #else
     switch (id)
     {
@@ -101,7 +101,7 @@ __WEAK void app_error_fault_handler(uint32_t id, uint32_t pc, uint32_t info)
     // On assert, the system can only recover with a reset.
 
 #ifndef DEBUG
-    NRF_LOG_WARNING("System reset");
+   // NRF_LOG_WARNING("System reset");
     NVIC_SystemReset();
 #else
     app_error_save_and_stop(id, pc, info);

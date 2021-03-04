@@ -120,7 +120,7 @@ void Uart_Data_Choose(void)
 				
 				if(head_status[1] == FD_1)
 				{
-					NRF_LOG_INFO("@2:mcu --> ble by uart");
+					//NRF_LOG_INFO("@2:mcu --> ble by uart");
 					if(CMNC_Repeat_Filt(user_rx_buf) == false)
 					{
 						CMCN_Save(user_rx_buf);
@@ -253,6 +253,7 @@ void BLE_ADV_CON(void)
 	
 	uint32_t      err_code;
 	U8 data_adv[18];
+	//U8 svc_id = 0x58;
     ble_advdata_t srdata;
 	ble_gap_adv_params_t adv_params;
 	_adv_param adv_pam;
@@ -262,10 +263,13 @@ void BLE_ADV_CON(void)
 	ble_advdata_manuf_data_t manuf_specific_data;
 	memset(&advdata, 0, sizeof(advdata));
 	memset(&data_adv, 0, sizeof(data_adv));
-	manuf_specific_data.company_identifier = 0xEF13;//////
+	manuf_specific_data.company_identifier = 0x0000;//////
 	manuf_specific_data.data.p_data = data_adv;//my_adv_dat;///////
     manuf_specific_data.data.size   = sizeof(data_adv);//sizeof(adv_data);//sizeof(my_adv_dat);//////
-	advdata.p_tx_power_level= &adv_pam.tx_power;
+	        //advdata.p_tx_power_level= &adv_pam.tx_power;
+	advdata.flags = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+//	advdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
+//	advdata.uuids_complete.p_uuids = m_adv_uuids;
 	advdata.p_manuf_specific_data = &manuf_specific_data;
 	err_code = ble_advdata_encode(&advdata, m_adv_con.adv_data.p_data, &m_adv_con.adv_data.len);
     APP_ERROR_CHECK(err_code);
@@ -273,6 +277,7 @@ void BLE_ADV_CON(void)
 	memset(&srdata, 0, sizeof(srdata));
     srdata.name_type          = BLE_ADVDATA_FULL_NAME;
     srdata.include_appearance = true;
+	//srdata.flags = BLE_GAP_ADV_FLAG_LE_LIMITED_DISC_MODE;
 	//srdata.p_tx_power_level= &adv_pam.tx_power;
 	srdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
     srdata.uuids_complete.p_uuids  = m_adv_uuids;
@@ -341,17 +346,20 @@ void BLE_ADV_Data(U8 *data)
     manuf_specific_data.data.size   = 18;//sizeof(adv_data);//sizeof(my_adv_dat);//////
 	
     //advdata.name_type = BLE_ADVDATA_NO_NAME;
-	advdata.flags = BLE_GAP_ADV_FLAG_LE_GENERAL_DISC_MODE;//BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+	//advdata.flags = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;//BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
 	advdata.p_manuf_specific_data = &manuf_specific_data;
 	
     advdata.flags = BLE_GAP_ADV_FLAG_BR_EDR_NOT_SUPPORTED;
-	
+	advdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
+	advdata.uuids_complete.p_uuids = m_adv_uuids;
 	err_code = ble_advdata_encode(&advdata, m_adv_data.adv_data.p_data, &m_adv_data.adv_data.len);
     APP_ERROR_CHECK(err_code);
 
 	memset(&srdata, 0, sizeof(srdata));
     srdata.name_type          = BLE_ADVDATA_FULL_NAME;
     srdata.include_appearance = true;
+//	srdata.uuids_complete.uuid_cnt = sizeof(m_adv_uuids) / sizeof(m_adv_uuids[0]);
+//    srdata.uuids_complete.p_uuids  = m_adv_uuids;
 	err_code = ble_advdata_encode(&srdata, m_adv_data.scan_rsp_data.p_data, &m_adv_data.scan_rsp_data.len);
     APP_ERROR_CHECK(err_code);
 	

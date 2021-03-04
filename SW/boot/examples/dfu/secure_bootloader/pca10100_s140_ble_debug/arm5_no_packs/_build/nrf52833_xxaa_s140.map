@@ -837,8 +837,6 @@ Section Cross References
     nrfx_atomic.o(i.nrfx_atomic_u32_xor) refers to nrfx_atomic.o(.emb_text) for __asm___13_nrfx_atomic_c_3bd32246__nrfx_atomic_internal_eor
     app_error_weak.o(i.app_error_fault_handler) refers to nrf_log_frontend.o(i.nrf_log_panic) for nrf_log_panic
     app_error_weak.o(i.app_error_fault_handler) refers to nrf_log_frontend.o(i.nrf_log_frontend_dequeue) for nrf_log_frontend_dequeue
-    app_error_weak.o(i.app_error_fault_handler) refers to nrf_log_frontend.o(i.nrf_log_frontend_std_0) for nrf_log_frontend_std_0
-    app_error_weak.o(i.app_error_fault_handler) refers to nrf_log_frontend.o(log_const_data) for m_nrf_log_app_logs_data_const
     app_scheduler.o(i.app_sched_event_put) refers to app_util_platform.o(i.app_util_critical_region_enter) for app_util_critical_region_enter
     app_scheduler.o(i.app_sched_event_put) refers to app_util_platform.o(i.app_util_critical_region_exit) for app_util_critical_region_exit
     app_scheduler.o(i.app_sched_event_put) refers to memcpya.o(.text) for __aeabi_memcpy
@@ -1859,7 +1857,7 @@ Removing Unused input sections from the image.
     Removing app_error_weak.o(.rev16_text), (4 bytes).
     Removing app_error_weak.o(.revsh_text), (4 bytes).
     Removing app_error_weak.o(.rrx_text), (6 bytes).
-    Removing app_error_weak.o(i.app_error_fault_handler), (132 bytes).
+    Removing app_error_weak.o(i.app_error_fault_handler), (64 bytes).
     Removing app_scheduler.o(.rev16_text), (4 bytes).
     Removing app_scheduler.o(.revsh_text), (4 bytes).
     Removing app_scheduler.o(.rrx_text), (6 bytes).
@@ -2109,4 +2107,4 @@ Removing Unused input sections from the image.
     Removing uECC.c.o(.rodata.curve_secp224r1), (176 bytes).
     Removing uECC.c.o(.rodata.curve_secp256k1), (176 bytes).
 
-430 unused section(s) (total 14762 bytes) removed from the image.
+430 unused section(s) (total 14694 bytes) removed from the image.

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\_build\nrf52833_xxaa_s140.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\_build\nrf52833_xxaa_s140.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sat Feb 20 16:52:49 2021
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Wed Feb 24 10:01:07 2021
 <BR><P>
 <H3>Maximum Stack Usage =       3776 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; nrf_bootloader_init &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
+on_data_obj_execute_request_sched &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 <P>
 <H3>
 Mutually Recursive functions
@@ -352,7 +352,7 @@ Global Symbols
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_signature_check
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_extract
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_write
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_sched_event_put
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read
@@ -362,7 +362,7 @@ Global Symbols
 <P><STRONG><a name="[89]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_reinit
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_execute_request_sched
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
+<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_init
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_ctrl_pt_write
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_evt_handler
@@ -373,7 +373,7 @@ Global Symbols
 <P><STRONG><a name="[162]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memcpya.o(.text), UNUSED)
 
 <P><STRONG><a name="[68]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
+<BR><BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memset
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
@@ -399,7 +399,7 @@ Global Symbols
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_signature_check
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_hash_ok
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_extract
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uninit
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;event_send
@@ -456,7 +456,7 @@ Global Symbols
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uECC_vli_clear
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uECC_vli_sub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
 </UL>
 
 <P><STRONG><a name="[78]"></a>uECC_vli_add</STRONG> (Thumb, 88 bytes, Stack size 64 bytes, uECC.c.o(.text.uECC_vli_add))
@@ -688,7 +688,7 @@ Global Symbols
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_on_req
 </UL>
 
-<P><STRONG><a name="[101]"></a>app_sched_execute</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, app_scheduler.o(i.app_sched_execute))
+<P><STRONG><a name="[100]"></a>app_sched_execute</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, app_scheduler.o(i.app_sched_execute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = app_sched_execute
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
@@ -789,14 +789,14 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_boot_validate
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_activate
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_adv_name_is_valid
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;postvalidate
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_extract
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_adv_name_write
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_adv_name_write
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_crc_get
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_crc
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
 </UL>
 
 <P><STRONG><a name="[61]"></a>dfu_fstorage_evt_handler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_flash.o(i.dfu_fstorage_evt_handler))
@@ -809,7 +809,7 @@ Global Symbols
 <P><STRONG><a name="[9d]"></a>ext_error_set</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, nrf_dfu_handling_error.o(i.ext_error_set))
 <BR><BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ext_err_code_handle
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_req_handler_callback
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 </UL>
 
 <P><STRONG><a name="[d9]"></a>fw_hash_ok</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, nrf_dfu_validation.o(i.fw_hash_ok))
@@ -821,7 +821,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[24]"></a>main</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 3776<LI>Call Chain = main &rArr; nrf_bootloader_init &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
+<BR><BR>[Stack]<UL><LI>Max Depth = 3768<LI>Call Chain = main &rArr; nrf_bootloader_init &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_mbr_addrs_populate
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
@@ -983,17 +983,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
-<P><STRONG><a name="[e5]"></a>nrf_bootloader_init</STRONG> (Thumb, 266 bytes, Stack size 32 bytes, nrf_bootloader.o(i.nrf_bootloader_init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 3776<LI>Call Chain = nrf_bootloader_init &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
+<P><STRONG><a name="[e5]"></a>nrf_bootloader_init</STRONG> (Thumb, 222 bytes, Stack size 24 bytes, nrf_bootloader.o(i.nrf_bootloader_init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 3768<LI>Call Chain = nrf_bootloader_init &rArr; nrf_dfu_validation_activation_prepare &rArr; postvalidate &rArr; postvalidate_sd_bl &rArr; boot_validation_extract &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init_user
+<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init_user
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_prevalidate
 <LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_present
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_execute
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_activation_prepare
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write_and_backup
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_init
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_backup
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_init
@@ -1002,13 +1001,13 @@ Global Symbols
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_dfu_inactivity_timer_restart
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_app_start
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_sched_init
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_sched_execute
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_sched_execute
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_power_gpregret_get
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfu_enter_check
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bootloader_reset
 <LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_error_handler_bare
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1016,7 +1015,7 @@ Global Symbols
 <P><STRONG><a name="[e3]"></a>nrf_bootloader_mbr_addrs_populate</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, nrf_bootloader_info.o(i.nrf_bootloader_mbr_addrs_populate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_bootloader_mbr_addrs_populate
 </UL>
-<BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_word
+<BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_word
 </UL>
 <BR>[Called By]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1024,14 +1023,14 @@ Global Symbols
 <P><STRONG><a name="[98]"></a>nrf_bootloader_wdt_feed</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, nrf_bootloader_wdt.o(i.nrf_bootloader_wdt_feed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_bootloader_wdt_feed &rArr; wdt_feed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bl_activate
 </UL>
 
-<P><STRONG><a name="[106]"></a>nrf_bootloader_wdt_feed_timer_start</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_bootloader_dfu_timers.o(i.nrf_bootloader_wdt_feed_timer_start))
+<P><STRONG><a name="[105]"></a>nrf_bootloader_wdt_feed_timer_start</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_bootloader_dfu_timers.o(i.nrf_bootloader_wdt_feed_timer_start))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_bootloader_wdt_feed_timer_start &rArr; timer_start &rArr; timer_init &rArr; nrf_rtc_event_clear
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_start
@@ -1042,19 +1041,19 @@ Global Symbols
 <P><STRONG><a name="[db]"></a>nrf_bootloader_wdt_init</STRONG> (Thumb, 60 bytes, Stack size 16 bytes, nrf_bootloader_wdt.o(i.nrf_bootloader_wdt_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = nrf_bootloader_wdt_init &rArr; nrf_bootloader_wdt_feed_timer_start &rArr; timer_start &rArr; timer_init &rArr; nrf_rtc_event_clear
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed_timer_start
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed_timer_start
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;image_copy
 </UL>
 
-<P><STRONG><a name="[109]"></a>nrf_crypto_backend_micro_ecc_curve_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_curve_get))
-<BR><BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
+<P><STRONG><a name="[108]"></a>nrf_crypto_backend_micro_ecc_curve_get</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_curve_get))
+<BR><BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
 </UL>
 
-<P><STRONG><a name="[107]"></a>nrf_crypto_backend_micro_ecc_public_key_from_raw</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_public_key_from_raw))
+<P><STRONG><a name="[106]"></a>nrf_crypto_backend_micro_ecc_public_key_from_raw</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, micro_ecc_backend_ecc.o(i.nrf_crypto_backend_micro_ecc_public_key_from_raw))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_crypto_backend_micro_ecc_public_key_from_raw &rArr; nrf_crypto_internal_double_swap_endian
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian
@@ -1062,33 +1061,33 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecc_public_key_from_raw
 </UL>
 
-<P><STRONG><a name="[108]"></a>nrf_crypto_backend_micro_ecc_verify</STRONG> (Thumb, 86 bytes, Stack size 128 bytes, micro_ecc_backend_ecdsa.o(i.nrf_crypto_backend_micro_ecc_verify))
+<P><STRONG><a name="[107]"></a>nrf_crypto_backend_micro_ecc_verify</STRONG> (Thumb, 86 bytes, Stack size 128 bytes, micro_ecc_backend_ecdsa.o(i.nrf_crypto_backend_micro_ecc_verify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3088<LI>Call Chain = nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
 <LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uECC_verify
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_curve_get
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_curve_get
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
 </UL>
 
 <P><STRONG><a name="[c2]"></a>nrf_crypto_ecc_public_key_from_raw</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, nrf_crypto_ecc.o(i.nrf_crypto_ecc_public_key_from_raw))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_crypto_ecc_public_key_from_raw &rArr; nrf_crypto_backend_micro_ecc_public_key_from_raw &rArr; nrf_crypto_internal_double_swap_endian
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_public_key_from_raw
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_raw_input_check
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_key_output_prepare
+<BR>[Calls]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_public_key_from_raw
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_raw_input_check
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_key_output_prepare
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crypto_init
 </UL>
 
-<P><STRONG><a name="[10d]"></a>nrf_crypto_ecdsa_verify</STRONG> (Thumb, 72 bytes, Stack size 32 bytes, nrf_crypto_ecdsa.o(i.nrf_crypto_ecdsa_verify))
+<P><STRONG><a name="[10c]"></a>nrf_crypto_ecdsa_verify</STRONG> (Thumb, 72 bytes, Stack size 32 bytes, nrf_crypto_ecdsa.o(i.nrf_crypto_ecdsa_verify))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3120<LI>Call Chain = nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_raw_input_check
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_key_input_check
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_raw_input_check
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_ecc_key_input_check
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_signature_check
 </UL>
@@ -1096,33 +1095,33 @@ Global Symbols
 <P><STRONG><a name="[b4]"></a>nrf_crypto_hash_calculate</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_calculate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_crypto_hash_calculate &rArr; nrf_crypto_hash_update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_update
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_init
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_finalize
+<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_update
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_init
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_finalize
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_signature_check
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_hash_ok
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_extract
 </UL>
 
-<P><STRONG><a name="[111]"></a>nrf_crypto_hash_finalize</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_finalize))
+<P><STRONG><a name="[110]"></a>nrf_crypto_hash_finalize</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_finalize))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = nrf_crypto_hash_finalize
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_context
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_context
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_calculate
 </UL>
 
-<P><STRONG><a name="[10f]"></a>nrf_crypto_hash_init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_init))
+<P><STRONG><a name="[10e]"></a>nrf_crypto_hash_init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_crypto_hash_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_calculate
 </UL>
 
-<P><STRONG><a name="[110]"></a>nrf_crypto_hash_update</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_update))
+<P><STRONG><a name="[10f]"></a>nrf_crypto_hash_update</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, nrf_crypto_hash.o(i.nrf_crypto_hash_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = nrf_crypto_hash_update
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_context
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;verify_context
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_calculate
 </UL>
@@ -1136,42 +1135,42 @@ Global Symbols
 <P><STRONG><a name="[c1]"></a>nrf_crypto_internal_double_swap_endian</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_double_swap_endian))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = nrf_crypto_internal_double_swap_endian
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_public_key_from_raw
+<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_public_key_from_raw
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crypto_init
 </UL>
 
-<P><STRONG><a name="[113]"></a>nrf_crypto_internal_double_swap_endian_in_place</STRONG> (Thumb, 22 bytes, Stack size 12 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_double_swap_endian_in_place))
+<P><STRONG><a name="[112]"></a>nrf_crypto_internal_double_swap_endian_in_place</STRONG> (Thumb, 22 bytes, Stack size 12 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_double_swap_endian_in_place))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = nrf_crypto_internal_double_swap_endian_in_place
 </UL>
-<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian_in_place
+<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian_in_place
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_signature_check
 </UL>
 
-<P><STRONG><a name="[10e]"></a>nrf_crypto_internal_ecc_key_input_check</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_input_check))
-<BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
+<P><STRONG><a name="[10d]"></a>nrf_crypto_internal_ecc_key_input_check</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_input_check))
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
 </UL>
 
-<P><STRONG><a name="[10b]"></a>nrf_crypto_internal_ecc_key_output_prepare</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_output_prepare))
+<P><STRONG><a name="[10a]"></a>nrf_crypto_internal_ecc_key_output_prepare</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_key_output_prepare))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecc_public_key_from_raw
 </UL>
 
-<P><STRONG><a name="[10c]"></a>nrf_crypto_internal_ecc_raw_input_check</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_raw_input_check))
-<BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
+<P><STRONG><a name="[10b]"></a>nrf_crypto_internal_ecc_raw_input_check</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_crypto_ecc.o(i.nrf_crypto_internal_ecc_raw_input_check))
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecc_public_key_from_raw
 </UL>
 
-<P><STRONG><a name="[10a]"></a>nrf_crypto_internal_swap_endian</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian))
+<P><STRONG><a name="[109]"></a>nrf_crypto_internal_swap_endian</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian))
 <BR><BR>[Called By]<UL><LI><a href="#[c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_backend_micro_ecc_verify
 <LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_hash_ok
 </UL>
 
-<P><STRONG><a name="[114]"></a>nrf_crypto_internal_swap_endian_in_place</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian_in_place))
-<BR><BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian_in_place
+<P><STRONG><a name="[113]"></a>nrf_crypto_internal_swap_endian_in_place</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, nrf_crypto_shared.o(i.nrf_crypto_internal_swap_endian_in_place))
+<BR><BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian_in_place
 </UL>
 
 <P><STRONG><a name="[8c]"></a>nrf_dfu_bank0_start_addr</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, nrf_dfu_utils.o(i.nrf_dfu_bank0_start_addr))
@@ -1179,7 +1178,7 @@ Global Symbols
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfu_enter_check
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_bank1_start_addr
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_activate
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
 </UL>
 
 <P><STRONG><a name="[96]"></a>nrf_dfu_bank1_start_addr</STRONG> (Thumb, 28 bytes, Stack size 4 bytes, nrf_dfu_utils.o(i.nrf_dfu_bank1_start_addr))
@@ -1189,17 +1188,17 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_execute
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bl_activate
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
 </UL>
 
 <P><STRONG><a name="[f6]"></a>nrf_dfu_bank_invalidate</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_dfu_utils.o(i.nrf_dfu_bank_invalidate))
 <BR><BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_fw_activate
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;postvalidate
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;postvalidate_sd_bl
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
 </UL>
 
-<P><STRONG><a name="[115]"></a>nrf_dfu_cache_prepare</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, nrf_dfu_utils.o(i.nrf_dfu_cache_prepare))
+<P><STRONG><a name="[114]"></a>nrf_dfu_cache_prepare</STRONG> (Thumb, 140 bytes, Stack size 24 bytes, nrf_dfu_utils.o(i.nrf_dfu_cache_prepare))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = nrf_dfu_cache_prepare &rArr; nrf_dfu_bank1_start_addr
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_bank0_start_addr
@@ -1212,41 +1211,41 @@ Global Symbols
 <P><STRONG><a name="[dc]"></a>nrf_dfu_flash_erase</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_flash.o(i.nrf_dfu_flash_erase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_dfu_flash_erase &rArr; nrf_fstorage_erase
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_erase
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_erase
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;image_copy
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_write
 </UL>
 
-<P><STRONG><a name="[11e]"></a>nrf_dfu_flash_init</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_dfu_flash.o(i.nrf_dfu_flash_init))
-<BR><BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_init
+<P><STRONG><a name="[11d]"></a>nrf_dfu_flash_init</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_dfu_flash.o(i.nrf_dfu_flash_init))
+<BR><BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_init
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 </UL>
 
 <P><STRONG><a name="[dd]"></a>nrf_dfu_flash_store</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, nrf_dfu_flash.o(i.nrf_dfu_flash_store))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = nrf_dfu_flash_store &rArr; nrf_fstorage_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
+<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;image_copy
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
 <LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_write
 </UL>
 
-<P><STRONG><a name="[100]"></a>nrf_dfu_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, nrf_dfu.o(i.nrf_dfu_init))
+<P><STRONG><a name="[ff]"></a>nrf_dfu_init</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, nrf_dfu.o(i.nrf_dfu_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3336<LI>Call Chain = nrf_dfu_init &rArr; nrf_dfu_req_handler_init &rArr; nrf_dfu_validation_init_cmd_execute &rArr; nrf_dfu_validation_prevalidate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_transports_init
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_transports_init
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfu_observer
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
-<P><STRONG><a name="[ff]"></a>nrf_dfu_init_user</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_bootloader.o(i.nrf_dfu_init_user))
+<P><STRONG><a name="[fe]"></a>nrf_dfu_init_user</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_bootloader.o(i.nrf_dfu_init_user))
 <BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
@@ -1266,16 +1265,16 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_app_start
 </UL>
 
-<P><STRONG><a name="[122]"></a>nrf_dfu_req_handler_init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_init))
+<P><STRONG><a name="[121]"></a>nrf_dfu_req_handler_init</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3328<LI>Call Chain = nrf_dfu_req_handler_init &rArr; nrf_dfu_validation_init_cmd_execute &rArr; nrf_dfu_validation_prevalidate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_present
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_execute
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ext_error_set
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
 </UL>
 
 <P><STRONG><a name="[ac]"></a>nrf_dfu_req_handler_on_req</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_on_req))
@@ -1287,10 +1286,10 @@ Global Symbols
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_evt_handler
 </UL>
 
-<P><STRONG><a name="[102]"></a>nrf_dfu_settings_additional_erase</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, nrf_dfu_settings_svci.o(i.nrf_dfu_settings_additional_erase))
+<P><STRONG><a name="[101]"></a>nrf_dfu_settings_additional_erase</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, nrf_dfu_settings_svci.o(i.nrf_dfu_settings_additional_erase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = nrf_dfu_settings_additional_erase &rArr; nrf_nvmc_write_words
 </UL>
-<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_words
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_words
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_page_erase
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
@@ -1312,7 +1311,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_transport_init
 </UL>
 
-<P><STRONG><a name="[124]"></a>nrf_dfu_settings_adv_name_write</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, nrf_dfu_settings_svci.o(i.nrf_dfu_settings_adv_name_write))
+<P><STRONG><a name="[123]"></a>nrf_dfu_settings_adv_name_write</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, nrf_dfu_settings_svci.o(i.nrf_dfu_settings_adv_name_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 36<LI>Call Chain = nrf_dfu_settings_adv_name_write &rArr; crc32_compute
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc32_compute
@@ -1323,7 +1322,7 @@ Global Symbols
 <P><STRONG><a name="[b6]"></a>nrf_dfu_settings_backup</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_backup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = nrf_dfu_settings_backup &rArr; settings_backup &rArr; settings_write &rArr; nrf_dfu_flash_store &rArr; nrf_fstorage_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
+<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bootloader_reset
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
@@ -1334,12 +1333,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write_and_backup
 <LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_reinit
-<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
-<P><STRONG><a name="[127]"></a>nrf_dfu_settings_progress_reset</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_progress_reset))
+<P><STRONG><a name="[126]"></a>nrf_dfu_settings_progress_reset</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_progress_reset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = nrf_dfu_settings_progress_reset
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
@@ -1347,7 +1346,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_execute
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;postvalidate
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_create
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_create
 </UL>
 
 <P><STRONG><a name="[ce]"></a>nrf_dfu_settings_reinit</STRONG> (Thumb, 206 bytes, Stack size 32 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_reinit))
@@ -1363,7 +1362,7 @@ Global Symbols
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfu_observer
 </UL>
 
-<P><STRONG><a name="[fe]"></a>nrf_dfu_settings_write</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_write))
+<P><STRONG><a name="[127]"></a>nrf_dfu_settings_write</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = nrf_dfu_settings_write &rArr; settings_write &rArr; nrf_dfu_flash_store &rArr; nrf_fstorage_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_write
@@ -1371,14 +1370,13 @@ Global Symbols
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_crc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write_and_backup
-<LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
 <P><STRONG><a name="[de]"></a>nrf_dfu_settings_write_and_backup</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, nrf_dfu_settings.o(i.nrf_dfu_settings_write_and_backup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = nrf_dfu_settings_write_and_backup &rArr; nrf_dfu_settings_write &rArr; settings_write &rArr; nrf_dfu_flash_store &rArr; nrf_fstorage_write
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
+<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_init
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_fw_activate
@@ -1386,7 +1384,7 @@ Global Symbols
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sd_activate
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;image_copy
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_execute_request_sched
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 </UL>
 
 <P><STRONG><a name="[150]"></a>nrf_dfu_softdevice_start_address</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_dfu_utils.o(i.nrf_dfu_softdevice_start_address))
@@ -1400,10 +1398,10 @@ Global Symbols
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dfu_observer
 </UL>
 
-<P><STRONG><a name="[121]"></a>nrf_dfu_transports_init</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, nrf_dfu_transport.o(i.nrf_dfu_transports_init))
+<P><STRONG><a name="[120]"></a>nrf_dfu_transports_init</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, nrf_dfu_transport.o(i.nrf_dfu_transports_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_dfu_transports_init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
 </UL>
 
 <P><STRONG><a name="[fc]"></a>nrf_dfu_validation_activation_prepare</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_activation_prepare))
@@ -1432,20 +1430,20 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stored_init_cmd_decode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 </UL>
 
-<P><STRONG><a name="[118]"></a>nrf_dfu_validation_init_cmd_append</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_append), UNUSED)
+<P><STRONG><a name="[117]"></a>nrf_dfu_validation_init_cmd_append</STRONG> (Thumb, 66 bytes, Stack size 24 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_append), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc32_compute
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 </UL>
 
-<P><STRONG><a name="[117]"></a>nrf_dfu_validation_init_cmd_create</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_create), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
+<P><STRONG><a name="[116]"></a>nrf_dfu_validation_init_cmd_create</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_create), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 </UL>
 
 <P><STRONG><a name="[fa]"></a>nrf_dfu_validation_init_cmd_execute</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_execute))
@@ -1455,19 +1453,19 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_bank1_start_addr
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;update_data_size_get
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stored_init_cmd_decode
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_cache_prepare
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 </UL>
 
 <P><STRONG><a name="[f9]"></a>nrf_dfu_validation_init_cmd_present</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_init_cmd_present))
 <BR><BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_init
 </UL>
 
 <P><STRONG><a name="[fb]"></a>nrf_dfu_validation_prevalidate</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_prevalidate))
@@ -1488,7 +1486,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_prevalidate
 </UL>
 
-<P><STRONG><a name="[11d]"></a>nrf_fstorage_erase</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_fstorage.o(i.nrf_fstorage_erase))
+<P><STRONG><a name="[11c]"></a>nrf_fstorage_erase</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, nrf_fstorage.o(i.nrf_fstorage_erase))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = nrf_fstorage_erase
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_is_within_bounds
@@ -1496,8 +1494,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_erase
 </UL>
 
-<P><STRONG><a name="[11f]"></a>nrf_fstorage_init</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, nrf_fstorage.o(i.nrf_fstorage_init))
-<BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
+<P><STRONG><a name="[11e]"></a>nrf_fstorage_init</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, nrf_fstorage.o(i.nrf_fstorage_init))
+<BR><BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_init
 </UL>
 
 <P><STRONG><a name="[13e]"></a>nrf_fstorage_is_busy</STRONG> (Thumb, 70 bytes, Stack size 24 bytes, nrf_fstorage.o(i.nrf_fstorage_is_busy))
@@ -1529,7 +1527,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_fstorage_sd.o(sdh_soc_observers0)
 </UL>
-<P><STRONG><a name="[120]"></a>nrf_fstorage_write</STRONG> (Thumb, 62 bytes, Stack size 32 bytes, nrf_fstorage.o(i.nrf_fstorage_write))
+<P><STRONG><a name="[11f]"></a>nrf_fstorage_write</STRONG> (Thumb, 62 bytes, Stack size 32 bytes, nrf_fstorage.o(i.nrf_fstorage_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = nrf_fstorage_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;addr_is_within_bounds
@@ -1539,18 +1537,18 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d1]"></a>nrf_nvmc_page_erase</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, nrf_nvmc.o(i.nrf_nvmc_page_erase))
-<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
+<BR><BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;erase
 </UL>
 
-<P><STRONG><a name="[103]"></a>nrf_nvmc_write_word</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, nrf_nvmc.o(i.nrf_nvmc_write_word))
+<P><STRONG><a name="[102]"></a>nrf_nvmc_write_word</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, nrf_nvmc.o(i.nrf_nvmc_write_word))
 <BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_mbr_addrs_populate
 </UL>
 
-<P><STRONG><a name="[125]"></a>nrf_nvmc_write_words</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, nrf_nvmc.o(i.nrf_nvmc_write_words))
+<P><STRONG><a name="[124]"></a>nrf_nvmc_write_words</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, nrf_nvmc.o(i.nrf_nvmc_write_words))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = nrf_nvmc_write_words
 </UL>
-<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
+<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_additional_erase
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;write
 </UL>
 
@@ -1788,13 +1786,13 @@ Global Symbols
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fw_hash_ok
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;postvalidate_sd_bl
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;boot_validation_extract
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_progress_reset
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_activation_prepare
 </UL>
 
-<P><STRONG><a name="[126]"></a>settings_backup</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_settings.o(i.settings_backup))
+<P><STRONG><a name="[125]"></a>settings_backup</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_settings.o(i.settings_backup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = settings_backup &rArr; settings_write &rArr; nrf_dfu_flash_store &rArr; nrf_fstorage_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_write
@@ -1879,7 +1877,7 @@ Local Symbols
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_init
 </UL>
 
-<P><STRONG><a name="[cb]"></a>dfu_enter_check</STRONG> (Thumb, 134 bytes, Stack size 16 bytes, nrf_bootloader.o(i.dfu_enter_check))
+<P><STRONG><a name="[cb]"></a>dfu_enter_check</STRONG> (Thumb, 116 bytes, Stack size 16 bytes, nrf_bootloader.o(i.dfu_enter_check))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3312<LI>Call Chain = dfu_enter_check &rArr; boot_validate &rArr; nrf_dfu_validation_boot_validate &rArr; nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_bank0_start_addr
@@ -1951,7 +1949,7 @@ Local Symbols
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;timer_activate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_dfu_inactivity_timer_restart
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed_timer_start
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed_timer_start
 </UL>
 
 <P><STRONG><a name="[85]"></a>timer_stop</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, nrf_bootloader_dfu_timers.o(i.timer_stop))
@@ -2005,16 +2003,16 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_fw_activate
 </UL>
 
-<P><STRONG><a name="[104]"></a>nrf_wdt_started</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_bootloader_wdt.o(i.nrf_wdt_started))
+<P><STRONG><a name="[103]"></a>nrf_wdt_started</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_bootloader_wdt.o(i.nrf_wdt_started))
 <BR><BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_init
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
 </UL>
 
-<P><STRONG><a name="[105]"></a>wdt_feed</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, nrf_bootloader_wdt.o(i.wdt_feed))
+<P><STRONG><a name="[104]"></a>wdt_feed</STRONG> (Thumb, 48 bytes, Stack size 16 bytes, nrf_bootloader_wdt.o(i.wdt_feed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wdt_feed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
+<BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_wdt_started
 </UL>
 <BR>[Called By]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_init
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_bootloader_wdt_feed
@@ -2024,13 +2022,13 @@ Local Symbols
 <P><STRONG><a name="[2d]"></a>wdt_feed_timer_handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_bootloader_wdt.o(i.wdt_feed_timer_handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = wdt_feed_timer_handler &rArr; wdt_feed
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;wdt_feed
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_bootloader_wdt.o(i.nrf_bootloader_wdt_init)
 </UL>
-<P><STRONG><a name="[112]"></a>verify_context</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, nrf_crypto_hash.o(i.verify_context))
-<BR><BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_update
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_finalize
+<P><STRONG><a name="[111]"></a>verify_context</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, nrf_crypto_hash.o(i.verify_context))
+<BR><BR>[Called By]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_update
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_finalize
 </UL>
 
 <P><STRONG><a name="[39]"></a>nrf_sw_backend_hash_sha256_finalize</STRONG> (Thumb, 36 bytes, Stack size 8 bytes, nrf_sw_backend_hash.o(i.nrf_sw_backend_hash_sha256_finalize))
@@ -2057,7 +2055,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_transports_close
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
+<BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_dfu.o(i.nrf_dfu_init)
 </UL>
@@ -2154,50 +2152,50 @@ Local Symbols
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ble_dfu_req_handler_callback
 </UL>
 
-<P><STRONG><a name="[119]"></a>cmd_response_offset_and_crc_set</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.cmd_response_offset_and_crc_set), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<P><STRONG><a name="[118]"></a>cmd_response_offset_and_crc_set</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.cmd_response_offset_and_crc_set), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 </UL>
 
 <P><STRONG><a name="[d8]"></a>ext_err_code_handle</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.ext_err_code_handle))
 <BR><BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ext_error_set
 </UL>
 <BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_execute_request_sched
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 </UL>
 
-<P><STRONG><a name="[116]"></a>nrf_dfu_command_req</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_command_req), UNUSED)
+<P><STRONG><a name="[115]"></a>nrf_dfu_command_req</STRONG> (Thumb, 142 bytes, Stack size 16 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_command_req), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_execute
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write_and_backup
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ext_err_code_handle
-<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_response_offset_and_crc_set
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_create
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cmd_response_offset_and_crc_set
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_create
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_append
 </UL>
-<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
 </UL>
 
-<P><STRONG><a name="[11a]"></a>nrf_dfu_data_req</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_data_req), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
+<P><STRONG><a name="[119]"></a>nrf_dfu_data_req</STRONG> (Thumb, 108 bytes, Stack size 16 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_data_req), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_write_request
 <LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_execute_request_sched
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;on_data_obj_create_request
 </UL>
-<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
+<BR>[Called By]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_req_handler_req_process
 </UL>
 
 <P><STRONG><a name="[2f]"></a>nrf_dfu_req_handler_req</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_req))
 <BR>[Address Reference Count : 1]<UL><LI> nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_on_req)
 </UL>
-<P><STRONG><a name="[123]"></a>nrf_dfu_req_handler_req_process</STRONG> (Thumb, 136 bytes, Stack size 40 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_req_process), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
+<P><STRONG><a name="[122]"></a>nrf_dfu_req_handler_req_process</STRONG> (Thumb, 136 bytes, Stack size 40 bytes, nrf_dfu_req_handler.o(i.nrf_dfu_req_handler_req_process), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_command_req
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[11b]"></a>on_data_obj_create_request</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, nrf_dfu_req_handler.o(i.on_data_obj_create_request), UNUSED)
+<P><STRONG><a name="[11a]"></a>on_data_obj_create_request</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, nrf_dfu_req_handler.o(i.on_data_obj_create_request), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_present
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_erase
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
 </UL>
 
 <P><STRONG><a name="[33]"></a>on_data_obj_execute_request_sched</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, nrf_dfu_req_handler.o(i.on_data_obj_execute_request_sched))
@@ -2210,16 +2208,16 @@ Local Symbols
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;app_sched_event_put
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_dfu_req_handler.o(i.on_data_obj_execute_request_sched)
 </UL>
-<P><STRONG><a name="[11c]"></a>on_data_obj_write_request</STRONG> (Thumb, 118 bytes, Stack size 24 bytes, nrf_dfu_req_handler.o(i.on_data_obj_write_request), UNUSED)
+<P><STRONG><a name="[11b]"></a>on_data_obj_write_request</STRONG> (Thumb, 118 bytes, Stack size 24 bytes, nrf_dfu_req_handler.o(i.on_data_obj_write_request), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_validation_init_cmd_present
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_flash_store
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc32_compute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_data_req
 </UL>
 
 <P><STRONG><a name="[34]"></a>on_dfu_complete</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, nrf_dfu_req_handler.o(i.on_dfu_complete))
@@ -2230,8 +2228,8 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc32_compute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
-<LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_reinit
+<BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_reinit
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
 </UL>
 
 <P><STRONG><a name="[bd]"></a>crc_ok</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, nrf_dfu_settings.o(i.crc_ok))
@@ -2247,7 +2245,7 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc32_compute
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
+<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
 <LI><a href="#[bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crc_ok
 </UL>
 
@@ -2259,8 +2257,8 @@ Local Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
-<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
+<BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;settings_backup
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_write
 </UL>
 
 <P><STRONG><a name="[b3]"></a>boot_validation_extract</STRONG> (Thumb, 146 bytes, Stack size 160 bytes, nrf_dfu_validation.o(i.boot_validation_extract))
@@ -2297,7 +2295,7 @@ Local Symbols
 <P><STRONG><a name="[da]"></a>nrf_dfu_validation_hash_ok</STRONG> (Thumb, 90 bytes, Stack size 192 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_hash_ok))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = nrf_dfu_validation_hash_ok &rArr; crypto_init &rArr; nrf_crypto_ecc_public_key_from_raw &rArr; nrf_crypto_backend_micro_ecc_public_key_from_raw &rArr; nrf_crypto_internal_double_swap_endian
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_swap_endian
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_calculate
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crypto_init
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;memcmp
@@ -2310,9 +2308,9 @@ Local Symbols
 <P><STRONG><a name="[12a]"></a>nrf_dfu_validation_signature_check</STRONG> (Thumb, 140 bytes, Stack size 160 bytes, nrf_dfu_validation.o(i.nrf_dfu_validation_signature_check))
 <BR><BR>[Stack]<UL><LI>Max Depth = 3280<LI>Call Chain = nrf_dfu_validation_signature_check &rArr; nrf_crypto_ecdsa_verify &rArr; nrf_crypto_backend_micro_ecc_verify &rArr; uECC_verify &rArr; uECC_vli_modMult &rArr; uECC_vli_mmod &rArr; uECC_vli_set
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian_in_place
+<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_internal_double_swap_endian_in_place
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_hash_calculate
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_crypto_ecdsa_verify
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;crypto_init
 <LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
@@ -2371,12 +2369,12 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[133]"></a>addr_is_aligned32</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, nrf_fstorage.o(i.addr_is_aligned32))
-<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
+<BR><BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
 </UL>
 
 <P><STRONG><a name="[12f]"></a>addr_is_within_bounds</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, nrf_fstorage.o(i.addr_is_within_bounds))
-<BR><BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_erase
+<BR><BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_write
+<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_fstorage_erase
 </UL>
 
 <P><STRONG><a name="[41]"></a>erase</STRONG> (Thumb, 68 bytes, Stack size 32 bytes, nrf_fstorage_nvmc.o(i.erase))
@@ -2427,7 +2425,7 @@ Local Symbols
 <P><STRONG><a name="[40]"></a>write</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, nrf_fstorage_nvmc.o(i.write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = write &rArr; event_send
 </UL>
-<BR>[Calls]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_words
+<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_nvmc_write_words
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;event_send
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_atomic_flag_set_fetch
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_atomic_flag_clear
@@ -2540,7 +2538,7 @@ Local Symbols
 <P><STRONG><a name="[30]"></a>nrf_dfu_set_adv_name_on_call</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, nrf_dfu_svci_handler.o(i.nrf_dfu_set_adv_name_on_call))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = nrf_dfu_set_adv_name_on_call &rArr; nrf_dfu_settings_adv_name_write &rArr; crc32_compute
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_adv_name_write
+<BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nrf_dfu_settings_adv_name_write
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> nrf_dfu_svci_handler.o(i.nrf_dfu_set_adv_name_handler)
 </UL>

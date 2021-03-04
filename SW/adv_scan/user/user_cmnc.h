@@ -76,6 +76,7 @@ U8* CMNC_APP_MCU_Data_Get(void);
 U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report);
 void CMCN_APP_MCU_Data_Send(U8 len);
 //void CMNC_MCU_APP_Date_Get(U8 *rx_buf);
+void CMNC_IOS_APP_MCU_Data_Set(U8 *data, U8 len);
 void CMCN_Save(U8 *rx);
 void CMCN_Get(void);
 void CMCN_Deal(E_BLOCK e_block);

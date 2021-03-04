@@ -145,6 +145,7 @@ int main(void)
     ret_val = nrf_bootloader_init(dfu_observer);
     APP_ERROR_CHECK(ret_val);
 
+	//nrf_bootloader_app_start();
     NRF_LOG_FLUSH();
 
     NRF_LOG_ERROR("After main, should never be reached.");

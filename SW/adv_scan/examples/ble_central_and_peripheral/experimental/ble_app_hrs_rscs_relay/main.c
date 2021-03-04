@@ -4,7 +4,6 @@
 int main(void)
 {
 	U8 data[20];
-
 	Drive_Log_Init();
 
 	Drive_WDT_Init();
@@ -24,7 +23,7 @@ int main(void)
 	Drive_Power_Manage_Init();
 	
 	BLE_Stack_Init();
-	//FDS_Init();
+	FDS_Init();
 	Param_ADV_Param_Init();
 	//Param_PA_Test();
 	BLE_Scan_Init();
@@ -35,18 +34,15 @@ int main(void)
 	BLE_ADV_CON();
 	BLE_Scan_Start();
 	BLE_Beacon_Start();
-
-	Param_Get_MacAddr();
+	
+	//Param_Get_MacAddr();
 	
 	while(true)
-    {
-
+    {	
 		Drive_Feed_Dog();
 		Uart_Data_Choose();
 		Param_ADV_Update_By_Time();
-	//	FDS_Run();
-        Drive_Idle_State_Handle();
-		
+		FDS_Run();
+        Drive_Idle_State_Handle();	
     }
-
 }

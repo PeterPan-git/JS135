@@ -1,3 +1,312 @@
----- tim_test_sta Matches (2 in 2 files) ----
-User_drive.c (user):bool tim_test_sta = false;
-User_drive.h (user):extern bool tim_test_sta;
+---- run Matches (311 in 125 files) ----
+A00014.html (external\protothreads\pt-1.4\doc\html):This macro causes the protothread to exit. If the protothread was spawned by another protothread, the parent protothread will become unblocked and can continue to run.<p>
+A00015.html (external\protothreads\pt-1.4\doc\html):<span class="comment">       flag so that the other protothread can run. */</span>
+A00015.html (external\protothreads\pt-1.4\doc\html):    <span class="comment">/* Let the other protothread run. */</span>
+A00015.html (external\protothreads\pt-1.4\doc\html):<span class="comment">     * give other processes a chance to run too and therefore we call</span>
+A00015.html (external\protothreads\pt-1.4\doc\html):<span class="comment">     * give other processes a chance to run too and therefore we call</span>
+A00022.html (external\protothreads\pt-1.4\doc\html):<a name="l00240"></a>00240 <span class="comment"> * unblocked and can continue to run.</span>
+Ant_search_config.h (components\ant\ant_search_config):    uint8_t                 search_sharing_cycles;  ///< Number of search cycles to run before alternating searches. Search sharing can be disabled by @ref ANT_SEARCH_SHARING_CYCLES_DISABLE.
+App_simple_timer.h (components\libraries\simple_timer): * - No more than one timer can run simultaneously.
+App_timer.c (components\libraries\timer):// The current design assumes that both interrupt handlers run at the same interrupt level.
+Arm_math.h (components\toolchain\cmsis\dsp\include): * run a bit faster. With size checking disabled the functions always
+Ble_advertising.h (components\ble\ble_advertising): *          advertising mode will not be run.
+Ble_advertising.h (components\ble\ble_advertising): *          advertising for fast and slow modes will not be run.
+Ble_conn_state.h (components\ble\common): * @param[in]  user_function  The function to run for each connection.
+Ble_conn_state.h (components\ble\common): * @return  The number of times \p user_function was run.
+Ble_conn_state.h (components\ble\common): * @param[in]  user_function  The function to run when a flag is set.
+Ble_conn_state.h (components\ble\common): * @return  The number of times \p user_function was run.
+Ble_dtm.c (components\ble\ble_dtm):        // Zero fill all pdu fields to avoid stray data from earlier test run
+Ble_gap.h (components\softdevice\s112\headers): * @retval ::NRF_ERROR_NO_MEM The maximum number of authentication procedures that can run in parallel for the given role is reached.
+Ble_gap.h (components\softdevice\s113\headers): * @retval ::NRF_ERROR_NO_MEM The maximum number of authentication procedures that can run in parallel for the given role is reached.
+Ble_gap.h (components\softdevice\s122\headers): * @retval ::NRF_ERROR_NO_MEM The maximum number of authentication procedures that can run in parallel for the given role is reached.
+Ble_gap.h (components\softdevice\s132\headers): * @retval ::NRF_ERROR_NO_MEM The maximum number of authentication procedures that can run in parallel for the given role is reached.
+Ble_gap.h (components\softdevice\s140\headers): * @retval ::NRF_ERROR_NO_MEM The maximum number of authentication procedures that can run in parallel for the given role is reached.
+Ble_srv_common.h (components\ble\common):#define BLE_UUID_CGM_SESSION_RUN_TIME                            0x2AAB     /**< CGM Service, session run time characteristic UUID*/
+Cc310_backend_init.c (components\libraries\crypto\backend\cc310):    // Initialize the CC310 run-time library
+Cc310_bl_backend_init.c (components\libraries\crypto\backend\cc310_bl):    // Initialize the CC310_BL run-time library
+Cert_app.c (external\mbedtls\programs\x509):    int mode;                   /* the mode to run the application in   */
+CMakeLists.txt (external\mbedtls):To confirm you want to build with this option, re-run cmake with the \
+Config.h (external\mbedtls\include\mbedtls): * Disable if you run into name conflicts and want to really remove the
+Config.h (external\mbedtls\include\mbedtls): * Allow run-time checking of compile-time enabled features. Thus allowing users
+Config.h (external\mbedtls\include\mbedtls): * to check at run-time if the library is for instance compiled with threading
+Config.h (external\mbedtls\include\mbedtls): * Comment this to disable run-time checking and save ROM space
+Config.h (external\mbedtls\include\mbedtls): * Enable run-time version information.
+Config.h (external\mbedtls\include\mbedtls): * This module provides run-time version information.
+Config.pl (external\mbedtls\scripts):        die "If no file specified, must be run from the project root or scripts directory.\n";
+Croutine.h (external\freertos\source\include): * ready to run.
+Croutine.h (external\freertos\source\include): *  the co-routine will run.
+Croutine.h (external\freertos\source\include): * to run.  The co-routine will execute until it either blocks, yields or is
+Dhcp.c (external\lwip\src\core):        /* We've run out of bytes, probably no end marker. Don't proceed. */
+Dhcp.c (external\lwip\src\core\ipv4):        /* We've run out of bytes, probably no end marker. Don't proceed. */
+Dh_client.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Dh_server.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Dh_server.c (external\mbedtls\programs\pkey):                "  ! Please run dh_genprime first\n\n" );
+Ecp.h (external\mbedtls\include\mbedtls): *                  multiplication (full run of \c mbedtls_ecp_mul()) is:
+Etharp.c (external\lwip\src\core\ipv4): *  run out instantly if the timeout occurs directly after a request.
+Etharp.c (external\lwip\src\netif): *  run out instantly if the timeout occurs directly after a request.
+Example-buffer.c (external\protothreads\pt-1.4):     * give other processes a chance to run too and therefore we call
+Example-codelock.c (external\protothreads\pt-1.4):     * give other processes a chance to run too and therefore we call
+Example-small.c (external\protothreads\pt-1.4):       flag so that the other protothread can run. */
+Example-small.c (external\protothreads\pt-1.4):    /* Let the other protothread run. */
+Fds.c (components\libraries\fds):    // operation. Incomplete records will be deleted the next time garbage collection is run.
+Fds.c (components\libraries\fds):        // In case this function is run as part of an update, there is no need to copy
+Fds.c (components\libraries\fds):        // will fetch a new one from the queue next time it is run.
+Fds.h (components\libraries\fds):    uint16_t         gc_run_count;      //!< Number of times garbage collection has been run.
+Fds.h (components\libraries\fds):     * records are open while garbage collection is run.
+Fds.h (components\libraries\fds):     * next time garbage collection is run, but some data may be lost.
+Fds.h (components\libraries\fds): * To reclaim flash space used by deleted records, call @ref fds_gc to run garbage collection.
+Fds.h (components\libraries\fds): * To reclaim flash space used by deleted records, call @ref fds_gc to run garbage collection.
+Fds.h (components\libraries\fds): * Opening a record with @ref fds_record_open prevents garbage collection to run on the virtual
+Fds.h (components\libraries\fds): * Closing a record allows garbage collection to run on the virtual page in which the record is
+Fds_internal_defs.h (components\libraries\fds):    uint16_t         run_count;                  // Total number of times GC was run.
+Ff.c (external\fatfs\src):					if (++ctr == ncl) return scl + 2;	/* Check run length */
+Ff.c (external\fatfs\src):				for (j = 1; (WCHAR)(si + j) && (WCHAR)(si + j) == ff_wtoupper((WCHAR)(si + j)); j++) ;	/* Get run length of no-case block */
+Ff.c (external\fatfs\src):					ch = 0xFFFF; st = 2; break;	/* Compress the no-case block if run is >= 128 */
+Ff.c (external\fatfs\src):				st = 1;			/* Do not compress short run */
+Ff.c (external\fatfs\src):				ch = si++;		/* Fill the short run */
+FreeRTOS.h (external\freertos\source\include):	/* Called after a task has been selected to run.  pxCurrentTCB holds a pointer
+FreeRTOS.h (external\freertos\source\include):	/* Called before a task has been selected to run.  pxCurrentTCB holds a pointer
+FreeRTOS.h (external\freertos\source\include):		#error If configGENERATE_RUN_TIME_STATS is defined then portCONFIGURE_TIMER_FOR_RUN_TIME_STATS must also be defined.  portCONFIGURE_TIMER_FOR_RUN_TIME_STATS should call a port layer function to setup a peripheral timer/counter that can then be used as the run time counter time base.
+Generate_errors.pl (external\mbedtls\scripts):            or die "Without arguments, must be run from root or scripts\n"
+Generate_features.pl (external\mbedtls\scripts):            or die "Without arguments, must be run from root or scripts\n"
+Generate_visualc_files.pl (external\mbedtls\scripts):# Must be run from mbedTLS root or scripts directory.
+Generate_visualc_files.pl (external\mbedtls\scripts):        check_dirs or die "Must but run from mbedTLS root or scripts dir\n";
+Httpd.c (external\lwip\src\apps\httpd):  /* Have we run out of file data to send? If so, we need to read the next
+Igmp.h (external\lwip\src\include\lwip): * will not run the state machine as it is used to kick off reports
+Ipv6cp.c (external\lwip\src\netif\ppp): * run an ipcp-up/down script while one is already running.
+Key_app.c (external\mbedtls\programs\pkey):    int mode;                   /* the mode to run the application in   */
+Key_app_writer.c (external\mbedtls\programs\pkey):    int mode;                   /* the mode to run the application in   */
+Led_softblink.h (components\libraries\led_softblink): * Only one instance of LED softblink can run at a time.
+Mac_time.h (components\802_15_4\api\mac): *          the timer's interrupt routine. Only one critical MAC timer can run
+Main.html (external\protothreads\pt-1.4\doc\html):The main advantage of protothreads over ordinary threads is that protothreads are very lightweight: a protothread does not require its own stack. Rather, all protothreads run on the same stack and context switching is done by stack rewinding. This is advantageous in memory constrained systems, where a stack for a thread might use a large part of the available memory. A protothread only requires only two bytes of memory per protothread. Moreover, protothreads are implemented in pure C and do not require any machine-specific assembler code.<p>
+Main.html (external\protothreads\pt-1.4\doc\html):A protothread is driven by repeated calls to the function in which the protothread is running. Each time the function is called, the protothread will run until it blocks or exits. Thus the scheduling of protothreads is done by the application that uses protothreads.<h2><a class="anchor" name="pt-impl">
+Main_page.h (external\lwip\doc\doxygen): * Use this mode if you do not run an OS on your system. \#define NO_SYS to 1.
+Main_page.h (external\lwip\doc\doxygen): * Use this mode if you run an OS on your system. It is recommended to
+Mdns.txt (external\lwip\doc):To start responding on a netif, run
+Mdns.txt (external\lwip\doc):To stop responding on a netif, run
+Mdns.txt (external\lwip\doc):The netif first needs to be registered. Then run
+Mem.c (external\lwip\src\core):  /* run as long as a mem_free disturbed mem_malloc or mem_trim */
+Mem.c (external\lwip\src\core):      /* allow mem_free or mem_trim to run */
+Mem.c (external\lwip\src\core):        /* If mem_free or mem_trim have run, we have to restart since they
+Mem.c (external\lwip\src\core):              /* If mem_free or mem_trim have run, we have to restart since they
+Memp.h (external\lwip\src\include\lwip):/* run once with empty definition to handle all custom includes in lwippools.h */
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Mock_pb_decode.c (external\nano):  UNITY_TEST_ASSERT_NOT_NULL(cmock_call_instance, cmock_line, "CMock has run out of memory. Please allocate more.");
+Nfc_ble_pair_lib.h (components\nfc\ndef\connection_handover\ble_pair_lib): *          to run in the BLE_ADV_MODE_FAST mode.
+Nfc_t4t_lib.h (components\nfc\t4t_lib): * The sequence of initializing functions determines whether the NDEF emulation will run or whether
+Nfc_t4t_lib.h (components\nfc\t4t_lib): * You need to restart with @ref nfc_t4t_setup to run a new Emulation.
+Nrf52805_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52810_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52811_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52820_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52833_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52840_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrf52_bitfields.h (modules\nrfx\mdk):/* Bit 16 : Data rate that the CCM shall run in synch with */
+Nrf5340_network_bitfields.h (modules\nrfx\mdk):/* Bits 17..16 : Radio data rate that the CCM shall run synchronous with */
+Nrfx_spi.c (modules\nrfx\drivers\src):    // byte (next one from TX buffer or over-run character) to the TXD register
+Nrfx_spi.c (modules\nrfx\drivers\src):    // otherwise - use over-run character.
+Nrfx_spi.c (modules\nrfx\drivers\src):    // buffer send it, otherwise use over-run character.
+Nrf_ble_cgms.h (components\ble\ble_services\experimental_nrf_ble_cgms):    uint8_t                     nb_run_session;                              /**< Variable to keep track of the number of sessions that were run. */
+Nrf_ble_cgms.h (components\ble\ble_services\experimental_nrf_ble_cgms):    uint16_t                    session_run_time;                            /**< Variable to store the expected run time of a session. */
+Nrf_bootloader_app_start.c (components\libraries\bootloader):// Do the final stages of app_start. Protect flash and run app. See nrf_bootloader_app_start_final.c
+Nrf_bootloader_wdt.h (components\libraries\bootloader): * run during sleep, then internal feeding (from timeout handler context) is kept active.
+Nrf_cc310_bl_ecdsa_verify_secp224r1.h (external\nrf_cc310_bl\include): * @note This will run initialization of ECDSA context and run ECDSA verify in
+Nrf_cc310_bl_ecdsa_verify_secp256r1.h (external\nrf_cc310_bl\include): * @note This will run initialization of ECDSA context and run ECDSA verify in a single step.
+Nrf_crypto.h (components\libraries\crypto): * @note The functions in this API can run in software or hardware, depending on the supported features of your SoC and the configuration of nrf_crypto backend in the application.
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * Disable if you run into name conflicts and want to really remove the
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * Allow run-time checking of compile-time enabled features. Thus allowing users
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * to check at run-time if the library is for instance compiled with threading
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * Comment this to disable run-time checking and save ROM space
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * Enable run-time version information.
+Nrf_crypto_mbedtls_config.h (external\nrf_tls\mbedtls\nrf_crypto\config): * This module provides run-time version information.
+Nrf_csense.c (components\libraries\csense):    for (p_pad = p_instance->p_nrf_csense_pad; NULL != p_pad; p_pad = p_pad->p_next_pad) // run through all pads and look for those with biggest value
+Nrf_csense.c (components\libraries\csense):         instance = instance->p_next_instance) // run through all instances
+Nrf_dfu_mbr.h (components\libraries\bootloader\dfu): * @return  This function will return only if the command request could not be run.
+Nrf_dfu_serial.c (components\libraries\bootloader\serial_dfu):             * otherwise the transfer might run very slow, without an apparent reason.
+Nrf_dfu_transport.h (components\libraries\bootloader\dfu):    nrf_dfu_init_fn_t              init_func;          /**< Registration of the init function to run to initialize a DFU transport. */
+Nrf_dfu_validation.c (components\libraries\bootloader\dfu):        NRF_LOG_ERROR("Could not run hash verification (err_code 0x%x).", err_code);
+Nrf_dfu_validation.h (components\libraries\bootloader\dfu): *          - Ensuring that an external application is run only once (after root-of-trust).
+Nrf_drv_spi.h (integration\nrfx\legacy):    uint8_t orc;          ///< Over-run character.
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * Disable if you run into name conflicts and want to really remove the
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * Allow run-time checking of compile-time enabled features. Thus allowing users
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * to check at run-time if the library is for instance compiled with threading
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * Comment this to disable run-time checking and save ROM space
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * Enable run-time version information.
+Nrf_dtls_config.h (external\nrf_tls\mbedtls\dtls\config): * This module provides run-time version information.
+Nrf_fstorage_sd.c (components\libraries\fstorage):     * The common uninitialization code is run by the caller. */
+Nrf_log_backend_flash.c (components\libraries\log\src):/** @brief Message queue for run time flash log. */
+Nrf_mbr.h (components\softdevice\mbr\headers):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_mbr.h (components\softdevice\s112\headers\nrf52):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_mbr.h (components\softdevice\s113\headers\nrf52):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_mbr.h (components\softdevice\s122\headers\nrf52):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_mbr.h (components\softdevice\s132\headers\nrf52):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_mbr.h (components\softdevice\s140\headers\nrf52):  SD_MBR_COMMAND_INIT_SD,                 /**< Initialize forwarding interrupts to SD, and run reset function in SD. Does not require any parameters in ::sd_mbr_command_t params.*/
+Nrf_pwr_mgmt.h (components\libraries\pwr_mgmt):/**@brief Function for running power management. Should run in the main loop.
+Nrf_sdh_freertos.c (components\softdevice\common):static nrf_sdh_freertos_task_hook_t m_task_hook;        //!< A hook function run by the SoftDevice task before entering its loop.
+Nrf_sdh_freertos.c (components\softdevice\common):        nrf_sdh_evts_poll();                    /* let the handlers run first, incase the EVENT occured before creating this task */
+Nrf_sdh_freertos.h (components\softdevice\common): * @param[in]   hook        Function to run in the SoftDevice FreeRTOS task,
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * Disable if you run into name conflicts and want to really remove the
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * Allow run-time checking of compile-time enabled features. Thus allowing users
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * to check at run-time if the library is for instance compiled with threading
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * Comment this to disable run-time checking and save ROM space
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * Enable run-time version information.
+Nrf_tls_config.h (external\nrf_tls\mbedtls\tls\config): * This module provides run-time version information.
+Nrf_wdt.h (modules\nrfx\hal):    NRF_WDT_BEHAVIOUR_RUN_SLEEP        = WDT_CONFIG_SLEEP_Msk,                       /**< WDT will run when CPU is in SLEEP mode. */
+Nrf_wdt.h (modules\nrfx\hal):    NRF_WDT_BEHAVIOUR_RUN_HALT         = WDT_CONFIG_HALT_Msk,                        /**< WDT will run when CPU is in HALT mode. */
+Nrf_wdt.h (modules\nrfx\hal):    NRF_WDT_BEHAVIOUR_RUN_SLEEP_HALT   = WDT_CONFIG_SLEEP_Msk | WDT_CONFIG_HALT_Msk, /**< WDT will run when CPU is in SLEEP or HALT mode. */
+Opt.h (external\lwip\src\include\lwip): * MEMP_SANITY_CHECK==1: run a sanity check after each memp_free() to make
+Opt.h (external\lwip\src\include\lwip): * with each loop so that mem_free can run.
+Opt.h (external\lwip\src\include\lwip): * interfaces. If you are going to run lwIP on a device with only one network
+Pb.h (external\nano-pb):     * If you run into an error, return false.
+Pb.h (external\nano-pb):     * If you run into an error, return false.
+Pbuf.c (external\lwip\src\core): * if we run out of pool pbufs. It's better to give priority to new packets
+Peer_manager_handler.c (components\ble\peer_manager):    static bool flash_cleaning       = false;     // Indicates whether garbage collection is currently being run.
+Peer_manager_types.h (components\ble\peer_manager):    PM_EVT_STORAGE_FULL,                    /**< @brief There is no more room for peer data in flash storage. To solve this problem, delete data that is not needed anymore and run a garbage collection procedure in FDS. */
+Pk_wrap.c (external\mbedtls\library):    /* set up our own sub-context if needed (that is, on first run) */
+Pk_wrap.c (external\mbedtls\library):    /* set up our own sub-context if needed (that is, on first run) */
+Ppp.c (external\lwip\src\netif\ppp): * This function and all handlers run in the context of the tcpip_thread
+Pt-mainpage.txt (external\protothreads\pt-1.4\doc):own stack. Rather, all protothreads run on the same stack and context
+Pt-mainpage.txt (external\protothreads\pt-1.4\doc):protothread will run until it blocks or exits. Thus the scheduling of
+Pt.h (external\protothreads\pt-1.4): * unblocked and can continue to run.
+Rawapi.txt (external\lwip\doc):provide all functions needed to run socket API applications running
+Rawapi.txt (external\lwip\doc):code. The TCP/IP code and the application program both run in the same
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):- The MQTT example does not compile when run on PCA10040 with commissioning
+Release_notes.txt (documentation):  not be run on two kits. Instead, either the server or the client application
+Release_notes.txt (documentation):  should be run against the PC application as described in the documentation.
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):Note: Due to compatibility issues, you must run the upgrade using nRF Connect Desktop v2.5.0 or later when testing the Bluetooth examples in nRF5 SDK v15.2.0.
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):Note: Due to compatibility issues, you must run the upgrade using nRF Connect Desktop v2.5.0 or later when testing the Bluetooth examples in nRF5 SDK v15.1.0.
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):To run a project using IAR 8, follow these intructions:
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation): - The CTX pin (P0.07) should be grounded to run the Serial Secure DFU on both nRF52832 and nRF52840 boards.
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation): - The CTX pin (P0.07) should be grounded to run the Serial Secure DFU on both nRF52832 and nRF52840 boards.
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation):  application can run on any architecture, without the SoftDevice. All
+Release_notes.txt (documentation):Some examples have not been ported to run on nRF52840. Check the
+Release_notes.txt (documentation):        - Ported FreeRTOS to run on nRF51. Added two FreeRTOS examples: one
+Release_notes.txt (documentation):          to run on bare metal and one running a BLE HRS example using the
+Release_notes.txt (documentation):      examples to run on the new PCA10040 development board with
+Release_notes.txt (documentation):  - BLE examples run with the S132 SoftDevice
+Release_notes.txt (documentation):  - ANT examples run with the S212 SoftDevice
+Release_notes.txt (documentation):    - Before a serial DFU operation or DTM can be executed, "nrfjprog --reset" must be run
+Release_notes.txt (documentation):      Note 1: To run the ANT examples, you must use an nRF51422 device.
+Release_notes.txt (documentation):      Note 1: To run the ANT examples, you must use an nRF51422 device.
+Release_notes.txt (documentation):      Note 1: To run the ANT examples, you must use an nRF51422 device.
+Release_notes.txt (documentation):    - NRFFOETT-205: The nRF51822 installer will not run if no C:\ drive exists - No installer
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):        - Gazell GCC board examples startup and run correctly with the GCC libraries.
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51 SDK installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):    - NRFFOETT-205 - The nRF51822 installer will not run if no C:\ drive exists
+Release_notes.txt (documentation):         (flash erase/write prevents the CPU from running which means the stack will not be able to run properly.)
+Release_notes.txt (documentation):- Added compiler flag to the ANT examples, to easier being able to run examples without any UART.
+Rsa_decrypt.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Rsa_encrypt.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Rsa_sign.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Rsa_verify.c (external\mbedtls\programs\pkey):                "  ! Please run rsa_genkey first\n\n" );
+Semphr.h (external\freertos\source\include):        // We want this task to run every 10 ticks of a timer.  The semaphore
+Semphr.h (external\freertos\source\include):    // Is it time for vATask () to run?
+Snmp_agent.txt (external\lwip\doc):  MIBs can only be added in compile-time, not in run-time.
+Snmp_core.c (external\lwip\src\apps\snmp): *   MIBs can only be added in compile-time, not in run-time.
+Snmp_opts.h (external\lwip\src\include\lwip\apps): * Makes SNMP agent run in a worker thread, so blocking operations
+Snmp_opts.h (external\lwip\src\include\lwip\apps): * SNMP agent does not run in a worker thread, so blocking operations
+Ssl.h (external\mbedtls\include\mbedtls): *                  ::mbedtls_ssl_async_resume_t callback has run and has
+Ssl_tls.c (external\mbedtls\library):        /* If we run out of RAM trying to buffer a
+System_nrf5340_application.c (modules\nrfx\mdk):        /* Allow Non-Secure code to run FPU instructions.
+System_nrf9160.c (modules\nrfx\mdk):        /* Allow Non-Secure code to run FPU instructions. 
+Sys_arch.txt (external\lwip\doc):mem_malloc() you can run into a circular function call problem. In mem.c
+Task.h (external\freertos\source\include):	uint32_t ulRunTimeCounter;		/* The total run time allocated to the task so far, as defined by the run time stats clock.  See http://www.freertos.org/rtos-run-time-stats.html.  Only valid when configGENERATE_RUN_TIME_STATS is defined as 1 in FreeRTOSConfig.h. */
+Task.h (external\freertos\source\include): * Create a new task and add it to the list of tasks that are ready to run.
+Task.h (external\freertos\source\include): * @param uxPriority The priority at which the task should run.  Systems that
+Task.h (external\freertos\source\include): * Create a new task and add it to the list of tasks that are ready to run.
+Task.h (external\freertos\source\include): * @param uxPriority The priority at which the task will run.
+Task.h (external\freertos\source\include): * Create a new task and add it to the list of tasks that are ready to run.
+Task.h (external\freertos\source\include):	( 1UL | portPRIVILEGE_BIT ),// uxPriority - task priority, set the portPRIVILEGE_BIT if the task should run in a privileged state.
+Task.h (external\freertos\source\include):	( 1UL | portPRIVILEGE_BIT ),// uxPriority - task priority, set the portPRIVILEGE_BIT if the task should run in a privileged state.
+Task.h (external\freertos\source\include):	 // The created task will not run during this period, unless
+Task.h (external\freertos\source\include):	 // The created task will not run during this period, unless
+Task.h (external\freertos\source\include): * of run time consumed by the task.  See the TaskStatus_t structure
+Task.h (external\freertos\source\include): * total run time (as defined by the run time stats clock, see
+Task.h (external\freertos\source\include): * http://www.freertos.org/rtos-run-time-stats.html) since the target booted.
+Task.h (external\freertos\source\include): * pulTotalRunTime can be set to NULL to omit the total run time information.
+Task.h (external\freertos\source\include):    // This example demonstrates how a human readable table of run time stats
+Task.h (external\freertos\source\include):					// What percentage of the total run time has the task used?
+Task.h (external\freertos\source\include):						// consumed less than 1% of the total run time.
+Task.h (external\freertos\source\include): * that is ready to run.
+Tasks.c (external\freertos\source): * (the task's run time environment, including register values)
+Tasks.c (external\freertos\source):	PRIVILEGED_DATA static uint32_t ulTotalRunTime = 0UL;		/*< Holds the total amount of execution time as defined by the run time counter clock. */
+Tasks.c (external\freertos\source):		then it should run now. */
+Tasks.c (external\freertos\source):						priority task able to run so no yield is required. */
+Tasks.c (external\freertos\source):						/* This yield may not cause the task just resumed to run,
+Tasks.c (external\freertos\source):		starts to run. */
+Tasks.c (external\freertos\source):			structure specific to the task that will run first. */
+Tasks.c (external\freertos\source):		the run time counter time base.   NOTE:  If configGENERATE_RUN_TIME_STATS
+Tasks.c (external\freertos\source):				against suspect run time stat counter implementations - which
+Tasks.c (external\freertos\source):		/* Select a new task to run using either the generic C or port
+Tasks.c (external\freertos\source):			to run then the idle task should yield before the end of the
+Tasks.c (external\freertos\source):					/* What percentage of the total run time has the task used?
+Tasks.c (external\freertos\source):						consumed less than 1% of the total run time. */
+Task_manager.c (components\libraries\experimental_task_manager):    // Perform task switch to run non-idle tasks as soon as possible.
+Task_manager.c (components\libraries\experimental_task_manager):    // Mark task as ready to run.
+Task_manager.c (components\libraries\experimental_task_manager):        // Fall back to idle task if other tasks cannot be run.
+Task_manager.h (components\libraries\experimental_task_manager): * @param[in]   idle_task           Main function of the task scheduled when no other tasks could be run.
+Tcp_out.c (external\lwip\src\core):   * We may run out of memory at any point. In that case we must
+Timeouts.c (external\lwip\src\core):  /* The TCP timer is a special case: it does not have to run always and
+Uicr_config.h (components\toolchain\arm): * at run time.
+Version.h (external\mbedtls\include\mbedtls): * This set of compile-time defines and run-time variables can be used to

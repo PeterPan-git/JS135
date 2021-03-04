@@ -442,6 +442,16 @@ void CMNC_APP_MCU_Data_Init(void)
 {
 	memset(app_data, 0x00, sizeof(app_data));
 }
+void CMNC_IOS_APP_MCU_Data_Set(U8 *data, U8 len)
+{
+	U8 crc_value = 0;
+	
+	memcpy(app_data, data, len);
+	//crc_value = CMNC_CRC_Data(&app_data[2], len-2);
+	crc_value = data[len + 2];
+	app_data[len] = crc_value;
+	//NRF_LOG_INFO("@2 crc_value is 0x%x", crc_value);
+}
 void CMNC_APP_MCU_Data_Set(U8 *data)
 {
 	#if (DEBUG_BLE_APP)
@@ -449,7 +459,6 @@ void CMNC_APP_MCU_Data_Set(U8 *data)
 	#endif
 	
 	memcpy(app_data, data, sizeof(app_data));
-	
 	#if (DEBUG_BLE_APP)
 	NRF_LOG_RAW_INFO("App_data:0x");
 	for(loop = 0; loop < 20; loop++)
@@ -496,15 +505,25 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 
 			if((p_data[8] == 0x13) && (p_data[9] == 0xEE))
 			{
-				data_len = p_data[18] + 12;                    //17
+				data_len = p_data[18] + 11;                    //17
 			
 				if((p_data[10] == name_hex[0])                  //9
 					&&(p_data[11] == name_hex[1])              //10
 					&&(p_data[12] == name_hex[2]))             //11
 				{
-					CMNC_APP_MCU_Data_Set(&p_data[8]);         //7
-					CMCN_APP_MCU_Data_Send(data_len);
+					//CMNC_APP_MCU_Data_Set(&p_data[8]);         //7
+					CMNC_IOS_APP_MCU_Data_Set(&p_data[8], data_len);
+					
+					CMCN_APP_MCU_Data_Send(data_len+1);
 				}
+				//				NRF_LOG_INFO("@1:app --> ble by scan");	
+//				NRF_LOG_RAW_INFO("ios scan data:0x");
+//				for(U8 i=0;i<20;i++)
+//				{
+//					NRF_LOG_RAW_INFO("%02x", p_data[8+i]);
+
+//				}
+//				NRF_LOG_RAW_INFO("\n");	
 			}
 			break;
 		
@@ -521,7 +540,7 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 					CMNC_APP_MCU_Data_Set(&p_data[7]);         //7
 					CMCN_APP_MCU_Data_Send(data_len);
 				}
-				NRF_LOG_INFO("@1:app --> ble by scan");	
+//				NRF_LOG_INFO("@1:app --> ble by scan");	
 //				NRF_LOG_RAW_INFO("scan data:0x");
 //				for(U8 i=0;i<20;i++)
 //				{
@@ -541,6 +560,13 @@ U32 CMNC_APP_MCU_Data_Receice(const ble_gap_evt_adv_report_t *p_adv_report)
 void CMCN_APP_MCU_Data_Send(U8 len)
 {
 	Drive_UART_Send_String((char*)app_data, len);
+//	NRF_LOG_RAW_INFO("send app data:0x");
+//				for(U8 i=0;i<len;i++)
+//				{
+//					NRF_LOG_RAW_INFO("%02x", app_data[i]);
+
+//				}
+//				NRF_LOG_RAW_INFO("\n");
 	//NRF_LOG_INFO("@2:ble --> mcu by uart");				
 }
 /*************************************

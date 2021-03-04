@@ -90,6 +90,7 @@ void Param_ADV_Param_Init(void)
 	adv_prm.adv_delay = FDS_Get_Params()->adv_dly;
 	adv_prm.adv_timeout = FDS_Get_Params()->adv_tmo;
 	adv_prm.tx_power = FDS_Get_Params()->adv_tx_pwr;
+	CMNC_String_To_Hex(adv_prm.adv_name, name_hex);
 	//NRF_LOG_INFO(" FDS_Get_Params()->adv_nam is : %s", FDS_Get_Params()->adv_nam);
 	//NRF_LOG_INFO(" adv_prm.adv_name is : %s", adv_prm.adv_name);
 }
